@@ -1,8 +1,5 @@
 package via.sdj3.animalregistrationsystem_sdj3.service.tray;
 
-
-
-
 import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
 
