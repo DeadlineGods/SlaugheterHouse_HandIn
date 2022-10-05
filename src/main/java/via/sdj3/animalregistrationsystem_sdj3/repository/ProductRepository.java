@@ -16,7 +16,9 @@ public class ProductRepository {
 
     public static void initDataSource()
     {
-        Product p1 = new Product(1L, )
+        Product p1 = new Product(1L, 1L, 1L);
+        Product p2 = new Product(2L, 2L, 2L);
+        Product p3 = new Product(3L, 3L, 3L);
     }
 
     // CRUD
