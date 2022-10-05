@@ -16,9 +16,13 @@ public class ProductRepository {
 
     public static void initDataSource()
     {
-        Product p1 = new Product(1L, 1L, 1L);
-        Product p2 = new Product(2L, 2L, 2L);
-        Product p3 = new Product(3L, 3L, 3L);
+        Product p1 = new Product(1L, 1L, 1);
+        Product p2 = new Product(2L, 2L, 2);
+        Product p3 = new Product(3L, 3L, 3);
+
+        productMap.put(p1.getRegistrationNo(), p1);
+        productMap.put(p2.getRegistrationNo(), p2);
+        productMap.put(p3.getRegistrationNo(), p3);
     }
 
     // CRUD

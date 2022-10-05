@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Product {
     private Long registrationNo;
     private Long trayId;
-    private Long partNo;
+    private int partNo;
     private Tray tray;
 
-    public Product(Long registration, Long trayId, Long partNo){
+    public Product(Long registration, Long trayId, int partNo){
         this.registrationNo=registration;
         this.trayId = trayId;
         this.partNo = partNo;
@@ -26,11 +26,11 @@ public class Product {
         this.trayId = trayId;
     }
 
-    public Long getPartNo() {
+    public int getPartNo() {
         return partNo;
     }
 
-    public void setPartNo(Long partNo) {
+    public void setPartNo(int partNo) {
         this.partNo = partNo;
     }
 
