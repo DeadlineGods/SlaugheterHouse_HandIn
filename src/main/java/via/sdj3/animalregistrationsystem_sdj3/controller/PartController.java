@@ -12,6 +12,7 @@ import java.util.List;
 public class PartController {
     private PartService partService;
 
+    /*
     public PartController(PartService partService) {
         this.partService = partService;
     }
@@ -40,5 +41,5 @@ public class PartController {
     @ResponseBody
     public List<Part> part() {
         return partService.readAll();
-    }
+    }*/
 }

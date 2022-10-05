@@ -15,7 +15,7 @@ import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/animal")
+@RequestMapping("/")
 public class AnimalController {
 
     private Logger logger = LoggerFactory.getLogger(AnimalController.class);

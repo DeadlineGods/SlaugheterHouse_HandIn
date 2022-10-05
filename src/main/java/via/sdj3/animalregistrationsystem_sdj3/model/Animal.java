@@ -8,13 +8,11 @@ public class Animal {
     private Date arriveDate;
     private double weight;
     private Long animalNo;
-    private ArrayList<Part> parts;
 
     public Animal(Long animalNo,double weight, Date arriveDate) {
         this.animalNo = animalNo;
         this.weight = weight;
         this.arriveDate = arriveDate;
-        parts = new ArrayList<>();
     }
 
     public double getWeight() {
@@ -41,11 +39,4 @@ public class Animal {
         this.arriveDate = arriveDate;
     }
 
-    public ArrayList<Part> getParts() {
-        return parts;
-    }
-
-    public void setParts(ArrayList<Part> parts) {
-        this.parts = parts;
-    }
 }
