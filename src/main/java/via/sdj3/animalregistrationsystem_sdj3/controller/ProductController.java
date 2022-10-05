@@ -13,7 +13,6 @@ import via.sdj3.animalregistrationsystem_sdj3.service.product.ProductServiceImpl
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
 public class ProductController {
     private Logger logger = LoggerFactory.getLogger(ProductController.class);
     private ProductService productService;
@@ -40,7 +39,7 @@ public class ProductController {
         try
         {
             Iterable<Product> products = productService.findAll();
-            return new ResponseEntity<Object>(HttpStatus.OK);
+            return new ResponseEntity<Object>(products, HttpStatus.OK);
         }
         catch (Exception e)
         {

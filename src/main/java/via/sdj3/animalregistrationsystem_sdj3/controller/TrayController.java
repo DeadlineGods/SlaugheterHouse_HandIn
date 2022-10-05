@@ -14,7 +14,7 @@ import via.sdj3.animalregistrationsystem_sdj3.service.tray.TrayServiceImpl;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tray")
+@RequestMapping("/")
 public class TrayController {
 
     private Logger logger = LoggerFactory.getLogger(TrayController.class);
@@ -22,7 +22,7 @@ public class TrayController {
     public TrayController(TrayService trayService) {
         this.trayService = trayService;
     }
-    @PostMapping("/orders")
+    @PostMapping("/trays")
     public ResponseEntity<Object> createTray(@RequestBody Tray tray){
         try {
             Tray createdTray = trayService.create(tray);
