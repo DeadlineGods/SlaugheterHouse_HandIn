@@ -6,13 +6,15 @@ public class Tray {
     private double maxWeightCapacity;
     private String partType;
     private long trayId;
-    private ArrayList<Part> parts;
 
-    public Tray(long trayId,double maxWeightCapacity, String partType, ArrayList<Part> parts) {
+
+
+    public Tray(long trayId,double maxWeightCapacity, String partType) {
         this.maxWeightCapacity = maxWeightCapacity;
         this.partType = partType;
-        this.parts = parts;
         this.trayId=trayId;
+
+
     }
 
     public double getMaxWeightCapacity() {
@@ -31,13 +33,8 @@ public class Tray {
         this.partType = partType;
     }
 
-    public ArrayList<Part> getParts() {
-        return parts;
-    }
 
-    public void setParts(ArrayList<Part> parts) {
-        this.parts = parts;
-    }
+
 
     public int getTrayId() {
         return (int) trayId;
