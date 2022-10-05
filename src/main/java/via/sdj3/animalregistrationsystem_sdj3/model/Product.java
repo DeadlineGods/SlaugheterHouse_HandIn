@@ -3,18 +3,18 @@ package via.sdj3.animalregistrationsystem_sdj3.model;
 import java.util.ArrayList;
 
 public class Product {
-    private int registration;
+    private Long registrationNo;
     private ArrayList<Tray> trayList;
     private ArrayList<Part> partList;
 
-    public Product(int registration, Tray tray, Part part){
-        this.registration=registration;
+    public Product(Long registration, Tray tray, Part part){
+        this.registrationNo=registration;
         trayList.add(tray);
         partList.add(part);
     }
 
-    public int getRegistration() {
-        return this.registration;
+    public Long getRegistrationNo() {
+        return this.registrationNo;
     }
 
     public ArrayList<Part> getPartList() {
@@ -29,8 +29,8 @@ public class Product {
         this.partList = partList;
     }
 
-    public void setRegistration(int registration) {
-        this.registration = registration;
+    public void setRegistrationNo(Long registration) {
+        this.registrationNo = registration;
     }
 
     public void setTrayList(ArrayList<Tray> trayList) {
