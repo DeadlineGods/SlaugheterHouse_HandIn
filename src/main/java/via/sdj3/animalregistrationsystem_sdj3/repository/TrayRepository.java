@@ -17,17 +17,28 @@ public class TrayRepository {
     }
 
     private static void initDataSource() {
-        Part p1=new Part(100,1,"Leg");
-        Part p2=new Part(200,2,"Leg");
-        Part p3=new Part(300,3,"Leg");
-        ArrayList<Part> parts=new ArrayList<>();
-        parts.add(p1);
-        parts.add(p2);
-        parts.add(p3);
+        Part p1 = new Part(200, 0, "Leg", 1L);
+        Part p2 = new Part(200, 1, "Other Leg", 1L);
+        Part p3 = new Part(245, 2, "Ribs", 2L);
+        Part p4 = new Part(240, 3, "Wing", 3L);
+        ArrayList<Part> parts1=new ArrayList<>();
+        ArrayList<Part> parts2=new ArrayList<>();
+        ArrayList<Part> parts3=new ArrayList<>();
+        ArrayList<Part> parts4=new ArrayList<>();
+        parts1.add(p1);
+        parts2.add(p2);
+        parts3.add(p3);
+        parts4.add(p3);
 
-        Tray t1 = new Tray(1,500,"Leg",parts);
+        Tray t1 = new Tray(1,700,"Leg",parts1);
+        Tray t2 = new Tray(2,800,"Other Leg",parts2);
+        Tray t3 = new Tray(3,900,"Ribs",parts3);
+        Tray t4 = new Tray(4,1000,"Wing",parts4);
 
         orderMap.put((long) t1.getTrayId(), t1);
+        orderMap.put((long) t2.getTrayId(), t2);
+        orderMap.put((long) t3.getTrayId(), t3);
+        orderMap.put((long) t4.getTrayId(), t4);
     }
 
     public Tray save(Tray t){
