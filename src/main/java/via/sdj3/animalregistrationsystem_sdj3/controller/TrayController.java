@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
+import via.sdj3.animalregistrationsystem_sdj3.service.tray.TrayService;
 import via.sdj3.animalregistrationsystem_sdj3.service.tray.TrayServiceImpl;
 
 import java.util.Optional;
@@ -17,8 +18,8 @@ import java.util.Optional;
 public class TrayController {
 
     private Logger logger = LoggerFactory.getLogger(TrayController.class);
-    private TrayServiceImpl trayService;
-    public TrayController(TrayServiceImpl trayService) {
+    private TrayService trayService;
+    public TrayController(TrayService trayService) {
         this.trayService = trayService;
     }
     @PostMapping("/orders")

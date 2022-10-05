@@ -10,9 +10,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class PartController {
+    /*
     private PartService partService;
 
-    /*
+
     public PartController(PartService partService) {
         this.partService = partService;
     }

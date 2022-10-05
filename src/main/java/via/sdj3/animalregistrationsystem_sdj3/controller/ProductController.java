@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
+import via.sdj3.animalregistrationsystem_sdj3.service.product.ProductService;
 import via.sdj3.animalregistrationsystem_sdj3.service.product.ProductServiceImpl;
 
 import java.util.Optional;
@@ -15,9 +16,9 @@ import java.util.Optional;
 @RequestMapping("/product")
 public class ProductController {
     private Logger logger = LoggerFactory.getLogger(ProductController.class);
-    private ProductServiceImpl productService;
+    private ProductService productService;
 
-    public ProductController(ProductServiceImpl productService) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 

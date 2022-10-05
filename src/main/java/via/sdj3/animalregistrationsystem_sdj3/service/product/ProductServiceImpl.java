@@ -1,11 +1,13 @@
 package via.sdj3.animalregistrationsystem_sdj3.service.product;
 
+import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.repository.ProductRepository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     ProductRepository productRepository;
