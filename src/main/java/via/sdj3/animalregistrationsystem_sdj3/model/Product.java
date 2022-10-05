@@ -4,36 +4,39 @@ import java.util.ArrayList;
 
 public class Product {
     private Long registrationNo;
-    private ArrayList<Tray> trayList;
-    private ArrayList<Part> partList;
+    private Long trayId;
+    private Long partNo;
+    private Tray tray;
 
-    public Product(Long registration, Tray tray, Part part){
+    public Product(Long registration, Long trayId, Long partNo){
         this.registrationNo=registration;
-        trayList.add(tray);
-        partList.add(part);
+        this.trayId = trayId;
+        this.partNo = partNo;
     }
 
     public Long getRegistrationNo() {
         return this.registrationNo;
     }
 
-    public ArrayList<Part> getPartList() {
-        return partList;
+    public Long getTrayId() {
+        return trayId;
     }
 
-    public ArrayList<Tray> getTrayList() {
-        return trayList;
+    public void setTrayId(Long trayId) {
+        this.trayId = trayId;
     }
 
-    public void setPartList(ArrayList<Part> partList) {
-        this.partList = partList;
+    public Long getPartNo() {
+        return partNo;
+    }
+
+    public void setPartNo(Long partNo) {
+        this.partNo = partNo;
     }
 
     public void setRegistrationNo(Long registration) {
         this.registrationNo = registration;
     }
 
-    public void setTrayList(ArrayList<Tray> trayList) {
-        this.trayList = trayList;
-    }
+
 }
