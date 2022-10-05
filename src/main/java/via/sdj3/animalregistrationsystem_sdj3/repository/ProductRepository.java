@@ -1,7 +1,6 @@
 package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import org.springframework.stereotype.Repository;
-import via.sdj3.animalregistrationsystem_sdj3.model.Part;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
 
@@ -17,7 +16,9 @@ public class ProductRepository {
 
     public static void initDataSource()
     {
-        Product p1 = new Product()
+        Product p1 = new Product(1L, 1L, 1L);
+        Product p2 = new Product(2L, 2L, 2L);
+        Product p3 = new Product(3L, 3L, 3L);
     }
 
     // CRUD
