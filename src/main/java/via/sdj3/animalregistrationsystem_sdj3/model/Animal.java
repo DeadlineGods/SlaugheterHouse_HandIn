@@ -7,10 +7,10 @@ public class Animal {
 
     private Date arriveDate;
     private double weight;
-    private int animalNo;
+    private Long animalNo;
     private ArrayList<Part> parts;
 
-    public Animal(double weight, int animalNo, Date arriveDate) {
+    public Animal(Long animalNo,double weight, Date arriveDate) {
         this.animalNo = animalNo;
         this.weight = weight;
         this.arriveDate = arriveDate;
@@ -25,11 +25,11 @@ public class Animal {
         this.weight = weight;
     }
 
-    public int getAnimalNo() {
+    public Long getAnimalNo() {
         return animalNo;
     }
 
-    public void setAnimalNo(int animalNo) {
+    public void setAnimalNo(Long animalNo) {
         this.animalNo = animalNo;
     }
 
