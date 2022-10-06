@@ -15,7 +15,6 @@ import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
 public class AnimalController {
 
     private Logger logger = LoggerFactory.getLogger(AnimalController.class);
@@ -66,5 +65,36 @@ public class AnimalController {
             logger.error(ex.getMessage(),ex);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PutMapping
+    public ResponseEntity<Object> updateAnimal(@PathVariable Long id,
+                                               @RequestBody Animal animal)
+    {
+        try {
+            animal.setAnimalNo(id);
+            Animal savedAnimal = animalService.update(animal);
+            return new ResponseEntity<>(savedAnimal, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @DeleteMapping("/animals/{id}")
+    public ResponseEntity<HttpStatus> deleteAnimal(@PathVariable Long id)
+    {
+        try {
+            animalService.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e)
+        {
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 }
