@@ -1,7 +1,9 @@
 package via.sdj3.animalregistrationsystem_sdj3.repository;
 
+import org.springframework.cglib.core.Local;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +18,6 @@ public interface AnimalRepository {
 
     List<Animal> findAll();
 
-    List<Animal> findByDate(Date date);
+    List<Animal> findByDate(LocalDate date);
 
 }

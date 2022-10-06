@@ -4,6 +4,7 @@ package via.sdj3.animalregistrationsystem_sdj3.controller;
 import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalService;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -70,8 +72,8 @@ public class AnimalController {
         }
     }
 
-    @GetMapping("/animals/{dateOfArriving}")
-    public ResponseEntity<Object> getAnimalsArrivedOn(@PathVariable Date dateOfArriving)
+    @GetMapping("/animals/search/{dateOfArriving}")
+    public ResponseEntity<Object> getAnimalsArrivedOn(@PathVariable("dateOfArriving") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateOfArriving)
     {
         try
         {

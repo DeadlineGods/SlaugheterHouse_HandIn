@@ -3,6 +3,7 @@ package via.sdj3.animalregistrationsystem_sdj3.service.animal;
 import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -15,5 +16,5 @@ public interface AnimalService {
     Optional<Animal> findByID(Long id);
     Animal update(Animal animal);
     void deleteById(Long id);
-    List<Animal> findByDate(Date date);
+    List<Animal> findByDate(LocalDate date);
 }

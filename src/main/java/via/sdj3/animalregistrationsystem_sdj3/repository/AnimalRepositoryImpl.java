@@ -4,6 +4,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Repository
@@ -60,16 +61,47 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         return animalList;
     }
 
-    public List<Animal> findByDate(Date date)
+    public List<Animal> findByDate(LocalDate date)
     {
         List<Animal> animalsFromDate = new ArrayList<>();
-        for (int i = 0; i < findAll().size(); i++) {
+        /*for (int i = 0; i < findAll().size(); i++) {
             if(findAll().get(i).getArriveDate().equals(date))
             {
                 animalsFromDate.add(findAll().get(i));
             }
         }
         return animalsFromDate;
+        for (Map.Entry<Long, Animal> entry: animalMap.entrySet())
+        {
+            if(date.equals(entry.getValue()))
+            {
+                animalsFromDate.add(entry.getValue());
+            }
+        }
+        return animalsFromDate;
+
+        for (int i = 0; i < animalMap.size(); i++) {
+            if(animalMap.get(i).getArriveDate().equals(date))
+            {
+                animalsFromDate.add(animalMap.get(i));
+            }
+        }
+        return animalsFromDate;*/
+
+            Iterator it = animalMap.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry)it.next();
+                Animal value = (Animal) pair.getValue();
+                if (value.getArriveDate().equals(date))
+                {
+                    animalsFromDate.add(value);
+                }
+
+                //it.remove(); // avoids a ConcurrentModificationException
+            }
+
+            return animalsFromDate;
+
     }
 
 }
