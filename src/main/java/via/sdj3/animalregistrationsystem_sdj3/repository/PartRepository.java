@@ -14,10 +14,10 @@ public class PartRepository {
     }
 
     private static void initDataSource() {
-        Part p1 = new Part(200, 0, "Leg", 1L);
-        Part p2 = new Part(200, 1, "Other Leg", 1L);
-        Part p3 = new Part(245, 2, "Ribs", 2L);
-        Part p4 = new Part(240, 3, "Wing", 3L);
+        Part p1 = new Part(200, 0, "Leg", 1L, 1L);
+        Part p2 = new Part(200, 1, "Other Leg", 1L, 1L);
+        Part p3 = new Part(245, 2, "Ribs", 2L, 2L);
+        Part p4 = new Part(240, 3, "Wing", 3L, 3L);
 
         partMap.put(p1.getPartNo(), p1);
         partMap.put(p2.getPartNo(), p2);

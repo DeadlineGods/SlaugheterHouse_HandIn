@@ -1,0 +1,42 @@
+GET localhost:8191/animals/4
+
+###
+
+POST localhost:8191/animals
+Content-Type: application/json
+
+{
+  "weight": 90,
+  "animalNo": 4,
+  "origin": "India"
+}
+
+###
+
+GET localhost:8191/parts
+
+###
+
+POST localhost:8191/parts
+Content-Type: application/json
+
+{
+  "weight": 24,
+  "partNo": 4,
+  "name": "Throat",
+  "animalNo": 1,
+  "trayNo": 2,
+  "animal": 3
+}
+
+###
+
+GET localhost:8191/products
+
+###
+
+GET localhost:8191/trays
+
+###
+
+
