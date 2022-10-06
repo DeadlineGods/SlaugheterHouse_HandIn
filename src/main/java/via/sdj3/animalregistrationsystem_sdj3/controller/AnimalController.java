@@ -12,6 +12,8 @@ import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalService;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -64,6 +66,21 @@ public class AnimalController {
             }
         }catch (Exception ex) {
             logger.error(ex.getMessage(),ex);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/animals/{dateOfArriving}")
+    public ResponseEntity<Object> getAnimalsArrivedOn(@PathVariable Date dateOfArriving)
+    {
+        try
+        {
+            List<Animal> animals = animalService.findByDate(dateOfArriving);
+            return new ResponseEntity<>(animals, HttpStatus.OK);
+        }
+        catch(Exception e)
+        {
+            logger.error(e.getMessage(), e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

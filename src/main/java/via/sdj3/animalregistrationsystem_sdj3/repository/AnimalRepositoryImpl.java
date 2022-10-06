@@ -60,4 +60,16 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         return animalList;
     }
 
+    public List<Animal> findByDate(Date date)
+    {
+        List<Animal> animalsFromDate = new ArrayList<>();
+        for (int i = 0; i < findAll().size(); i++) {
+            if(findAll().get(i).getArriveDate().equals(date))
+            {
+                animalsFromDate.add(findAll().get(i));
+            }
+        }
+        return animalsFromDate;
+    }
+
 }

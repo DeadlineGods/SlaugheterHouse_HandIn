@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 
+import java.util.Date;
 import java.util.List;
 
 public interface AnimalRepository {
@@ -14,5 +15,7 @@ public interface AnimalRepository {
     void deleteById(Long id);
 
     List<Animal> findAll();
+
+    List<Animal> findByDate(Date date);
 
 }
