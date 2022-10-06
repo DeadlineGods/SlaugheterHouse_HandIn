@@ -4,6 +4,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Repository
@@ -77,4 +78,25 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         max++;
         return max;
     }
+
+    public List<Animal> findByDate(LocalDate date)
+    {
+        List<Animal> animalsFromDate = new ArrayList<>();
+
+            Iterator it = new HashMap<>(animalMap).entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry)it.next();
+                Animal value = (Animal) pair.getValue();
+                if (value.getArriveDate().equals(date))
+                {
+                    animalsFromDate.add(value);
+                }
+
+                it.remove(); // avoids a ConcurrentModificationException
+            }
+
+            return animalsFromDate;
+
+    }
+
 }

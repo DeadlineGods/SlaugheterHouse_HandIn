@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 import via.sdj3.animalregistrationsystem_sdj3.repository.AnimalRepository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +52,11 @@ public class AnimalServiceImpl implements AnimalService {
     @Override
     public void deleteById(Long id) {
         animalRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Animal> findByDate(LocalDate date) {
+        return animalRepository.findByDate(date);
     }
 
     private void validate(Animal animal) throws Exception {
