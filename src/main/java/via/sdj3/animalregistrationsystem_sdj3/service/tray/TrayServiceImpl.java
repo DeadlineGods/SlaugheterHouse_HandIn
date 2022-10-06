@@ -1,12 +1,9 @@
 package via.sdj3.animalregistrationsystem_sdj3.service.tray;
 
-
-
-
-
 import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
 import via.sdj3.animalregistrationsystem_sdj3.repository.TrayRepository;
+import via.sdj3.animalregistrationsystem_sdj3.repository.TrayRepositoryImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,11 +12,13 @@ import java.util.Optional;
 public class TrayServiceImpl implements TrayService {
     TrayRepository trayRepository;
 
-    public TrayServiceImpl(TrayRepository trayRepository) {
+    public TrayServiceImpl(TrayRepositoryImpl trayRepository) {
         this.trayRepository = trayRepository;
     }
     @Override
     public Tray create(Tray tray) {
+        tray.setTrayId(trayRepository.getMaxId());
+
         return trayRepository.save(tray);
     }
 

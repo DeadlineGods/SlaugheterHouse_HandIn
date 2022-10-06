@@ -2,10 +2,11 @@ package via.sdj3.animalregistrationsystem_sdj3.model;
 
 public class Tray {
     private double maxWeightCapacity;
-    private long trayId;
+    private Long trayId;
 
-    public Tray(double maxWeightCapacity) {
+    public Tray(long trayId,double maxWeightCapacity) {
         this.maxWeightCapacity = maxWeightCapacity;
+        this.trayId=trayId;
     }
 
     public double getMaxWeightCapacity() {
@@ -16,8 +17,8 @@ public class Tray {
         this.maxWeightCapacity = maxWeightCapacity;
     }
 
-    public int getTrayId() {
-        return (int) trayId;
+    public long getTrayId() {
+        return  trayId;
     }
 
     public void setTrayId(Long trayId) {
