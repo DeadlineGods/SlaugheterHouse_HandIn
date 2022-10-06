@@ -15,9 +15,13 @@ public class AnimalRepositoryImpl implements AnimalRepository {
     }
 
     private static void initDataSource() {
-        Animal pig1 = new Animal(1L, 80.10, "Argentina");
-        Animal pig2 = new Animal(2L, 75.90, "Pakistan");
-        Animal pig3 = new Animal(3L, 82.20, "Germany");
+        Animal pig1 = new Animal(80.10, "Argentina");
+        Animal pig2 = new Animal( 75.90, "Pakistan");
+        Animal pig3 = new Animal( 82.20, "Germany");
+
+        pig1.setAnimalNo(1L);
+        pig2.setAnimalNo(2L);
+        pig3.setAnimalNo(3L);
 
         animalMap.put(pig1.getAnimalNo(), pig1);
         animalMap.put(pig2.getAnimalNo(), pig2);
@@ -60,4 +64,17 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         return animalList;
     }
 
+    public Long getMaxId(){
+        Long max = -1L;
+        Iterator it = new HashMap<>(animalMap).entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            if((Long) pair.getKey() > max)
+                max = (Long) pair.getKey();
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+        max++;
+        return max;
+    }
 }

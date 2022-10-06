@@ -17,6 +17,7 @@ public class PartServiceImpl implements PartService {
 
     @Override
     public Part create(Part newPart) {
+        newPart.setPartNo(partRepository.getMaxId());
 
         return partRepository.save(newPart);
     }

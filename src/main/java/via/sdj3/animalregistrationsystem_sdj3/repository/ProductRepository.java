@@ -16,9 +16,13 @@ public class ProductRepository {
 
     public static void initDataSource()
     {
-        Product p1 = new Product(1L, 1L, 1);
-        Product p2 = new Product(2L, 2L, 2);
-        Product p3 = new Product(3L, 3L, 3);
+        Product p1 = new Product(1L, 1);
+        Product p2 = new Product(2L, 2);
+        Product p3 = new Product(3L, 3);
+
+        p1.setRegistrationNo(1L);
+        p2.setRegistrationNo(2L);
+        p3.setRegistrationNo(3L);
 
         productMap.put(p1.getRegistrationNo(), p1);
         productMap.put(p2.getRegistrationNo(), p2);
@@ -56,5 +60,17 @@ public class ProductRepository {
         return productList;
     }
 
+    public Long getMaxId(){
+        Long max = -1L;
+        Iterator it = new HashMap<>(productMap).entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            if((Long) pair.getKey() > max)
+                max = (Long) pair.getKey();
+            it.remove(); // avoids a ConcurrentModificationException
+        }
 
+        max++;
+        return max;
+    }
 }

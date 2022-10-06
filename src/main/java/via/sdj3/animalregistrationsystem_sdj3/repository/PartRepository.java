@@ -14,10 +14,15 @@ public class PartRepository {
     }
 
     private static void initDataSource() {
-        Part p1 = new Part(200, 0, "Leg", 1L, 1L);
-        Part p2 = new Part(200, 1, "Other Leg", 1L, 1L);
-        Part p3 = new Part(245, 2, "Ribs", 2L, 2L);
-        Part p4 = new Part(240, 3, "Wing", 3L, 3L);
+        Part p1 = new Part(200, "Leg", 1L, 1L);
+        Part p2 = new Part(200, "Other Leg", 1L, 1L);
+        Part p3 = new Part(245, "Ribs", 2L, 2L);
+        Part p4 = new Part(240, "Wing", 3L, 3L);
+
+        p1.setPartNo(0);
+        p2.setPartNo(1);
+        p3.setPartNo(2);
+        p4.setPartNo(3);
 
         partMap.put(p1.getPartNo(), p1);
         partMap.put(p2.getPartNo(), p2);
@@ -51,5 +56,19 @@ public class PartRepository {
     public List<Part> findAll() {
         Collection<Part> c = partMap.values();
         return new ArrayList<>(c);
+    }
+
+    public int getMaxId(){
+        int max = -1;
+        Iterator it = new HashMap<>(partMap).entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            if((int) pair.getKey() > max)
+                max = (int) pair.getKey();
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+        max++;
+        return max;
     }
 }

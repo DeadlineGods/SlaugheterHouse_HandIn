@@ -1,4 +1,4 @@
-GET localhost:8191/animals/4
+GET localhost:8191/animals
 
 ###
 
@@ -6,9 +6,8 @@ POST localhost:8191/animals
 Content-Type: application/json
 
 {
-  "weight": 90,
-  "animalNo": 4,
-  "origin": "India"
+  "weight": 120,
+  "origin": "Poland"
 }
 
 ###
@@ -22,11 +21,9 @@ Content-Type: application/json
 
 {
   "weight": 24,
-  "partNo": 4,
   "name": "Throat",
   "animalNo": 1,
-  "trayNo": 2,
-  "animal": 3
+  "trayNo": 2
 }
 
 ###
@@ -35,8 +32,24 @@ GET localhost:8191/products
 
 ###
 
+POST localhost:8191/products
+Content-Type: application/json
+
+{
+  "trayId": 2,
+  "partNo": 1
+}
+
+###
+
 GET localhost:8191/trays
 
 ###
 
+POST localhost:8191/trays
+Content-Type: application/json
+
+{
+  "maxWeightCapacity": 1500.0
+}
 

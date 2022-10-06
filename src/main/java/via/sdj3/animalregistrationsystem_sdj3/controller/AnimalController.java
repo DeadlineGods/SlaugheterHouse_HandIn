@@ -24,6 +24,8 @@ public class AnimalController {
     {
         this.animalService = animalService;
     }
+
+    @ExceptionHandler({ Exception.class})
     @PostMapping("/animals")
     public ResponseEntity<Object> createAnimal(@RequestBody Animal animal)
     {
@@ -35,7 +37,7 @@ public class AnimalController {
         catch (Exception e)
         {
             logger.error(e.getMessage(),e);
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("/animals")

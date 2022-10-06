@@ -7,9 +7,8 @@ public class Part {
     private Long animalNo;
     private Long trayNo;
 
-    public Part(double weight, int partNo, String name, Long animalNo, Long trayNo) {
+    public Part(double weight, String name, Long animalNo, Long trayNo) {
         this.weight = weight;
-        this.partNo = partNo;
         this.name = name;
         this.animalNo = animalNo;
         this.trayNo = trayNo;
@@ -37,15 +36,6 @@ public class Part {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-
-    public Long getAnimal() {
-        return animalNo;
-    }
-
-    public void setAnimal(Long animalNo) {
-        this.animalNo = animalNo;
     }
 
     public Long getAnimalNo() {

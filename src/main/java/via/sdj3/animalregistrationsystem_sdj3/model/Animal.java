@@ -11,8 +11,7 @@ public class Animal {
     private Long animalNo;
     private String origin;
 
-    public Animal(Long animalNo,double weight, String origin) {
-        this.animalNo = animalNo;
+    public Animal(double weight, String origin) {
         this.weight = weight;
         this.arriveDate = LocalDate.now();
         this.origin = origin;

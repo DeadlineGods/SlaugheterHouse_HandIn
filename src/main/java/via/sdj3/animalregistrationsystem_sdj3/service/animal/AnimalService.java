@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Service // shorthand for @Bean to register OrderService interface as a bean
 public interface AnimalService {
-    Animal create(Animal animal);
+    Animal create(Animal animal) throws Exception;
     List<Animal> findAll();
     Iterable<Animal> findAllItr();
     Optional<Animal> findByID(Long id);

@@ -13,16 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class PartController {
-
     private PartService partService;
-
 
     public PartController(PartService partService) {
         this.partService = partService;
     }
 
     @PostMapping("/parts")
-
     public Part addPart(@RequestBody Part newPart) {
         return partService.create(newPart);
     }

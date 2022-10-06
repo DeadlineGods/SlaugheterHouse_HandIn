@@ -15,4 +15,6 @@ public interface AnimalRepository {
 
     List<Animal> findAll();
 
+    Long getMaxId();
+
 }
