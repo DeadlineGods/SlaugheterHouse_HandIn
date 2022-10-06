@@ -15,9 +15,9 @@ public class AnimalRepositoryImpl implements AnimalRepository {
     }
 
     private static void initDataSource() {
-        Animal pig1 = new Animal(1L, 80.10, new Date());
-        Animal pig2 = new Animal(2L, 75.90, new Date());
-        Animal pig3 = new Animal(3L, 82.20, new Date());
+        Animal pig1 = new Animal(1L, 80.10, "Argentina");
+        Animal pig2 = new Animal(2L, 75.90, "Pakistan");
+        Animal pig3 = new Animal(3L, 82.20, "Germany");
 
         animalMap.put(pig1.getAnimalNo(), pig1);
         animalMap.put(pig2.getAnimalNo(), pig2);

@@ -18,11 +18,10 @@ public class TrayRepository {
 
     private static void initDataSource() {
 
-        Tray t1 = new Tray(1,700,"Leg");
-
-        Tray t2 = new Tray(2,800,"Other Leg");
-        Tray t3 = new Tray(3,900,"Ribs");
-        Tray t4 = new Tray(4,1000,"Wing");
+        Tray t1 = new Tray(1L,700);
+        Tray t2 = new Tray(2L,800);
+        Tray t3 = new Tray(3L,900);
+        Tray t4 = new Tray(4L,1000);
 
         orderMap.put((long) t1.getTrayId(), t1);
         orderMap.put((long) t2.getTrayId(), t2);

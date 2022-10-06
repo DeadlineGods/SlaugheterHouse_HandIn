@@ -4,17 +4,13 @@ import java.util.ArrayList;
 
 public class Tray {
     private double maxWeightCapacity;
-    private String partType;
     private long trayId;
 
 
 
-    public Tray(long trayId,double maxWeightCapacity, String partType) {
+    public Tray(long trayId,double maxWeightCapacity) {
         this.maxWeightCapacity = maxWeightCapacity;
-        this.partType = partType;
         this.trayId=trayId;
-
-
     }
 
     public double getMaxWeightCapacity() {
@@ -24,17 +20,6 @@ public class Tray {
     public void setMaxWeightCapacity(double maxWeightCapacity) {
         this.maxWeightCapacity = maxWeightCapacity;
     }
-
-    public String getPartType() {
-        return partType;
-    }
-
-    public void setPartType(String partType) {
-        this.partType = partType;
-    }
-
-
-
 
     public int getTrayId() {
         return (int) trayId;

@@ -6,7 +6,6 @@ public class Product {
     private Long registrationNo;
     private Long trayId;
     private int partNo;
-    private Tray tray;
 
     public Product(Long registration, Long trayId, int partNo){
         this.registrationNo=registration;

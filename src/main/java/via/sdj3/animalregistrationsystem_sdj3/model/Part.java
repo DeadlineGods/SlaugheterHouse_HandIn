@@ -5,12 +5,14 @@ public class Part {
     private int partNo;
     private String name;
     private Long animalNo;
+    private Long trayNo;
 
-    public Part(double weight, int partNo, String name, Long animalNo) {
+    public Part(double weight, int partNo, String name, Long animalNo, Long trayNo) {
         this.weight = weight;
         this.partNo = partNo;
         this.name = name;
         this.animalNo = animalNo;
+        this.trayNo = trayNo;
     }
 
     public double getWeight() {
@@ -44,5 +46,21 @@ public class Part {
 
     public void setAnimal(Long animalNo) {
         this.animalNo = animalNo;
+    }
+
+    public Long getAnimalNo() {
+        return animalNo;
+    }
+
+    public void setAnimalNo(Long animalNo) {
+        this.animalNo = animalNo;
+    }
+
+    public Long getTrayNo() {
+        return trayNo;
+    }
+
+    public void setTrayNo(Long trayNo) {
+        this.trayNo = trayNo;
     }
 }
