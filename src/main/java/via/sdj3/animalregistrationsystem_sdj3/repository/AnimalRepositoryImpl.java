@@ -88,7 +88,7 @@ public class AnimalRepositoryImpl implements AnimalRepository {
             Map.Entry pair = (Map.Entry)it.next();
             Animal value = (Animal) pair.getValue();
 
-            if (value.getOrigin().equals(origin))
+            if (value.getOrigin().toLowerCase().equals(origin.toLowerCase()))
             {
                 arr.add(value);
             }
