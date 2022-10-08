@@ -22,4 +22,5 @@ public interface AnimalRepository {
 
     Long getMaxId();
 
+    List<Animal> findByOrigin(String origin);
 }

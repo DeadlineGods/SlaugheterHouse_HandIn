@@ -2,7 +2,11 @@ GET localhost:8191/animals
 
 ###
 
-GET localhost:8191/animals/search/2022-10-06
+GET localhost:8191/animals/arrived-on/2022-10-08
+
+###
+
+GET localhost:8191/animals/origin/Germany
 
 ###
 
@@ -11,7 +15,7 @@ Content-Type: application/json
 
 {
   "weight": 120,
-  "origin": "Poland"
+  "origin": "Germany"
 }
 
 ###

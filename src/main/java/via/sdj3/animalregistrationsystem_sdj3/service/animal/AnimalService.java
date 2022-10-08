@@ -17,4 +17,6 @@ public interface AnimalService {
     Animal update(Animal animal);
     void deleteById(Long id);
     List<Animal> findByDate(LocalDate date);
+
+    List<Animal> findByOrigin(String origin);
 }

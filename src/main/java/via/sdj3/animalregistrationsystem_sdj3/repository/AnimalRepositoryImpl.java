@@ -79,9 +79,29 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         return max;
     }
 
+    @Override
+    public List<Animal> findByOrigin(String origin) {
+        List<Animal> arr = new ArrayList<>();
+
+        Iterator it = new HashMap<>(animalMap).entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            Animal value = (Animal) pair.getValue();
+
+            if (value.getOrigin().equals(origin))
+            {
+                arr.add(value);
+            }
+
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+        return arr;
+    }
+
     public List<Animal> findByDate(LocalDate date)
     {
-        List<Animal> animalsFromDate = new ArrayList<>();
+        List<Animal> arr = new ArrayList<>();
 
             Iterator it = new HashMap<>(animalMap).entrySet().iterator();
             while (it.hasNext()) {
@@ -89,14 +109,13 @@ public class AnimalRepositoryImpl implements AnimalRepository {
                 Animal value = (Animal) pair.getValue();
                 if (value.getArriveDate().equals(date))
                 {
-                    animalsFromDate.add(value);
+                    arr.add(value);
                 }
 
                 it.remove(); // avoids a ConcurrentModificationException
             }
 
-            return animalsFromDate;
-
+            return arr;
     }
 
 }

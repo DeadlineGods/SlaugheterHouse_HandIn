@@ -74,12 +74,27 @@ public class AnimalController {
         }
     }
 
-    @GetMapping("/animals/search/{dateOfArriving}")
+    @GetMapping("/animals/arrived-on/{dateOfArriving}")
     public ResponseEntity<Object> getAnimalsArrivedOn(@PathVariable("dateOfArriving") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dateOfArriving)
     {
         try
         {
             List<Animal> animals = animalService.findByDate(dateOfArriving);
+            return new ResponseEntity<>(animals, HttpStatus.OK);
+        }
+        catch(Exception e)
+        {
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/animals/origin/{origin}")
+    public ResponseEntity<Object> getAnimalsByOrigin(@PathVariable("origin") String origin)
+    {
+        try
+        {
+            List<Animal> animals = animalService.findByOrigin(origin);
             return new ResponseEntity<>(animals, HttpStatus.OK);
         }
         catch(Exception e)

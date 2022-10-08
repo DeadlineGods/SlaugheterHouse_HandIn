@@ -59,6 +59,11 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.findByDate(date);
     }
 
+    @Override
+    public List<Animal> findByOrigin(String origin) {
+        return animalRepository.findByOrigin(origin);
+    }
+
     private void validate(Animal animal) throws Exception {
         if(!containsValue(animal.getOrigin())){
             throw new Exception("Country " + animal.getOrigin() + " does not exist.");
