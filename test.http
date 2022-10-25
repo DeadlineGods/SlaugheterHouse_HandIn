@@ -6,7 +6,7 @@ GET localhost:8191/animals/arrived-on/2022-10-08
 
 ###
 
-GET localhost:8191/animals/origin/Germany
+GET localhost:8191/animals/origin/germany
 
 ###
 
