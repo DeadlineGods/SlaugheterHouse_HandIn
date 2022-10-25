@@ -62,7 +62,7 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         Collection<Animal> a = animalMap.values();
         List<Animal> animalList = new ArrayList<>();
         animalList.addAll(a);
-        return animalList;
+        return animalLis;
     }
 
     public Long getMaxId(){
