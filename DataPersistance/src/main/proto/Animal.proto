@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example";
+
+service Animal {
+    rpc saveAnimal(SaveAnimalRequest) returns(SaveAnimalResponse);
+    rpc findById(FindByIdRequest) returns(FindByIdResponse);
+    rpc updateAnimal(UpdateAnimalRequest) returns(UpdateAnimalResponse);
+    rpc deleteById(DeleteByIdRequest) returns(Empty);
+
+    rpc findAllAnimal(Empty) returns (AllAnimals);
+    rpc findByDate(FilterByDateRequest) returns (AllAnimals);
+    rpc getMaxIdAnimal(Empty) returns (GetMaxIdResponse);
+    rpc findByOrigin(GetFromOriginRequest) returns (AllAnimals);
+
+    }
+
+    message SaveAnimalRequest {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+        double weight = 4;
+        int64 animalNo = 5;
+        string origin = 6;
+    }
+    message SaveAnimalResponse {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+        double weight = 4;
+        int64 animalNo = 5;
+        string origin = 6;
+    }
+    message AnimalMessage {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+        double weight = 4;
+        int64 animalNo = 5;
+        string origin = 6;
+    }
+
+
+    message FindByIdRequest {
+        int64 id =1;
+    }
+
+    message UpdateAnimalRequest {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+        double weight = 4;
+        int64 animalNo = 5;
+        string origin = 6;
+    }
+    message UpdateAnimalResponse {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+        double weight = 4;
+        int64 animalNo = 5;
+        string origin = 6;
+    }
+    message DeleteByIdRequest {
+        int64 id =1;
+    }
+
+
+    message FindByIdResponse {
+        repeated AnimalMessage animal =1;
+    }
+
+    message AllAnimals
+    {
+        repeated AnimalMessage animal = 1;
+    }
+
+    message FilterByDateRequest
+    {
+        int32 year = 1;
+        int32 month = 2;
+        int32 day = 3;
+    }
+
+    message GetMaxIdResponse
+    {
+        int64 max_id = 1;
+    }
+
+    message GetFromOriginRequest
+    {
+        string origin = 1;
+    }
+
+    message Empty{
+    }
+
