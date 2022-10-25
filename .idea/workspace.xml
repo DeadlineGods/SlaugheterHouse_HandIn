@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Added filtering by arrival date DONE">
+      <change afterPath="$PROJECT_DIR$/DataPersistance/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/DataPersistanceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPersistance/src/test/java/com/example/datapersistance/DataPersistanceApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/AppLogic" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2FipfH6y1FHK3YkF7u5Z1Jcisve" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9d34abf2d66dd2cc634d2f6c3b6210db&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="AnimalRegistrationSystemSdj3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="AnimalRegistrationSystem_SDJ3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="via.sdj3.animalregistrationsystem_sdj3.AnimalRegistrationSystemSdj3Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="" />
+      <created>1664984863280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664984863280</updated>
+      <workItem from="1664984864551" duration="16465000" />
+      <workItem from="1665243354378" duration="1550000" />
+      <workItem from="1665469510618" duration="287000" />
+      <workItem from="1666695295093" duration="1340000" />
+    </task>
+    <task id="LOCAL-00001" summary="Product part">
+      <created>1664990477862</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664990477862</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Product part fixed">
+      <created>1664992566066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664992566066</updated>
+    </task>
+    <task id="LOCAL-00003" summary="In ProductRepository added three products in initData">
+      <created>1664992705888</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664992705888</updated>
+    </task>
+    <task id="LOCAL-00004" summary="In ProductRepository added three products in initData v2">
+      <created>1664993470143</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664993470143</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added filtering by arrival date">
+      <created>1665042052891</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665042052891</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added filtering by arrival date">
+      <created>1665042151070</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665042151070</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added filtering by arrival date DONE">
+      <created>1665045292154</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665045292154</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Product part" />
+    <MESSAGE value="Product part fixed" />
+    <MESSAGE value="In ProductRepository added three products in initData" />
+    <MESSAGE value="In ProductRepository added three products in initData v2" />
+    <MESSAGE value="Added filtering by arrival date" />
+    <MESSAGE value="Added filtering by arrival date DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added filtering by arrival date DONE" />
+  </component>
+</project>
