@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Added filtering by arrival date DONE" />
+    <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Comitting" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,19 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9d34abf2d66dd2cc634d2f6c3b6210db&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/natal/a22/sdj3/SlaugheterHouse_HandIn2",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "9d34abf2d66dd2cc634d2f6c3b6210db"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\natal\a22\sdj3\SlaugheterHouse_HandIn2\DataPersistance\src\main" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AnimalRegistrationSystemSdj3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="AnimalRegistrationSystem_SDJ3" />
@@ -69,7 +75,7 @@
       <workItem from="1664984864551" duration="16465000" />
       <workItem from="1665243354378" duration="1550000" />
       <workItem from="1665469510618" duration="287000" />
-      <workItem from="1666695295093" duration="1649000" />
+      <workItem from="1666695295093" duration="2356000" />
     </task>
     <task id="LOCAL-00001" summary="Product part">
       <created>1664990477862</created>
@@ -120,7 +126,42 @@
       <option name="project" value="LOCAL" />
       <updated>1665045292154</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Comitting">
+      <created>1666697082859</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666697082859</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Comitting">
+      <created>1666697086697</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666697086697</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Comitting">
+      <created>1666697091833</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666697091833</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Comitting">
+      <created>1666697163727</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666697163727</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Comitting">
+      <created>1666697172689</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666697172689</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +185,7 @@
     <MESSAGE value="In ProductRepository added three products in initData v2" />
     <MESSAGE value="Added filtering by arrival date" />
     <MESSAGE value="Added filtering by arrival date DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added filtering by arrival date DONE" />
+    <MESSAGE value="Comitting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comitting" />
   </component>
 </project>
