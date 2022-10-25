@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Comitting" />
+    <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Comitting">
+      <change afterPath="$PROJECT_DIR$/src/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +17,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="HandIn3" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/AppLogic" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,8 +49,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/natal/a22/sdj3/SlaugheterHouse_HandIn2",
+    "last_opened_file_path": "C:/Users/Darko/Desktop/VIA/Semester 3/SDJ3/SlaugheterHouse_HandIn2",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "9d34abf2d66dd2cc634d2f6c3b6210db"
   }
 }]]></component>
@@ -76,6 +81,8 @@
       <workItem from="1665243354378" duration="1550000" />
       <workItem from="1665469510618" duration="287000" />
       <workItem from="1666695295093" duration="2356000" />
+      <workItem from="1666698142772" duration="635000" />
+      <workItem from="1666703034610" duration="997000" />
     </task>
     <task id="LOCAL-00001" summary="Product part">
       <created>1664990477862</created>
@@ -179,6 +186,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/AppLogic" />
+      <path value="$PROJECT_DIR$/DataPersistance" />
+    </ignored-roots>
     <MESSAGE value="Product part" />
     <MESSAGE value="Product part fixed" />
     <MESSAGE value="In ProductRepository added three products in initData" />
