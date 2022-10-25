@@ -1,19 +1,18 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example";
+option java_package = "com.example.datapersistance.protobuf";
 
 service Animal {
     rpc saveAnimal(SaveAnimalRequest) returns(SaveAnimalResponse);
-    rpc findById(FindByIdRequest) returns(FindByIdResponse);
+    rpc findByIdAnimal(FindByIdRequestAnimal) returns(FindByIdResponseAnimal);
     rpc updateAnimal(UpdateAnimalRequest) returns(UpdateAnimalResponse);
-    rpc deleteById(DeleteByIdRequest) returns(Empty);
+    rpc deleteByIdAnimal(DeleteByIdRequestAnimal) returns(EmptyAnimal);
 
-    rpc findAllAnimal(Empty) returns (AllAnimals);
-    rpc findByDate(FilterByDateRequest) returns (AllAnimals);
-    rpc getMaxIdAnimal(Empty) returns (GetMaxIdResponse);
-    rpc findByOrigin(GetFromOriginRequest) returns (AllAnimals);
-
+    rpc findAllAnimal(EmptyAnimal) returns (AllAnimals);
+    rpc findByDateAnimal(FilterByDateRequestAnimal) returns (AllAnimals);
+    rpc getMaxIdAnimal(EmptyAnimal) returns (GetMaxIdResponseAnimal);
+    rpc findByOriginAnimal(GetFromOriginRequestAnimal) returns (AllAnimals);
     }
 
     message SaveAnimalRequest {
@@ -42,7 +41,7 @@ service Animal {
     }
 
 
-    message FindByIdRequest {
+    message FindByIdRequestAnimal {
         int64 id =1;
     }
 
@@ -62,12 +61,12 @@ service Animal {
         int64 animalNo = 5;
         string origin = 6;
     }
-    message DeleteByIdRequest {
+    message DeleteByIdRequestAnimal {
         int64 id =1;
     }
 
 
-    message FindByIdResponse {
+    message FindByIdResponseAnimal {
         repeated AnimalMessage animal =1;
     }
 
@@ -76,23 +75,23 @@ service Animal {
         repeated AnimalMessage animal = 1;
     }
 
-    message FilterByDateRequest
+    message FilterByDateRequestAnimal
     {
         int32 year = 1;
         int32 month = 2;
         int32 day = 3;
     }
 
-    message GetMaxIdResponse
+    message GetMaxIdResponseAnimal
     {
         int64 max_id = 1;
     }
 
-    message GetFromOriginRequest
+    message GetFromOriginRequestAnimal
     {
         string origin = 1;
     }
 
-    message Empty{
+    message EmptyAnimal{
     }
 

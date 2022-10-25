@@ -1,6 +1,6 @@
 package com.example.datapersistance.service;
 
-import com.example.*;
+import com.example.datapersistance.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
@@ -8,12 +8,25 @@ import org.lognet.springboot.grpc.GRpcService;
 public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
     @Override
     public void saveAnimal(SaveAnimalRequest request, StreamObserver<SaveAnimalResponse> responseObserver) {
-        super.saveAnimal(request, responseObserver);
+        System.out.println("Received Request => " + request.toString());
+        System.out.println("Saved => " + request.toString());
+
+        SaveAnimalResponse response = SaveAnimalResponse.newBuilder()
+                .setAnimalNo(request.getAnimalNo())
+                .setWeight(request.getWeight())
+                .setOrigin(request.getOrigin())
+                .setDay(request.getDay())
+                .setMonth(request.getMonth())
+                .setYear(request.getYear())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void findById(FindByIdRequest request, StreamObserver<FindByIdResponse> responseObserver) {
-        super.findById(request, responseObserver);
+    public void findByIdAnimal(FindByIdRequestAnimal request, StreamObserver<FindByIdResponseAnimal> responseObserver) {
+        super.findByIdAnimal(request, responseObserver);
     }
 
     @Override
@@ -22,27 +35,27 @@ public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
     }
 
     @Override
-    public void deleteById(DeleteByIdRequest request, StreamObserver<Empty> responseObserver) {
-        super.deleteById(request, responseObserver);
+    public void deleteByIdAnimal(DeleteByIdRequestAnimal request, StreamObserver<EmptyAnimal> responseObserver) {
+        super.deleteByIdAnimal(request, responseObserver);
     }
 
     @Override
-    public void findAllAnimal(Empty request, StreamObserver<AllAnimals> responseObserver) {
+    public void findAllAnimal(EmptyAnimal request, StreamObserver<AllAnimals> responseObserver) {
         super.findAllAnimal(request, responseObserver);
     }
 
     @Override
-    public void findByDate(FilterByDateRequest request, StreamObserver<AllAnimals> responseObserver) {
-        super.findByDate(request, responseObserver);
+    public void findByDateAnimal(FilterByDateRequestAnimal request, StreamObserver<AllAnimals> responseObserver) {
+        super.findByDateAnimal(request, responseObserver);
     }
 
     @Override
-    public void getMaxIdAnimal(Empty request, StreamObserver<GetMaxIdResponse> responseObserver) {
+    public void getMaxIdAnimal(EmptyAnimal request, StreamObserver<GetMaxIdResponseAnimal> responseObserver) {
         super.getMaxIdAnimal(request, responseObserver);
     }
 
     @Override
-    public void findByOrigin(GetFromOriginRequest request, StreamObserver<AllAnimals> responseObserver) {
-        super.findByOrigin(request, responseObserver);
+    public void findByOriginAnimal(GetFromOriginRequestAnimal request, StreamObserver<AllAnimals> responseObserver) {
+        super.findByOriginAnimal(request, responseObserver);
     }
 }

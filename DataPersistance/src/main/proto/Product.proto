@@ -1,14 +1,15 @@
 syntax = "proto3";
+
 option java_multiple_files = true;
-option java_package = "com.example";
-package product;
+option java_package = "com.example.datapersistance.protobuf";
+
 service Product{
-  rpc save(SaveRequest) returns (SaveResponse);
-  rpc findByRegNo(FindByRegNoRequest) returns(FindByRegNoResponse);
-  rpc update(UpdateRequest) returns(UpdateResponse);
-  rpc deleteByRegNo(RequestDeleteByRegNo) returns (Empty);
-  rpc findAll(Empty) returns (ResponseFindAll);
-  rpc getMaxId(Empty) returns (ResponseGetMaxId);
+  rpc saveProduct(SaveRequestProduct) returns (SaveResponseProduct);
+  rpc findByRegNoProduct(FindByRegNoRequestProduct) returns(FindByRegNoResponseProduct);
+  rpc updateProduct(UpdateRequestProduct) returns(UpdateResponseProduct);
+  rpc deleteByRegNoProduct(RequestDeleteByRegNoProduct) returns (EmptyProduct);
+  rpc findAllProduct(EmptyProduct) returns (ResponseFindAllProduct);
+  rpc getMaxIdProduct(EmptyProduct) returns (ResponseGetMaxIdProduct);
 }
 
 message ProductMessage{
@@ -17,54 +18,54 @@ message ProductMessage{
   int32 partNo = 3;
 }
 
-message SaveRequest {
+message SaveRequestProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
 }
 
-message SaveResponse{
+message SaveResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
 }
 //-----------
 
-message FindByRegNoRequest{
+message FindByRegNoRequestProduct {
   int64 registrationNo = 1;
 }
 
-message FindByRegNoResponse{
+message FindByRegNoResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
 }
 //
-message UpdateRequest{
+message UpdateRequestProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
 }
 
-message UpdateResponse{
+message UpdateResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
 }
 
-message ResponseFindAll{
+message ResponseFindAllProduct {
   repeated ProductMessage product_list = 1;
 }
 
 
-message RequestDeleteByRegNo {
+message RequestDeleteByRegNoProduct {
   int64 part_no = 1;
 }
 
-message ResponseGetMaxId{
+message ResponseGetMaxIdProduct {
   int32 max_id = 1;
 }
 
-message Empty{
+message EmptyProduct {
 
 }
