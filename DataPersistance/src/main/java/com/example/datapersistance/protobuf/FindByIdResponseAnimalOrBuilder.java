@@ -8,26 +8,17 @@ public interface FindByIdResponseAnimalOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
+   * @return Whether the animal field is set.
    */
-  java.util.List<com.example.datapersistance.protobuf.AnimalMessage> 
-      getAnimalList();
+  boolean hasAnimal();
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
+   * @return The animal.
    */
-  com.example.datapersistance.protobuf.AnimalMessage getAnimal(int index);
+  com.example.datapersistance.protobuf.AnimalMessage getAnimal();
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
    */
-  int getAnimalCount();
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  java.util.List<? extends com.example.datapersistance.protobuf.AnimalMessageOrBuilder> 
-      getAnimalOrBuilderList();
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-      int index);
+  com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder();
 }

@@ -3,6 +3,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
+import via.sdj3.animalregistrationsystem_sdj3.repository.TrayRepository;
 
 import java.util.*;
 

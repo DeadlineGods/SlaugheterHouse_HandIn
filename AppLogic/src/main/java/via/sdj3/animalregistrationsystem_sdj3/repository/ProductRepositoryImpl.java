@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
+import via.sdj3.animalregistrationsystem_sdj3.repository.ProductRepository;
 
 import java.util.*;
 

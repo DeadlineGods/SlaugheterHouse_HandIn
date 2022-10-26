@@ -34,6 +34,7 @@ public class AnimalController {
     @PostMapping("/animals")
     public ResponseEntity<Object> createAnimal(@RequestBody Animal animal)
     {
+        System.out.println("eeet");
         try
         {
             Animal createdAnimal = animalService.create(animal);

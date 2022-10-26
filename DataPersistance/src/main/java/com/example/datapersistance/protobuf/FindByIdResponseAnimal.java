@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FindByIdResponseAnimal() {
-    animal_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,12 +49,16 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              animal_ = new java.util.ArrayList<com.example.datapersistance.protobuf.AnimalMessage>();
-              mutable_bitField0_ |= 0x00000001;
+            com.example.datapersistance.protobuf.AnimalMessage.Builder subBuilder = null;
+            if (animal_ != null) {
+              subBuilder = animal_.toBuilder();
             }
-            animal_.add(
-                input.readMessage(com.example.datapersistance.protobuf.AnimalMessage.parser(), extensionRegistry));
+            animal_ = input.readMessage(com.example.datapersistance.protobuf.AnimalMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(animal_);
+              animal_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -76,9 +78,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        animal_ = java.util.Collections.unmodifiableList(animal_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -97,43 +96,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANIMAL_FIELD_NUMBER = 1;
-  private java.util.List<com.example.datapersistance.protobuf.AnimalMessage> animal_;
+  private com.example.datapersistance.protobuf.AnimalMessage animal_;
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
+   * @return Whether the animal field is set.
    */
   @java.lang.Override
-  public java.util.List<com.example.datapersistance.protobuf.AnimalMessage> getAnimalList() {
-    return animal_;
+  public boolean hasAnimal() {
+    return animal_ != null;
   }
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
+   * @return The animal.
    */
   @java.lang.Override
-  public java.util.List<? extends com.example.datapersistance.protobuf.AnimalMessageOrBuilder> 
-      getAnimalOrBuilderList() {
-    return animal_;
+  public com.example.datapersistance.protobuf.AnimalMessage getAnimal() {
+    return animal_ == null ? com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
   }
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>.AnimalMessage animal = 1;</code>
    */
   @java.lang.Override
-  public int getAnimalCount() {
-    return animal_.size();
-  }
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public com.example.datapersistance.protobuf.AnimalMessage getAnimal(int index) {
-    return animal_.get(index);
-  }
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-      int index) {
-    return animal_.get(index);
+  public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder() {
+    return getAnimal();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,8 +135,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < animal_.size(); i++) {
-      output.writeMessage(1, animal_.get(i));
+    if (animal_ != null) {
+      output.writeMessage(1, getAnimal());
     }
     unknownFields.writeTo(output);
   }
@@ -162,9 +147,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < animal_.size(); i++) {
+    if (animal_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, animal_.get(i));
+        .computeMessageSize(1, getAnimal());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,8 +166,11 @@ private static final long serialVersionUID = 0L;
     }
     com.example.datapersistance.protobuf.FindByIdResponseAnimal other = (com.example.datapersistance.protobuf.FindByIdResponseAnimal) obj;
 
-    if (!getAnimalList()
-        .equals(other.getAnimalList())) return false;
+    if (hasAnimal() != other.hasAnimal()) return false;
+    if (hasAnimal()) {
+      if (!getAnimal()
+          .equals(other.getAnimal())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -194,9 +182,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getAnimalCount() > 0) {
+    if (hasAnimal()) {
       hash = (37 * hash) + ANIMAL_FIELD_NUMBER;
-      hash = (53 * hash) + getAnimalList().hashCode();
+      hash = (53 * hash) + getAnimal().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -326,17 +314,16 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getAnimalFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       if (animalBuilder_ == null) {
-        animal_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        animal_ = null;
       } else {
-        animalBuilder_.clear();
+        animal_ = null;
+        animalBuilder_ = null;
       }
       return this;
     }
@@ -364,12 +351,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.example.datapersistance.protobuf.FindByIdResponseAnimal buildPartial() {
       com.example.datapersistance.protobuf.FindByIdResponseAnimal result = new com.example.datapersistance.protobuf.FindByIdResponseAnimal(this);
-      int from_bitField0_ = bitField0_;
       if (animalBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          animal_ = java.util.Collections.unmodifiableList(animal_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
         result.animal_ = animal_;
       } else {
         result.animal_ = animalBuilder_.build();
@@ -422,31 +404,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.example.datapersistance.protobuf.FindByIdResponseAnimal other) {
       if (other == com.example.datapersistance.protobuf.FindByIdResponseAnimal.getDefaultInstance()) return this;
-      if (animalBuilder_ == null) {
-        if (!other.animal_.isEmpty()) {
-          if (animal_.isEmpty()) {
-            animal_ = other.animal_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAnimalIsMutable();
-            animal_.addAll(other.animal_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.animal_.isEmpty()) {
-          if (animalBuilder_.isEmpty()) {
-            animalBuilder_.dispose();
-            animalBuilder_ = null;
-            animal_ = other.animal_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            animalBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getAnimalFieldBuilder() : null;
-          } else {
-            animalBuilder_.addAllMessages(other.animal_);
-          }
-        }
+      if (other.hasAnimal()) {
+        mergeAnimal(other.getAnimal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -476,241 +435,119 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private java.util.List<com.example.datapersistance.protobuf.AnimalMessage> animal_ =
-      java.util.Collections.emptyList();
-    private void ensureAnimalIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        animal_ = new java.util.ArrayList<com.example.datapersistance.protobuf.AnimalMessage>(animal_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
+    private com.example.datapersistance.protobuf.AnimalMessage animal_;
+    private com.google.protobuf.SingleFieldBuilderV3<
         com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder> animalBuilder_;
+    /**
+     * <code>.AnimalMessage animal = 1;</code>
+     * @return Whether the animal field is set.
+     */
+    public boolean hasAnimal() {
+      return animalBuilder_ != null || animal_ != null;
+    }
+    /**
+     * <code>.AnimalMessage animal = 1;</code>
+     * @return The animal.
+     */
+    public com.example.datapersistance.protobuf.AnimalMessage getAnimal() {
+      if (animalBuilder_ == null) {
+        return animal_ == null ? com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
+      } else {
+        return animalBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.AnimalMessage animal = 1;</code>
+     */
+    public Builder setAnimal(com.example.datapersistance.protobuf.AnimalMessage value) {
+      if (animalBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        animal_ = value;
+        onChanged();
+      } else {
+        animalBuilder_.setMessage(value);
+      }
 
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public java.util.List<com.example.datapersistance.protobuf.AnimalMessage> getAnimalList() {
-      if (animalBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(animal_);
-      } else {
-        return animalBuilder_.getMessageList();
-      }
+      return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public int getAnimalCount() {
-      if (animalBuilder_ == null) {
-        return animal_.size();
-      } else {
-        return animalBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public com.example.datapersistance.protobuf.AnimalMessage getAnimal(int index) {
-      if (animalBuilder_ == null) {
-        return animal_.get(index);
-      } else {
-        return animalBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
     public Builder setAnimal(
-        int index, com.example.datapersistance.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.set(index, value);
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder setAnimal(
-        int index, com.example.datapersistance.protobuf.AnimalMessage.Builder builderForValue) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder addAnimal(com.example.datapersistance.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.add(value);
-        onChanged();
-      } else {
-        animalBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder addAnimal(
-        int index, com.example.datapersistance.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.add(index, value);
-        onChanged();
-      } else {
-        animalBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder addAnimal(
         com.example.datapersistance.protobuf.AnimalMessage.Builder builderForValue) {
       if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.add(builderForValue.build());
+        animal_ = builderForValue.build();
         onChanged();
       } else {
-        animalBuilder_.addMessage(builderForValue.build());
+        animalBuilder_.setMessage(builderForValue.build());
       }
+
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
-    public Builder addAnimal(
-        int index, com.example.datapersistance.protobuf.AnimalMessage.Builder builderForValue) {
+    public Builder mergeAnimal(com.example.datapersistance.protobuf.AnimalMessage value) {
       if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.add(index, builderForValue.build());
+        if (animal_ != null) {
+          animal_ =
+            com.example.datapersistance.protobuf.AnimalMessage.newBuilder(animal_).mergeFrom(value).buildPartial();
+        } else {
+          animal_ = value;
+        }
         onChanged();
       } else {
-        animalBuilder_.addMessage(index, builderForValue.build());
+        animalBuilder_.mergeFrom(value);
       }
+
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder addAllAnimal(
-        java.lang.Iterable<? extends com.example.datapersistance.protobuf.AnimalMessage> values) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, animal_);
-        onChanged();
-      } else {
-        animalBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
     public Builder clearAnimal() {
       if (animalBuilder_ == null) {
-        animal_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        animal_ = null;
         onChanged();
       } else {
-        animalBuilder_.clear();
+        animal_ = null;
+        animalBuilder_ = null;
       }
+
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
-    public Builder removeAnimal(int index) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.remove(index);
-        onChanged();
-      } else {
-        animalBuilder_.remove(index);
-      }
-      return this;
+    public com.example.datapersistance.protobuf.AnimalMessage.Builder getAnimalBuilder() {
+      
+      onChanged();
+      return getAnimalFieldBuilder().getBuilder();
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
-    public com.example.datapersistance.protobuf.AnimalMessage.Builder getAnimalBuilder(
-        int index) {
-      return getAnimalFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-        int index) {
-      if (animalBuilder_ == null) {
-        return animal_.get(index);  } else {
-        return animalBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public java.util.List<? extends com.example.datapersistance.protobuf.AnimalMessageOrBuilder> 
-         getAnimalOrBuilderList() {
+    public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder() {
       if (animalBuilder_ != null) {
-        return animalBuilder_.getMessageOrBuilderList();
+        return animalBuilder_.getMessageOrBuilder();
       } else {
-        return java.util.Collections.unmodifiableList(animal_);
+        return animal_ == null ?
+            com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
       }
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>.AnimalMessage animal = 1;</code>
      */
-    public com.example.datapersistance.protobuf.AnimalMessage.Builder addAnimalBuilder() {
-      return getAnimalFieldBuilder().addBuilder(
-          com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public com.example.datapersistance.protobuf.AnimalMessage.Builder addAnimalBuilder(
-        int index) {
-      return getAnimalFieldBuilder().addBuilder(
-          index, com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public java.util.List<com.example.datapersistance.protobuf.AnimalMessage.Builder> 
-         getAnimalBuilderList() {
-      return getAnimalFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
+    private com.google.protobuf.SingleFieldBuilderV3<
         com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder> 
         getAnimalFieldBuilder() {
       if (animalBuilder_ == null) {
-        animalBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        animalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder>(
-                animal_,
-                ((bitField0_ & 0x00000001) != 0),
+                getAnimal(),
                 getParentForChildren(),
                 isClean());
         animal_ = null;

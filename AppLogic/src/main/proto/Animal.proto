@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example.datapersistance.protobuf";
+option java_package = "via.sdj3.animalregistrationsystem_sdj3.protobuf";
 
 service Animal {
     rpc saveAnimal(SaveAnimalRequest) returns(SaveAnimalResponse);
@@ -67,7 +67,7 @@ service Animal {
 
 
     message FindByIdResponseAnimal {
-        AnimalMessage animal =1;
+        repeated AnimalMessage animal =1;
     }
 
     message AllAnimals

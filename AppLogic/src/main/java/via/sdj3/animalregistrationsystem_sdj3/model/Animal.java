@@ -1,20 +1,35 @@
 package via.sdj3.animalregistrationsystem_sdj3.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Animal {
 
-    private LocalDate arriveDate;
+    private Date arriveDate;
     private double weight;
     private Long animalNo;
     private String origin;
 
     public Animal(double weight, String origin) {
         this.weight = weight;
-        this.arriveDate = LocalDate.now();
+        this.arriveDate = new Date();
         this.origin = origin;
+    }
+
+    public Animal(double weight, String origin, int day, int month, int year, long animalNo) {
+        this.weight = weight;
+        this.origin = origin;
+        this.animalNo = animalNo;
+
+        try {
+            String dateString = String.format("%d/%d/%d", year, month, day);
+            arriveDate = new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public double getWeight() {
@@ -33,11 +48,11 @@ public class Animal {
         this.animalNo = animalNo;
     }
 
-    public LocalDate getArriveDate() {
+    public Date getArriveDate() {
         return arriveDate;
     }
 
-    public void setArriveDate(LocalDate arriveDate) {
+    public void setArriveDate(Date arriveDate) {
         this.arriveDate = arriveDate;
     }
 
