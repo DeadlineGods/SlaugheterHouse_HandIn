@@ -1,9 +1,6 @@
 package com.example.datapersistance.dao;
 
-import com.example.datapersistance.protobuf.AllAnimals;
-import com.example.datapersistance.protobuf.FindByIdResponseAnimal;
-import com.example.datapersistance.protobuf.GetMaxIdResponseAnimal;
-import com.example.datapersistance.protobuf.ResponseFindAllProduct;
+import com.example.datapersistance.protobuf.*;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -21,5 +18,5 @@ public interface AnimalPersistence {
     AllAnimals findByDateAnimal(int year, int month, int day) throws SQLException;
     GetMaxIdResponseAnimal getMaxIdAnimal() throws SQLException;
     AllAnimals findByOriginAnimal(String origin) throws SQLException;
-    ResponseFindAllProduct findAllProductsFromAnimal(long animalNo) throws SQLException;
+    Products findAllProductsFromAnimal(long animalNo) throws SQLException;
 }

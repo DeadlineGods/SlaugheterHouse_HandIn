@@ -302,9 +302,9 @@ public class AnimalDatabase implements AnimalPersistence {
     }
 
     @Override
-    public ResponseFindAllProduct findAllProductsFromAnimal(long animalNo) throws SQLException {
-        List<ProductMessage> allProducts = new ArrayList<>();
-        ResponseFindAllProduct response = null;
+    public Products findAllProductsFromAnimal(long animalNo) throws SQLException {
+        List<ProductMessageAnimal> allProducts = new ArrayList<>();
+        Products response = null;
         Connection connection = getConnection();
         try
         {
@@ -314,6 +314,18 @@ public class AnimalDatabase implements AnimalPersistence {
                     "    SELECT partno FROM part WHERE animalno = ?\n" +
                     "    )");
             statement.setLong(1, animalNo);
+        ResultSet resultSet = statement.executeQuery();
+        while(resultSet.next())
+        {
+            ProductMessageAnimal productMessageAnimal = ProductMessageAnimal.newBuilder()
+                    .setRegistrationNo(resultSet.getLong("registrationno"))
+                    .setTrayId(resultSet.getLong("trayno"))
+                    .setPartNo(resultSet.getInt("partno"))
+                    .build();
+            allProducts.add(productMessageAnimal);
+        }
+
+        response = Products.newBuilder().addAllProducts(allProducts).build();
         }
         finally {
             connection.close();
