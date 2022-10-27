@@ -121,21 +121,82 @@ public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
 
     @Override
     public void findAllAnimal(EmptyAnimal request, StreamObserver<AllAnimals> responseObserver) {
-        super.findAllAnimal(request, responseObserver);
+        System.out.println("Received Request =>\n" + request.toString());
+        try
+        {
+            AllAnimals response = database.findAllAnimal();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            if (response != null){
+                System.out.println("Found =>\n" + response.toString());
+            } else {
+                System.out.println("No animals found");
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
     public void findByDateAnimal(FilterByDateRequestAnimal request, StreamObserver<AllAnimals> responseObserver) {
-        super.findByDateAnimal(request, responseObserver);
-    }
+        System.out.println("Received Request =>\n" + request.toString());
+        try
+        {
+            AllAnimals response = database.findByDateAnimal(request.getYear(), request.getMonth(), request.getDay());
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            if (response != null){
+                System.out.println("Found =>\n" + response.toString());
+            } else {
+                System.out.println("No animals found from date => " + request.getYear() + "/" + request.getMonth() + "/" + request.getDay());
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }    }
 
     @Override
     public void getMaxIdAnimal(EmptyAnimal request, StreamObserver<GetMaxIdResponseAnimal> responseObserver) {
-        super.getMaxIdAnimal(request, responseObserver);
+        System.out.println("Received Request =>\n" + request.toString());
+
+        try
+        {
+            GetMaxIdResponseAnimal response = database.getMaxIdAnimal();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            if (response != null){
+                System.out.println("Found =>\n" + response.toString());
+            } else {
+                System.out.println("Not item");
+            }
+        }
+        catch(SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void findByOriginAnimal(GetFromOriginRequestAnimal request, StreamObserver<AllAnimals> responseObserver) {
-        super.findByOriginAnimal(request, responseObserver);
+        System.out.println("Received Request =>\n" + request.toString());
+        try
+        {
+            AllAnimals response = database.findByOriginAnimal(request.getOrigin());
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            if (response != null){
+                System.out.println("Found =>\n" + response.toString());
+            } else {
+                System.out.println("No animals found from origin => " + request.getOrigin());
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 }

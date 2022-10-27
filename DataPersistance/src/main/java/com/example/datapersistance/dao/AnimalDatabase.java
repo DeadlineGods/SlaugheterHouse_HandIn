@@ -1,15 +1,16 @@
 package com.example.datapersistance.dao;
 
-import com.example.datapersistance.protobuf.AnimalMessage;
-import com.example.datapersistance.protobuf.AnimalMessageOrBuilder;
+import com.example.datapersistance.protobuf.*;
+import com.google.protobuf.Descriptors;
+import org.checkerframework.checker.units.qual.A;
 import org.lognet.springboot.grpc.GRpcService;
-
-import com.example.datapersistance.protobuf.FindByIdResponseAnimal;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @GRpcService
 public class AnimalDatabase implements AnimalPersistence {
@@ -145,6 +146,159 @@ public class AnimalDatabase implements AnimalPersistence {
             connection.close();
         }
 
+    }
+
+    @Override
+    public AllAnimals findAllAnimal() throws SQLException {
+        AllAnimals response = null;
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT *
+            FROM animal 
+            """);
+
+            List<AnimalMessage> animals = new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next())
+            {
+                AnimalMessage animalMessage = null;
+                java.sql.Date sqlDate = resultSet.getDate("arrivedate");
+                animalMessage = AnimalMessage.newBuilder()
+                        .setAnimalNo((resultSet.getLong("animalNo")))
+                        .setWeight((resultSet.getFloat("weight")))
+                        .setOrigin(resultSet.getString("origin"))
+                        .setDay(sqlDate.getDay())
+                        .setMonth(sqlDate.getMonth())
+                        .setYear(sqlDate.getYear())
+                        .build();
+
+
+                animals.add(animalMessage);
+            }
+            response = AllAnimals.newBuilder().addAllAnimal(animals).build();
+        }
+        finally {
+            connection.close();
+        }
+        return response;
+    }
+
+    @Override
+    public AllAnimals findByDateAnimal(int year, int month, int day) throws SQLException {
+        AllAnimals response;
+        List<AnimalMessage> animals = new ArrayList<>();
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT *
+            FROM animal
+            WHERE arrivedate = ?
+            """);
+
+            try {
+                String dateString = String.format("%d/%d/%d", year, month, day);
+                Date date = new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
+                java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                statement.setDate(1, sqlDate);
+            }
+            catch (ParseException e)
+            {
+                throw new RuntimeException(e);
+            }
+
+            ResultSet resultSet = statement.executeQuery();
+
+
+            while(resultSet.next())
+            {
+                java.sql.Date sqlDate = resultSet.getDate("arrivedate");
+                AnimalMessage animalMessage = null;
+                animalMessage = AnimalMessage.newBuilder()
+                        .setAnimalNo((resultSet.getLong("animalNo")))
+                        .setWeight((resultSet.getFloat("weight")))
+                        .setOrigin(resultSet.getString("origin"))
+                        .setDay(sqlDate.getDay())
+                        .setMonth(sqlDate.getMonth())
+                        .setYear(sqlDate.getYear())
+                        .build();
+
+
+                animals.add(animalMessage);
+            }
+            response = AllAnimals.newBuilder().addAllAnimal(animals).build();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            connection.close();
+        }
+        return null;
+    }
+
+    @Override
+    public GetMaxIdResponseAnimal getMaxIdAnimal() throws SQLException {
+        GetMaxIdResponseAnimal response = null;
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT MAX(animalNo)
+            FROM animal
+            """);
+
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next())
+            {
+                response = GetMaxIdResponseAnimal.newBuilder().setMaxId(resultSet.getLong("max")).build();
+
+            }
+        }
+        finally {
+            connection.close();
+        }
+        return response;
+    }
+
+    @Override
+    public AllAnimals findByOriginAnimal(String origin) throws SQLException {
+        AllAnimals response = null;
+        List<AnimalMessage> allAnimals = new ArrayList<>();
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT *
+            FROM animal
+            WHERE origin = ?
+            """);
+            statement.setString(1, origin);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next())
+            {
+                java.sql.Date sqlDate = resultSet.getDate("arrivedate");
+
+                AnimalMessage animalMessage = AnimalMessage.newBuilder()
+                        .setWeight(resultSet.getFloat("weight"))
+                        .setOrigin(resultSet.getString("origin"))
+                        .setAnimalNo(resultSet.getLong("animalno"))
+                        .setDay(sqlDate.getDay())
+                        .setMonth(sqlDate.getMonth())
+                        .setYear(sqlDate.getYear())
+                        .build();
+                allAnimals.add(animalMessage);
+            }
+            response = AllAnimals.newBuilder().addAllAnimal(allAnimals).build();
+        }
+        finally {
+            connection.close();
+        }
+        return response;
     }
 
     private Connection getConnection() throws SQLException {
