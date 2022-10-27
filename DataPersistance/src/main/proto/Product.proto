@@ -16,6 +16,7 @@ message ProductMessage{
   int64 registrationNo = 1;
   int64 trayId = 2;
   int32 partNo = 3;
+
 }
 
 message SaveRequestProduct {

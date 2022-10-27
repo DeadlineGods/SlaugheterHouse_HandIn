@@ -32,6 +32,7 @@ public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
         SaveAnimalResponse response = SaveAnimalResponse.newBuilder()
                 .setAnimalNo(request.getAnimalNo())
                 .setWeight(request.getWeight())
+
                 .setOrigin(request.getOrigin())
                 .setDay(request.getDay())
                 .setMonth(request.getMonth())

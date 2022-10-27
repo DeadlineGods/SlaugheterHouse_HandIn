@@ -1,11 +1,13 @@
 package com.example.datapersistance.dao;
 
-import com.example.datapersistance.protobuf.FindByRegNoResponseProduct;
-import com.example.datapersistance.protobuf.ResponseFindAllProduct;
-import com.example.datapersistance.protobuf.ResponseGetMaxIdProduct;
+import com.example.datapersistance.protobuf.*;
+import org.lognet.springboot.grpc.GRpcService;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@GRpcService
 public class ProductDatabase implements ProductPersistence{
 
     public ProductDatabase() throws SQLException
@@ -14,41 +16,141 @@ public class ProductDatabase implements ProductPersistence{
     }
 
     @Override
-    public void saveProduct(long registrationNo, long trayId, int partNo) throws SQLException {
+    public void saveProduct(long trayNo, int partNo) throws SQLException {
         Connection connection = getConnection();
-        //try {
-         //   PreparedStatement statement = connection.prepareStatement("
-           // INSERT INTO product(registrationno, weight, name, trayno) VALUES(?, ?, ?)");
-        //}
-        //catch ()
-        //{
+        try {
+         PreparedStatement statement = connection.prepareStatement(" " +
+                 "INSERT INTO product(trayno, partno) VALUES(?, ?)");
 
-        //}
+        statement.setLong(1, trayNo);
+        statement.setInt(2, partNo);
+
+        statement.execute();
+        }
+        finally {
+            connection.close();
+        }
     }
 
     @Override
     public void updateProduct(long registrationNo, long trayId, int partNo) throws SQLException {
+        Connection connection = getConnection();
 
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+                UPDATE product
+                SET trayno = ?, partNo = ?
+                WHERE registrationNo = ?;
+                """);
+
+            statement.setLong(1, trayId);
+            statement.setInt(2, partNo);
+            statement.setLong(3, registrationNo);
+
+            statement.execute();
+        }
+        finally {
+            connection.close();
+        }
     }
 
     @Override
     public void deleteByRegNoProduct(long registrationNo) throws SQLException {
+        Connection connection = getConnection();
 
+        try {
+            PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM product WHERE registrationno = ?""");
+
+
+            statement.setLong(1, registrationNo);
+            statement.execute();
+
+        } finally {
+            connection.close();
+        }
     }
 
     @Override
     public FindByRegNoResponseProduct findByRegNo(long registrationNo) throws SQLException {
-        return null;
+        FindByRegNoResponseProduct response = null;
+        Connection connection = getConnection();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT *\nFROM product\nWHERE registrationno = ?");
+            statement.setLong(1, registrationNo);
+
+            ResultSet resultSet = statement.executeQuery();
+            ProductMessage productMessage;
+            while( resultSet.next())
+            {
+                response = FindByRegNoResponseProduct.newBuilder()
+                        .setRegistrationNo(resultSet.getLong("registrationno"))
+                        .setTrayId(resultSet.getLong("trayno"))
+                        .setPartNo(resultSet.getInt("partno"))
+                        .build();
+            }
+        } finally {
+            connection.close();
+        }
+
+        return response;
     }
 
     @Override
     public ResponseFindAllProduct findAllProduct() throws SQLException {
-        return null;
+        ResponseFindAllProduct response;
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT *
+            FROM product
+            """);
+
+            List<ProductMessage> products = new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next())
+            {
+                ProductMessage productMessage;
+                productMessage = ProductMessage.newBuilder()
+                        .setRegistrationNo((resultSet.getLong("registrationno")))
+                        .setTrayId(resultSet.getLong("trayno"))
+                        .setPartNo((resultSet.getInt("partno")))
+                        .build();
+                products.add(productMessage);
+            }
+            response = ResponseFindAllProduct.newBuilder().addAllProductList(products).build();
+        }
+        finally {
+            connection.close();
+        }
+        return response;
     }
 
     @Override
     public ResponseGetMaxIdProduct getMAxIdProduct() throws SQLException {
-        return null;
+        ResponseGetMaxIdProduct response =  null;
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("""
+            SELECT MAX(registrationno)
+            FROM product
+            """);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+            {
+                response = ResponseGetMaxIdProduct.newBuilder().setMaxId(resultSet.getInt("max")).build();
+            }
+        }
+        finally {
+            connection.close();
+        }
+        return response;
     }
 
 

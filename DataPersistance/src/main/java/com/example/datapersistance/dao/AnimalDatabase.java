@@ -188,7 +188,7 @@ public class AnimalDatabase implements AnimalPersistence {
 
     @Override
     public AllAnimals findByDateAnimal(int year, int month, int day) throws SQLException {
-        AllAnimals response;
+        AllAnimals response=null;
         List<AnimalMessage> animals = new ArrayList<>();
         Connection connection = getConnection();
         try
@@ -238,7 +238,7 @@ public class AnimalDatabase implements AnimalPersistence {
         finally {
             connection.close();
         }
-        return null;
+        return response;
     }
 
     @Override
@@ -294,6 +294,26 @@ public class AnimalDatabase implements AnimalPersistence {
                 allAnimals.add(animalMessage);
             }
             response = AllAnimals.newBuilder().addAllAnimal(allAnimals).build();
+        }
+        finally {
+            connection.close();
+        }
+        return response;
+    }
+
+    @Override
+    public ResponseFindAllProduct findAllProductsFromAnimal(long animalNo) throws SQLException {
+        List<ProductMessage> allProducts = new ArrayList<>();
+        ResponseFindAllProduct response = null;
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("SELECT *\n" +
+                    "FROM product\n" +
+                    "WHERE partno IN (\n" +
+                    "    SELECT partno FROM part WHERE animalno = ?\n" +
+                    "    )");
+            statement.setLong(1, animalNo);
         }
         finally {
             connection.close();
