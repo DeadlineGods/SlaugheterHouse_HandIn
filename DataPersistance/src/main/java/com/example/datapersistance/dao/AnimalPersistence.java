@@ -19,4 +19,6 @@ public interface AnimalPersistence {
     GetMaxIdResponseAnimal getMaxIdAnimal() throws SQLException;
     AllAnimals findByOriginAnimal(String origin) throws SQLException;
     Products findAllProductsFromAnimal(long animalNo) throws SQLException;
+    AllAnimals getAnimalsInvolvedIntoProduct(long registrationNo) throws SQLException;
+
 }

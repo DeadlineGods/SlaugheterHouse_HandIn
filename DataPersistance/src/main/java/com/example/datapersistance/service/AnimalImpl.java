@@ -220,4 +220,23 @@ public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
         }
 
     }
+
+    @Override
+    public void getAnimalsInvolvedIntoProduct(FindByIdRequestAnimal request, StreamObserver<AllAnimals> responseObserver) {
+        System.out.println("Received Request =>\n" + request.toString());
+        try
+        {
+            AllAnimals response = database.getAnimalsInvolvedIntoProduct(request.getId());
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            if (response != null){
+                System.out.println("Found =>\n" + response.toString());
+            } else {
+                System.out.println("No animal found from product with id   => " + request.getId());
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

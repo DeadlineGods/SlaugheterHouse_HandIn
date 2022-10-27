@@ -14,4 +14,5 @@ public interface ProductPersistence
     FindByRegNoResponseProduct findByRegNo(long registrationNo) throws SQLException;
     ResponseFindAllProduct findAllProduct() throws SQLException;
     ResponseGetMaxIdProduct getMAxIdProduct() throws SQLException;
+
 }

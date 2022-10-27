@@ -153,6 +153,45 @@ public class ProductDatabase implements ProductPersistence{
         return response;
     }
 
+    /*@Override
+    public ResponseAnimals getAnimalsInvolvedIntoProduct(long registrationNo) throws SQLException
+    {
+        Connection connection = getConnection();
+        List<AnimalMessage> allAnimals = new ArrayList<>();
+        ResponseAnimals response = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT *\n" +
+                    "FROM animal\n" +
+                    "WHERE animalno IN (\n" +
+                    "    SELECT animalno FROM part WHERE partno IN (\n" +
+                    "        SELECT partno FROM part_product WHERE registrationno = ?\n" +
+                    "        )\n" +
+                    "    )");
+            statement.setLong(1, registrationNo);
+            ResultSet resultSet= statement.executeQuery();
+            while(resultSet.next())
+            {
+                java.sql.Date sqlDate = resultSet.getDate("arrivedate");
+
+                AnimalMessage animalMessage = AnimalMessage.newBuilder()
+                        .setWeight(resultSet.getFloat("weight"))
+                        .setOrigin(resultSet.getString("origin"))
+                        .setAnimalNo(resultSet.getLong("animalno"))
+                        .setDay(sqlDate.getDay())
+                        .setMonth(sqlDate.getMonth())
+                        .setYear(sqlDate.getYear())
+                        .build();
+
+                //response = ResponseAnimals.newBuilder().add
+            }
+
+        }
+        finally {
+            connection.close();
+        }
+        return response;
+    }*/
+
 
     private Connection getConnection() throws SQLException {
         String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=slaughterhouse";

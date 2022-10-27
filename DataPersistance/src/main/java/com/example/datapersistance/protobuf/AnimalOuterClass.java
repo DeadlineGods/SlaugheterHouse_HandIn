@@ -124,7 +124,7 @@ public final class AnimalOuterClass {
       "\"\r\n\013EmptyAnimal\"3\n\010Products\022\'\n\010products\030" +
       "\001 \003(\0132\025.ProductMessageAnimal\"N\n\024ProductM" +
       "essageAnimal\022\026\n\016registrationNo\030\001 \001(\003\022\016\n\006" +
-      "trayId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\0052\235\004\n\006Animal\022" +
+      "trayId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\0052\343\004\n\006Animal\022" +
       "5\n\nsaveAnimal\022\022.SaveAnimalRequest\032\023.Save" +
       "AnimalResponse\022A\n\016findByIdAnimal\022\026.FindB" +
       "yIdRequestAnimal\032\027.FindByIdResponseAnima" +
@@ -138,8 +138,10 @@ public final class AnimalOuterClass {
       "imal\022>\n\022findByOriginAnimal\022\033.GetFromOrig" +
       "inRequestAnimal\032\013.AllAnimals\022>\n\031findAllP" +
       "roductsFromAnimal\022\026.FindByIdRequestAnima" +
-      "l\032\t.ProductsB(\n$com.example.datapersista" +
-      "nce.protobufP\001b\006proto3"
+      "l\032\t.Products\022D\n\035getAnimalsInvolvedIntoPr" +
+      "oduct\022\026.FindByIdRequestAnimal\032\013.AllAnima" +
+      "lsB(\n$com.example.datapersistance.protob" +
+      "ufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

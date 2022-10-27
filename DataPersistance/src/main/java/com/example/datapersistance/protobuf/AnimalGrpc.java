@@ -293,6 +293,37 @@ public final class AnimalGrpc {
     return getFindAllProductsFromAnimalMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.example.datapersistance.protobuf.FindByIdRequestAnimal,
+      com.example.datapersistance.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getAnimalsInvolvedIntoProduct",
+      requestType = com.example.datapersistance.protobuf.FindByIdRequestAnimal.class,
+      responseType = com.example.datapersistance.protobuf.AllAnimals.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.example.datapersistance.protobuf.FindByIdRequestAnimal,
+      com.example.datapersistance.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod() {
+    io.grpc.MethodDescriptor<com.example.datapersistance.protobuf.FindByIdRequestAnimal, com.example.datapersistance.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod;
+    if ((getGetAnimalsInvolvedIntoProductMethod = AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod) == null) {
+      synchronized (AnimalGrpc.class) {
+        if ((getGetAnimalsInvolvedIntoProductMethod = AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod) == null) {
+          AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod = getGetAnimalsInvolvedIntoProductMethod =
+              io.grpc.MethodDescriptor.<com.example.datapersistance.protobuf.FindByIdRequestAnimal, com.example.datapersistance.protobuf.AllAnimals>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAnimalsInvolvedIntoProduct"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.datapersistance.protobuf.FindByIdRequestAnimal.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.datapersistance.protobuf.AllAnimals.getDefaultInstance()))
+              .setSchemaDescriptor(new AnimalMethodDescriptorSupplier("getAnimalsInvolvedIntoProduct"))
+              .build();
+        }
+      }
+    }
+    return getGetAnimalsInvolvedIntoProductMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -404,6 +435,13 @@ public final class AnimalGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAllProductsFromAnimalMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getAnimalsInvolvedIntoProduct(com.example.datapersistance.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<com.example.datapersistance.protobuf.AllAnimals> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAnimalsInvolvedIntoProductMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -469,6 +507,13 @@ public final class AnimalGrpc {
                 com.example.datapersistance.protobuf.FindByIdRequestAnimal,
                 com.example.datapersistance.protobuf.Products>(
                   this, METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL)))
+          .addMethod(
+            getGetAnimalsInvolvedIntoProductMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.example.datapersistance.protobuf.FindByIdRequestAnimal,
+                com.example.datapersistance.protobuf.AllAnimals>(
+                  this, METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT)))
           .build();
     }
   }
@@ -558,6 +603,14 @@ public final class AnimalGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFindAllProductsFromAnimalMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getAnimalsInvolvedIntoProduct(com.example.datapersistance.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<com.example.datapersistance.protobuf.AllAnimals> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAnimalsInvolvedIntoProductMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -635,6 +688,13 @@ public final class AnimalGrpc {
     public com.example.datapersistance.protobuf.Products findAllProductsFromAnimal(com.example.datapersistance.protobuf.FindByIdRequestAnimal request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFindAllProductsFromAnimalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.datapersistance.protobuf.AllAnimals getAnimalsInvolvedIntoProduct(com.example.datapersistance.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAnimalsInvolvedIntoProductMethod(), getCallOptions(), request);
     }
   }
 
@@ -723,6 +783,14 @@ public final class AnimalGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFindAllProductsFromAnimalMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.datapersistance.protobuf.AllAnimals> getAnimalsInvolvedIntoProduct(
+        com.example.datapersistance.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAnimalsInvolvedIntoProductMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SAVE_ANIMAL = 0;
@@ -734,6 +802,7 @@ public final class AnimalGrpc {
   private static final int METHODID_GET_MAX_ID_ANIMAL = 6;
   private static final int METHODID_FIND_BY_ORIGIN_ANIMAL = 7;
   private static final int METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL = 8;
+  private static final int METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -787,6 +856,10 @@ public final class AnimalGrpc {
         case METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL:
           serviceImpl.findAllProductsFromAnimal((com.example.datapersistance.protobuf.FindByIdRequestAnimal) request,
               (io.grpc.stub.StreamObserver<com.example.datapersistance.protobuf.Products>) responseObserver);
+          break;
+        case METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT:
+          serviceImpl.getAnimalsInvolvedIntoProduct((com.example.datapersistance.protobuf.FindByIdRequestAnimal) request,
+              (io.grpc.stub.StreamObserver<com.example.datapersistance.protobuf.AllAnimals>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -858,6 +931,7 @@ public final class AnimalGrpc {
               .addMethod(getGetMaxIdAnimalMethod())
               .addMethod(getFindByOriginAnimalMethod())
               .addMethod(getFindAllProductsFromAnimalMethod())
+              .addMethod(getGetAnimalsInvolvedIntoProductMethod())
               .build();
         }
       }
