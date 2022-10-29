@@ -8,6 +8,7 @@ import java.util.*;
 
 @Repository
 public class PartRepositoryImpl implements PartRepository {
+
     private static final Map<Integer, Part> partMap = new HashMap<>();
 
     static {

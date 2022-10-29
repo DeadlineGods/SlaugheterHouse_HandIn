@@ -4,9 +4,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
-import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalGrpc;
-import via.sdj3.animalregistrationsystem_sdj3.protobuf.SaveAnimalRequest;
-import via.sdj3.animalregistrationsystem_sdj3.protobuf.SaveAnimalResponse;
+import via.sdj3.animalregistrationsystem_sdj3.protobuf.*;
 import via.sdj3.animalregistrationsystem_sdj3.repository.AnimalRepository;
 
 import java.time.LocalDate;
@@ -16,6 +14,7 @@ import java.util.List;
 public class AnimalGrpcImpl implements AnimalRepository {
 
     AnimalGrpc.AnimalBlockingStub stub;
+
 
     public AnimalGrpcImpl() {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 6565).usePlaintext().build();
@@ -28,13 +27,12 @@ public class AnimalGrpcImpl implements AnimalRepository {
     public Animal save(Animal animal) {
 
         System.out.println("Ett");
-
         SaveAnimalRequest request = SaveAnimalRequest.newBuilder()
                 .setWeight(animal.getWeight())
                 .setOrigin(animal.getOrigin())
-                .setYear(animal.getArriveDate().getYear())
-                .setDay(animal.getArriveDate().getDay())
-                .setMonth(animal.getArriveDate().getMonth())
+                .setYear(animal.getYear())
+                .setDay(animal.getDay())
+                .setMonth(animal.getMonth())
                 .build();
 
         SaveAnimalResponse response = stub.saveAnimal(request);
@@ -43,8 +41,12 @@ public class AnimalGrpcImpl implements AnimalRepository {
     }
 
     @Override
-    public Animal findById(Long id) {
-        return null;
+    public AnimalMessage findById(Long  id) {
+        FindByIdRequestAnimal requestAnimal = FindByIdRequestAnimal.newBuilder()
+                .setId(id).build();
+        FindByIdResponseAnimal response = stub.findByIdAnimal(requestAnimal);
+        System.out.println(response.getAnimal(id.intValue()));
+        return response.getAnimal(id.intValue());
     }
 
     @Override
@@ -69,7 +71,8 @@ public class AnimalGrpcImpl implements AnimalRepository {
 
     @Override
     public Long getMaxId() {
-        return null;
+        long id = 0;
+        return id;
     }
 
     @Override

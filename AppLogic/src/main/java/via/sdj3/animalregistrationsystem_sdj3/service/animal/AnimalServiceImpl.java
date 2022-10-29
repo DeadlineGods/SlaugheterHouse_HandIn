@@ -2,10 +2,10 @@ package via.sdj3.animalregistrationsystem_sdj3.service.animal;
 
 import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
+import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage;
 import via.sdj3.animalregistrationsystem_sdj3.repository.AnimalRepository;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +22,7 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     public Animal create(Animal animal) throws Exception {
-        animal.setAnimalNo(animalRepository.getMaxId());
+        animal.setAnimalNo(animalRepository.getMaxId()+1);
 
         validate(animal);
 
@@ -40,7 +40,7 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public Optional<Animal> findByID(Long id) {
+    public Optional<AnimalMessage> findByID(Long id) {
         return Optional.ofNullable(animalRepository.findById(id));
     }
 

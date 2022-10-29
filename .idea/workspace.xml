@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Comitting">
-      <change afterPath="$PROJECT_DIR$/src/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/AnimalGrpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/AnimalGrpcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/AnimalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/AnimalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/animal/AnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/animal/AnimalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/animal/AnimalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/animal/AnimalServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,27 +45,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Darko/Desktop/VIA/Semester 3/SDJ3/SlaugheterHouse_HandIn2",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "9d34abf2d66dd2cc634d2f6c3b6210db"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/natal/a22/sdj3/SlaugheterHouse_HandIn2&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;dc28a32f775c10b8f6309faf49391ad1&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\natal\a22\sdj3\SlaugheterHouse_HandIn2\DataPersistance\src\main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.GrpcSpringbootXApplication">
+    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/AppLogic/test.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="AnimalRegistrationSystemSdj3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="AnimalRegistrationSystem_SDJ3" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="via.sdj3.animalregistrationsystem_sdj3.AnimalRegistrationSystemSdj3Application" />
@@ -68,6 +79,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GrpcSpringbootXApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="DataPersistance" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.datapersistance.GrpcSpringbootXApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.test | #1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,6 +106,12 @@
       <workItem from="1666695295093" duration="2356000" />
       <workItem from="1666698142772" duration="635000" />
       <workItem from="1666703034610" duration="997000" />
+      <workItem from="1666856816493" duration="203000" />
+      <workItem from="1666949261830" duration="24000" />
+      <workItem from="1666949289066" duration="32000" />
+      <workItem from="1666949333580" duration="375000" />
+      <workItem from="1666949718798" duration="324000" />
+      <workItem from="1666950059682" duration="10560000" />
     </task>
     <task id="LOCAL-00001" summary="Product part">
       <created>1664990477862</created>
@@ -198,5 +227,9 @@
     <MESSAGE value="Added filtering by arrival date DONE" />
     <MESSAGE value="Comitting" />
     <option name="LAST_COMMIT_MESSAGE" value="Comitting" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

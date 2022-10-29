@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
+import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalService;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
 
@@ -62,7 +63,7 @@ public class AnimalController {
     public ResponseEntity<Object> getAnimalById(@PathVariable("id") Long id)
     {
         try{
-            Optional<Animal> animal = animalService.findByID(id);
+            Optional<AnimalMessage> animal = animalService.findByID(id);
             if(animal.isPresent()){
                 return new ResponseEntity<>(animal.get(),HttpStatus.OK);
             }

@@ -8,14 +8,47 @@ import java.util.Date;
 
 public class Animal {
 
-    private Date arriveDate;
+    private int year;
+    private int month;
+    private int day;
     private double weight;
     private Long animalNo;
     private String origin;
+    public int getYear() {
+        return year;
+    }
 
-    public Animal(double weight, String origin) {
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+
+
+    public Animal()
+    {
+
+    }
+    public Animal(double weight, String origin, int year, int month, int day) {
         this.weight = weight;
-        this.arriveDate = new Date();
+        this.year=year;
+        this.month = month;
+        this.day = day;
         this.origin = origin;
     }
 
@@ -23,13 +56,15 @@ public class Animal {
         this.weight = weight;
         this.origin = origin;
         this.animalNo = animalNo;
-
-        try {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        /*try {
             String dateString = String.format("%d/%d/%d", year, month, day);
             arriveDate = new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
         } catch (ParseException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     public double getWeight() {
@@ -46,14 +81,6 @@ public class Animal {
 
     public void setAnimalNo(Long animalNo) {
         this.animalNo = animalNo;
-    }
-
-    public Date getArriveDate() {
-        return arriveDate;
-    }
-
-    public void setArriveDate(Date arriveDate) {
-        this.arriveDate = arriveDate;
     }
 
     public String getOrigin() {
