@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FindByIdResponseAnimal() {
-    animal_ = java.util.Collections.emptyList();
+    origin_ = "";
   }
 
   @java.lang.Override
@@ -39,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -50,13 +49,35 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              animal_ = new java.util.ArrayList<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            animal_.add(
-                input.readMessage(via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.parser(), extensionRegistry));
+          case 8: {
+
+            year_ = input.readInt32();
+            break;
+          }
+          case 16: {
+
+            month_ = input.readInt32();
+            break;
+          }
+          case 24: {
+
+            day_ = input.readInt32();
+            break;
+          }
+          case 33: {
+
+            weight_ = input.readDouble();
+            break;
+          }
+          case 40: {
+
+            animalNo_ = input.readInt64();
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            origin_ = s;
             break;
           }
           default: {
@@ -76,9 +97,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        animal_ = java.util.Collections.unmodifiableList(animal_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -96,44 +114,97 @@ private static final long serialVersionUID = 0L;
             via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal.class, via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal.Builder.class);
   }
 
-  public static final int ANIMAL_FIELD_NUMBER = 1;
-  private java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> animal_;
+  public static final int YEAR_FIELD_NUMBER = 1;
+  private int year_;
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>int32 year = 1;</code>
+   * @return The year.
    */
   @java.lang.Override
-  public java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> getAnimalList() {
-    return animal_;
+  public int getYear() {
+    return year_;
+  }
+
+  public static final int MONTH_FIELD_NUMBER = 2;
+  private int month_;
+  /**
+   * <code>int32 month = 2;</code>
+   * @return The month.
+   */
+  @java.lang.Override
+  public int getMonth() {
+    return month_;
+  }
+
+  public static final int DAY_FIELD_NUMBER = 3;
+  private int day_;
+  /**
+   * <code>int32 day = 3;</code>
+   * @return The day.
+   */
+  @java.lang.Override
+  public int getDay() {
+    return day_;
+  }
+
+  public static final int WEIGHT_FIELD_NUMBER = 4;
+  private double weight_;
+  /**
+   * <code>double weight = 4;</code>
+   * @return The weight.
+   */
+  @java.lang.Override
+  public double getWeight() {
+    return weight_;
+  }
+
+  public static final int ANIMALNO_FIELD_NUMBER = 5;
+  private long animalNo_;
+  /**
+   * <code>int64 animalNo = 5;</code>
+   * @return The animalNo.
+   */
+  @java.lang.Override
+  public long getAnimalNo() {
+    return animalNo_;
+  }
+
+  public static final int ORIGIN_FIELD_NUMBER = 6;
+  private volatile java.lang.Object origin_;
+  /**
+   * <code>string origin = 6;</code>
+   * @return The origin.
+   */
+  @java.lang.Override
+  public java.lang.String getOrigin() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      origin_ = s;
+      return s;
+    }
   }
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>string origin = 6;</code>
+   * @return The bytes for origin.
    */
   @java.lang.Override
-  public java.util.List<? extends via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder> 
-      getAnimalOrBuilderList() {
-    return animal_;
-  }
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public int getAnimalCount() {
-    return animal_.size();
-  }
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage getAnimal(int index) {
-    return animal_.get(index);
-  }
-  /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-      int index) {
-    return animal_.get(index);
+  public com.google.protobuf.ByteString
+      getOriginBytes() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      origin_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,8 +221,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < animal_.size(); i++) {
-      output.writeMessage(1, animal_.get(i));
+    if (year_ != 0) {
+      output.writeInt32(1, year_);
+    }
+    if (month_ != 0) {
+      output.writeInt32(2, month_);
+    }
+    if (day_ != 0) {
+      output.writeInt32(3, day_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
+      output.writeDouble(4, weight_);
+    }
+    if (animalNo_ != 0L) {
+      output.writeInt64(5, animalNo_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(origin_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, origin_);
     }
     unknownFields.writeTo(output);
   }
@@ -162,9 +248,28 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < animal_.size(); i++) {
+    if (year_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, animal_.get(i));
+        .computeInt32Size(1, year_);
+    }
+    if (month_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, month_);
+    }
+    if (day_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, day_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(4, weight_);
+    }
+    if (animalNo_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, animalNo_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(origin_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, origin_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,8 +286,19 @@ private static final long serialVersionUID = 0L;
     }
     via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal other = (via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal) obj;
 
-    if (!getAnimalList()
-        .equals(other.getAnimalList())) return false;
+    if (getYear()
+        != other.getYear()) return false;
+    if (getMonth()
+        != other.getMonth()) return false;
+    if (getDay()
+        != other.getDay()) return false;
+    if (java.lang.Double.doubleToLongBits(getWeight())
+        != java.lang.Double.doubleToLongBits(
+            other.getWeight())) return false;
+    if (getAnimalNo()
+        != other.getAnimalNo()) return false;
+    if (!getOrigin()
+        .equals(other.getOrigin())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -194,10 +310,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getAnimalCount() > 0) {
-      hash = (37 * hash) + ANIMAL_FIELD_NUMBER;
-      hash = (53 * hash) + getAnimalList().hashCode();
-    }
+    hash = (37 * hash) + YEAR_FIELD_NUMBER;
+    hash = (53 * hash) + getYear();
+    hash = (37 * hash) + MONTH_FIELD_NUMBER;
+    hash = (53 * hash) + getMonth();
+    hash = (37 * hash) + DAY_FIELD_NUMBER;
+    hash = (53 * hash) + getDay();
+    hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getWeight()));
+    hash = (37 * hash) + ANIMALNO_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getAnimalNo());
+    hash = (37 * hash) + ORIGIN_FIELD_NUMBER;
+    hash = (53 * hash) + getOrigin().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -326,18 +452,23 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getAnimalFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (animalBuilder_ == null) {
-        animal_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      } else {
-        animalBuilder_.clear();
-      }
+      year_ = 0;
+
+      month_ = 0;
+
+      day_ = 0;
+
+      weight_ = 0D;
+
+      animalNo_ = 0L;
+
+      origin_ = "";
+
       return this;
     }
 
@@ -364,16 +495,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal buildPartial() {
       via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal result = new via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal(this);
-      int from_bitField0_ = bitField0_;
-      if (animalBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          animal_ = java.util.Collections.unmodifiableList(animal_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.animal_ = animal_;
-      } else {
-        result.animal_ = animalBuilder_.build();
-      }
+      result.year_ = year_;
+      result.month_ = month_;
+      result.day_ = day_;
+      result.weight_ = weight_;
+      result.animalNo_ = animalNo_;
+      result.origin_ = origin_;
       onBuilt();
       return result;
     }
@@ -422,31 +549,24 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal other) {
       if (other == via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal.getDefaultInstance()) return this;
-      if (animalBuilder_ == null) {
-        if (!other.animal_.isEmpty()) {
-          if (animal_.isEmpty()) {
-            animal_ = other.animal_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAnimalIsMutable();
-            animal_.addAll(other.animal_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.animal_.isEmpty()) {
-          if (animalBuilder_.isEmpty()) {
-            animalBuilder_.dispose();
-            animalBuilder_ = null;
-            animal_ = other.animal_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            animalBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getAnimalFieldBuilder() : null;
-          } else {
-            animalBuilder_.addAllMessages(other.animal_);
-          }
-        }
+      if (other.getYear() != 0) {
+        setYear(other.getYear());
+      }
+      if (other.getMonth() != 0) {
+        setMonth(other.getMonth());
+      }
+      if (other.getDay() != 0) {
+        setDay(other.getDay());
+      }
+      if (other.getWeight() != 0D) {
+        setWeight(other.getWeight());
+      }
+      if (other.getAnimalNo() != 0L) {
+        setAnimalNo(other.getAnimalNo());
+      }
+      if (!other.getOrigin().isEmpty()) {
+        origin_ = other.origin_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -476,246 +596,236 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> animal_ =
-      java.util.Collections.emptyList();
-    private void ensureAnimalIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        animal_ = new java.util.ArrayList<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage>(animal_);
-        bitField0_ |= 0x00000001;
-       }
+    private int year_ ;
+    /**
+     * <code>int32 year = 1;</code>
+     * @return The year.
+     */
+    @java.lang.Override
+    public int getYear() {
+      return year_;
+    }
+    /**
+     * <code>int32 year = 1;</code>
+     * @param value The year to set.
+     * @return This builder for chaining.
+     */
+    public Builder setYear(int value) {
+      
+      year_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 year = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearYear() {
+      
+      year_ = 0;
+      onChanged();
+      return this;
     }
 
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder> animalBuilder_;
+    private int month_ ;
+    /**
+     * <code>int32 month = 2;</code>
+     * @return The month.
+     */
+    @java.lang.Override
+    public int getMonth() {
+      return month_;
+    }
+    /**
+     * <code>int32 month = 2;</code>
+     * @param value The month to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMonth(int value) {
+      
+      month_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 month = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMonth() {
+      
+      month_ = 0;
+      onChanged();
+      return this;
+    }
 
+    private int day_ ;
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>int32 day = 3;</code>
+     * @return The day.
      */
-    public java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> getAnimalList() {
-      if (animalBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(animal_);
-      } else {
-        return animalBuilder_.getMessageList();
-      }
+    @java.lang.Override
+    public int getDay() {
+      return day_;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>int32 day = 3;</code>
+     * @param value The day to set.
+     * @return This builder for chaining.
      */
-    public int getAnimalCount() {
-      if (animalBuilder_ == null) {
-        return animal_.size();
-      } else {
-        return animalBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage getAnimal(int index) {
-      if (animalBuilder_ == null) {
-        return animal_.get(index);
-      } else {
-        return animalBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder setAnimal(
-        int index, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.set(index, value);
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(index, value);
-      }
+    public Builder setDay(int value) {
+      
+      day_ = value;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>int32 day = 3;</code>
+     * @return This builder for chaining.
      */
-    public Builder setAnimal(
-        int index, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder builderForValue) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(index, builderForValue.build());
-      }
+    public Builder clearDay() {
+      
+      day_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private double weight_ ;
+    /**
+     * <code>double weight = 4;</code>
+     * @return The weight.
+     */
+    @java.lang.Override
+    public double getWeight() {
+      return weight_;
+    }
+    /**
+     * <code>double weight = 4;</code>
+     * @param value The weight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWeight(double value) {
+      
+      weight_ = value;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>double weight = 4;</code>
+     * @return This builder for chaining.
      */
-    public Builder addAnimal(via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.add(value);
-        onChanged();
-      } else {
-        animalBuilder_.addMessage(value);
-      }
+    public Builder clearWeight() {
+      
+      weight_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private long animalNo_ ;
+    /**
+     * <code>int64 animalNo = 5;</code>
+     * @return The animalNo.
+     */
+    @java.lang.Override
+    public long getAnimalNo() {
+      return animalNo_;
+    }
+    /**
+     * <code>int64 animalNo = 5;</code>
+     * @param value The animalNo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAnimalNo(long value) {
+      
+      animalNo_ = value;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>int64 animalNo = 5;</code>
+     * @return This builder for chaining.
      */
-    public Builder addAnimal(
-        int index, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureAnimalIsMutable();
-        animal_.add(index, value);
-        onChanged();
+    public Builder clearAnimalNo() {
+      
+      animalNo_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object origin_ = "";
+    /**
+     * <code>string origin = 6;</code>
+     * @return The origin.
+     */
+    public java.lang.String getOrigin() {
+      java.lang.Object ref = origin_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        origin_ = s;
+        return s;
       } else {
-        animalBuilder_.addMessage(index, value);
+        return (java.lang.String) ref;
       }
+    }
+    /**
+     * <code>string origin = 6;</code>
+     * @return The bytes for origin.
+     */
+    public com.google.protobuf.ByteString
+        getOriginBytes() {
+      java.lang.Object ref = origin_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        origin_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string origin = 6;</code>
+     * @param value The origin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrigin(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      origin_ = value;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>string origin = 6;</code>
+     * @return This builder for chaining.
      */
-    public Builder addAnimal(
-        via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder builderForValue) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.add(builderForValue.build());
-        onChanged();
-      } else {
-        animalBuilder_.addMessage(builderForValue.build());
-      }
+    public Builder clearOrigin() {
+      
+      origin_ = getDefaultInstance().getOrigin();
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
+     * <code>string origin = 6;</code>
+     * @param value The bytes for origin to set.
+     * @return This builder for chaining.
      */
-    public Builder addAnimal(
-        int index, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder builderForValue) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        animalBuilder_.addMessage(index, builderForValue.build());
-      }
+    public Builder setOriginBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      origin_ = value;
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder addAllAnimal(
-        java.lang.Iterable<? extends via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> values) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, animal_);
-        onChanged();
-      } else {
-        animalBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder clearAnimal() {
-      if (animalBuilder_ == null) {
-        animal_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        animalBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public Builder removeAnimal(int index) {
-      if (animalBuilder_ == null) {
-        ensureAnimalIsMutable();
-        animal_.remove(index);
-        onChanged();
-      } else {
-        animalBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder getAnimalBuilder(
-        int index) {
-      return getAnimalFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-        int index) {
-      if (animalBuilder_ == null) {
-        return animal_.get(index);  } else {
-        return animalBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public java.util.List<? extends via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder> 
-         getAnimalOrBuilderList() {
-      if (animalBuilder_ != null) {
-        return animalBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(animal_);
-      }
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder addAnimalBuilder() {
-      return getAnimalFieldBuilder().addBuilder(
-          via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder addAnimalBuilder(
-        int index) {
-      return getAnimalFieldBuilder().addBuilder(
-          index, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .AnimalMessage animal = 1;</code>
-     */
-    public java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder> 
-         getAnimalBuilderList() {
-      return getAnimalFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder> 
-        getAnimalFieldBuilder() {
-      if (animalBuilder_ == null) {
-        animalBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage.Builder, via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder>(
-                animal_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        animal_ = null;
-      }
-      return animalBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.service.animal;
 
 import org.springframework.stereotype.Service;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
+import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage;
 import via.sdj3.animalregistrationsystem_sdj3.repository.AnimalRepository;
 
@@ -22,10 +23,8 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     public Animal create(Animal animal) throws Exception {
-        animal.setAnimalNo(animalRepository.getMaxId()+1);
 
         validate(animal);
-
         return animalRepository.save(animal);
     }
 
@@ -40,7 +39,7 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public Optional<AnimalMessage> findByID(Long id) {
+    public Optional<Animal> findByID(Long id) {
         return Optional.ofNullable(animalRepository.findById(id));
     }
 
@@ -64,6 +63,11 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.findByOrigin(origin);
     }
 
+    @Override
+    public List<Animal> findAnimalsInvolved(Long id) {
+        return animalRepository.getAnimalsInvolvedIntoProduct(id);
+    }
+
     private void validate(Animal animal) throws Exception {
         if(!containsValue(animal.getOrigin())){
             throw new Exception("Country " + animal.getOrigin() + " does not exist.");
@@ -77,5 +81,9 @@ public class AnimalServiceImpl implements AnimalService {
         }
 
         return false;
+    }
+    @Override
+    public List<Product> findProductsFromAnimal(Long id) {
+        return animalRepository.findAllProductsFromAnimal(id.intValue());
     }
 }

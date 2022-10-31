@@ -8,26 +8,44 @@ public interface FindByIdResponseAnimalOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>int32 year = 1;</code>
+   * @return The year.
    */
-  java.util.List<via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage> 
-      getAnimalList();
+  int getYear();
+
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>int32 month = 2;</code>
+   * @return The month.
    */
-  via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage getAnimal(int index);
+  int getMonth();
+
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>int32 day = 3;</code>
+   * @return The day.
    */
-  int getAnimalCount();
+  int getDay();
+
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>double weight = 4;</code>
+   * @return The weight.
    */
-  java.util.List<? extends via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder> 
-      getAnimalOrBuilderList();
+  double getWeight();
+
   /**
-   * <code>repeated .AnimalMessage animal = 1;</code>
+   * <code>int64 animalNo = 5;</code>
+   * @return The animalNo.
    */
-  via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder(
-      int index);
+  long getAnimalNo();
+
+  /**
+   * <code>string origin = 6;</code>
+   * @return The origin.
+   */
+  java.lang.String getOrigin();
+  /**
+   * <code>string origin = 6;</code>
+   * @return The bytes for origin.
+   */
+  com.google.protobuf.ByteString
+      getOriginBytes();
 }

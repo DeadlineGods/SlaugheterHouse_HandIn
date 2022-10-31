@@ -12,6 +12,12 @@ public class Product {
         this.partNo = partNo;
     }
 
+    public Product(Long registrationNo, Long trayId, int partNo) {
+        this.registrationNo = registrationNo;
+        this.trayId = trayId;
+        this.partNo = partNo;
+    }
+
     public Long getRegistrationNo() {
         return this.registrationNo;
     }

@@ -262,6 +262,68 @@ public final class AnimalGrpc {
     return getFindByOriginAnimalMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+      via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> getFindAllProductsFromAnimalMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "findAllProductsFromAnimal",
+      requestType = via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal.class,
+      responseType = via.sdj3.animalregistrationsystem_sdj3.protobuf.Products.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+      via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> getFindAllProductsFromAnimalMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal, via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> getFindAllProductsFromAnimalMethod;
+    if ((getFindAllProductsFromAnimalMethod = AnimalGrpc.getFindAllProductsFromAnimalMethod) == null) {
+      synchronized (AnimalGrpc.class) {
+        if ((getFindAllProductsFromAnimalMethod = AnimalGrpc.getFindAllProductsFromAnimalMethod) == null) {
+          AnimalGrpc.getFindAllProductsFromAnimalMethod = getFindAllProductsFromAnimalMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal, via.sdj3.animalregistrationsystem_sdj3.protobuf.Products>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findAllProductsFromAnimal"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.animalregistrationsystem_sdj3.protobuf.Products.getDefaultInstance()))
+              .setSchemaDescriptor(new AnimalMethodDescriptorSupplier("findAllProductsFromAnimal"))
+              .build();
+        }
+      }
+    }
+    return getFindAllProductsFromAnimalMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+      via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getAnimalsInvolvedIntoProduct",
+      requestType = via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal.class,
+      responseType = via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+      via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod() {
+    io.grpc.MethodDescriptor<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal, via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> getGetAnimalsInvolvedIntoProductMethod;
+    if ((getGetAnimalsInvolvedIntoProductMethod = AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod) == null) {
+      synchronized (AnimalGrpc.class) {
+        if ((getGetAnimalsInvolvedIntoProductMethod = AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod) == null) {
+          AnimalGrpc.getGetAnimalsInvolvedIntoProductMethod = getGetAnimalsInvolvedIntoProductMethod =
+              io.grpc.MethodDescriptor.<via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal, via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAnimalsInvolvedIntoProduct"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals.getDefaultInstance()))
+              .setSchemaDescriptor(new AnimalMethodDescriptorSupplier("getAnimalsInvolvedIntoProduct"))
+              .build();
+        }
+      }
+    }
+    return getGetAnimalsInvolvedIntoProductMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -366,6 +428,20 @@ public final class AnimalGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindByOriginAnimalMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void findAllProductsFromAnimal(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAllProductsFromAnimalMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getAnimalsInvolvedIntoProduct(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAnimalsInvolvedIntoProductMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -424,6 +500,20 @@ public final class AnimalGrpc {
                 via.sdj3.animalregistrationsystem_sdj3.protobuf.GetFromOriginRequestAnimal,
                 via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals>(
                   this, METHODID_FIND_BY_ORIGIN_ANIMAL)))
+          .addMethod(
+            getFindAllProductsFromAnimalMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+                via.sdj3.animalregistrationsystem_sdj3.protobuf.Products>(
+                  this, METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL)))
+          .addMethod(
+            getGetAnimalsInvolvedIntoProductMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal,
+                via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals>(
+                  this, METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT)))
           .build();
     }
   }
@@ -505,6 +595,22 @@ public final class AnimalGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFindByOriginAnimalMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void findAllProductsFromAnimal(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getFindAllProductsFromAnimalMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getAnimalsInvolvedIntoProduct(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request,
+        io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAnimalsInvolvedIntoProductMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -575,6 +681,20 @@ public final class AnimalGrpc {
     public via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals findByOriginAnimal(via.sdj3.animalregistrationsystem_sdj3.protobuf.GetFromOriginRequestAnimal request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFindByOriginAnimalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.animalregistrationsystem_sdj3.protobuf.Products findAllProductsFromAnimal(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFindAllProductsFromAnimalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals getAnimalsInvolvedIntoProduct(via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAnimalsInvolvedIntoProductMethod(), getCallOptions(), request);
     }
   }
 
@@ -655,6 +775,22 @@ public final class AnimalGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFindByOriginAnimalMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.animalregistrationsystem_sdj3.protobuf.Products> findAllProductsFromAnimal(
+        via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getFindAllProductsFromAnimalMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals> getAnimalsInvolvedIntoProduct(
+        via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAnimalsInvolvedIntoProductMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SAVE_ANIMAL = 0;
@@ -665,6 +801,8 @@ public final class AnimalGrpc {
   private static final int METHODID_FIND_BY_DATE_ANIMAL = 5;
   private static final int METHODID_GET_MAX_ID_ANIMAL = 6;
   private static final int METHODID_FIND_BY_ORIGIN_ANIMAL = 7;
+  private static final int METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL = 8;
+  private static final int METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -713,6 +851,14 @@ public final class AnimalGrpc {
           break;
         case METHODID_FIND_BY_ORIGIN_ANIMAL:
           serviceImpl.findByOriginAnimal((via.sdj3.animalregistrationsystem_sdj3.protobuf.GetFromOriginRequestAnimal) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals>) responseObserver);
+          break;
+        case METHODID_FIND_ALL_PRODUCTS_FROM_ANIMAL:
+          serviceImpl.findAllProductsFromAnimal((via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal) request,
+              (io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.Products>) responseObserver);
+          break;
+        case METHODID_GET_ANIMALS_INVOLVED_INTO_PRODUCT:
+          serviceImpl.getAnimalsInvolvedIntoProduct((via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal) request,
               (io.grpc.stub.StreamObserver<via.sdj3.animalregistrationsystem_sdj3.protobuf.AllAnimals>) responseObserver);
           break;
         default:
@@ -784,6 +930,8 @@ public final class AnimalGrpc {
               .addMethod(getFindByDateAnimalMethod())
               .addMethod(getGetMaxIdAnimalMethod())
               .addMethod(getFindByOriginAnimalMethod())
+              .addMethod(getFindAllProductsFromAnimalMethod())
+              .addMethod(getGetAnimalsInvolvedIntoProductMethod())
               .build();
         }
       }

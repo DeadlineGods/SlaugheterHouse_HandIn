@@ -79,6 +79,16 @@ public final class AnimalOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_EmptyAnimal_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Products_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Products_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProductMessageAnimal_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProductMessageAnimal_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -104,27 +114,36 @@ public final class AnimalOuterClass {
       "sponse\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003d" +
       "ay\030\003 \001(\005\022\016\n\006weight\030\004 \001(\001\022\020\n\010animalNo\030\005 \001" +
       "(\003\022\016\n\006origin\030\006 \001(\t\"%\n\027DeleteByIdRequestA" +
-      "nimal\022\n\n\002id\030\001 \001(\003\"8\n\026FindByIdResponseAni" +
-      "mal\022\036\n\006animal\030\001 \003(\0132\016.AnimalMessage\",\n\nA" +
-      "llAnimals\022\036\n\006animal\030\001 \003(\0132\016.AnimalMessag" +
-      "e\"E\n\031FilterByDateRequestAnimal\022\014\n\004year\030\001" +
-      " \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"(\n\026GetM" +
-      "axIdResponseAnimal\022\016\n\006max_id\030\001 \001(\003\",\n\032Ge" +
-      "tFromOriginRequestAnimal\022\016\n\006origin\030\001 \001(\t" +
-      "\"\r\n\013EmptyAnimal2\335\003\n\006Animal\0225\n\nsaveAnimal" +
-      "\022\022.SaveAnimalRequest\032\023.SaveAnimalRespons" +
-      "e\022A\n\016findByIdAnimal\022\026.FindByIdRequestAni" +
-      "mal\032\027.FindByIdResponseAnimal\022;\n\014updateAn" +
-      "imal\022\024.UpdateAnimalRequest\032\025.UpdateAnima" +
-      "lResponse\022:\n\020deleteByIdAnimal\022\030.DeleteBy" +
-      "IdRequestAnimal\032\014.EmptyAnimal\022*\n\rfindAll" +
-      "Animal\022\014.EmptyAnimal\032\013.AllAnimals\022;\n\020fin" +
-      "dByDateAnimal\022\032.FilterByDateRequestAnima" +
-      "l\032\013.AllAnimals\0227\n\016getMaxIdAnimal\022\014.Empty" +
-      "Animal\032\027.GetMaxIdResponseAnimal\022>\n\022findB" +
-      "yOriginAnimal\022\033.GetFromOriginRequestAnim" +
-      "al\032\013.AllAnimalsB3\n/via.sdj3.animalregist" +
-      "rationsystem_sdj3.protobufP\001b\006proto3"
+      "nimal\022\n\n\002id\030\001 \001(\003\"t\n\026FindByIdResponseAni" +
+      "mal\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030" +
+      "\003 \001(\005\022\016\n\006weight\030\004 \001(\001\022\020\n\010animalNo\030\005 \001(\003\022" +
+      "\016\n\006origin\030\006 \001(\t\",\n\nAllAnimals\022\036\n\006animal\030" +
+      "\001 \003(\0132\016.AnimalMessage\"E\n\031FilterByDateReq" +
+      "uestAnimal\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022" +
+      "\013\n\003day\030\003 \001(\005\"(\n\026GetMaxIdResponseAnimal\022\016" +
+      "\n\006max_id\030\001 \001(\003\",\n\032GetFromOriginRequestAn" +
+      "imal\022\016\n\006origin\030\001 \001(\t\"\r\n\013EmptyAnimal\"3\n\010P" +
+      "roducts\022\'\n\010products\030\001 \003(\0132\025.ProductMessa" +
+      "geAnimal\"N\n\024ProductMessageAnimal\022\026\n\016regi" +
+      "strationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006part" +
+      "No\030\003 \001(\0052\343\004\n\006Animal\0225\n\nsaveAnimal\022\022.Save" +
+      "AnimalRequest\032\023.SaveAnimalResponse\022A\n\016fi" +
+      "ndByIdAnimal\022\026.FindByIdRequestAnimal\032\027.F" +
+      "indByIdResponseAnimal\022;\n\014updateAnimal\022\024." +
+      "UpdateAnimalRequest\032\025.UpdateAnimalRespon" +
+      "se\022:\n\020deleteByIdAnimal\022\030.DeleteByIdReque" +
+      "stAnimal\032\014.EmptyAnimal\022*\n\rfindAllAnimal\022" +
+      "\014.EmptyAnimal\032\013.AllAnimals\022;\n\020findByDate" +
+      "Animal\022\032.FilterByDateRequestAnimal\032\013.All" +
+      "Animals\0227\n\016getMaxIdAnimal\022\014.EmptyAnimal\032" +
+      "\027.GetMaxIdResponseAnimal\022>\n\022findByOrigin" +
+      "Animal\022\033.GetFromOriginRequestAnimal\032\013.Al" +
+      "lAnimals\022>\n\031findAllProductsFromAnimal\022\026." +
+      "FindByIdRequestAnimal\032\t.Products\022D\n\035getA" +
+      "nimalsInvolvedIntoProduct\022\026.FindByIdRequ" +
+      "estAnimal\032\013.AllAnimalsB3\n/via.sdj3.anima" +
+      "lregistrationsystem_sdj3.protobufP\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -177,7 +196,7 @@ public final class AnimalOuterClass {
     internal_static_FindByIdResponseAnimal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FindByIdResponseAnimal_descriptor,
-        new java.lang.String[] { "Animal", });
+        new java.lang.String[] { "Year", "Month", "Day", "Weight", "AnimalNo", "Origin", });
     internal_static_AllAnimals_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_AllAnimals_fieldAccessorTable = new
@@ -208,6 +227,18 @@ public final class AnimalOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EmptyAnimal_descriptor,
         new java.lang.String[] { });
+    internal_static_Products_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_Products_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Products_descriptor,
+        new java.lang.String[] { "Products", });
+    internal_static_ProductMessageAnimal_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_ProductMessageAnimal_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProductMessageAnimal_descriptor,
+        new java.lang.String[] { "RegistrationNo", "TrayId", "PartNo", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

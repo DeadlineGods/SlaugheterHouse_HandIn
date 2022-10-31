@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
+import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalService;
 import via.sdj3.animalregistrationsystem_sdj3.service.animal.AnimalServiceImpl;
@@ -63,7 +64,7 @@ public class AnimalController {
     public ResponseEntity<Object> getAnimalById(@PathVariable("id") Long id)
     {
         try{
-            Optional<AnimalMessage> animal = animalService.findByID(id);
+            Optional<Animal> animal = animalService.findByID(id);
             if(animal.isPresent()){
                 return new ResponseEntity<>(animal.get(),HttpStatus.OK);
             }
@@ -103,6 +104,35 @@ public class AnimalController {
         {
             logger.error(e.getMessage(), e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/animals/involved/{id}")
+    public ResponseEntity<Object> getAnimalsInvolvedIntoProduct(@PathVariable("id") Long id)
+    {
+        try
+        {
+            List<Animal> animals = animalService.findAnimalsInvolved(id);
+            return new ResponseEntity<>(animals, HttpStatus.OK);
+        }
+        catch(Exception e)
+        {
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/products/fromAnimal/{id}")
+    public ResponseEntity<Object> getProductFromAnimal(@PathVariable Long id)
+    {
+        try
+        {
+            Iterable<Product> products = animalService.findProductsFromAnimal(id);
+
+            return new ResponseEntity<Object>(products, HttpStatus.OK);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
     }
 }

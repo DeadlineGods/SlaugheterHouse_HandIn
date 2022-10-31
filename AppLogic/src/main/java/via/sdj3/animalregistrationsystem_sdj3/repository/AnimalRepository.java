@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import org.springframework.cglib.core.Local;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
+import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.AnimalMessage;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdRequestAnimal;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.FindByIdResponseAnimal;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface AnimalRepository {
     Animal save(Animal animal);
 
-    AnimalMessage findById(Long id);
+    Animal findById(Long id);
 
     Animal update(Animal a);
 
@@ -23,7 +24,9 @@ public interface AnimalRepository {
 
     List<Animal> findByDate(LocalDate date);
 
-    Long getMaxId();
-
     List<Animal> findByOrigin(String origin);
+
+    List<Product> findAllProductsFromAnimal(int id);
+
+    List<Animal> getAnimalsInvolvedIntoProduct(long id);
 }
