@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FindByIdResponseAnimal() {
+    origin_ = "";
   }
 
   @java.lang.Override
@@ -48,17 +49,35 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            com.example.datapersistance.protobuf.AnimalMessage.Builder subBuilder = null;
-            if (animal_ != null) {
-              subBuilder = animal_.toBuilder();
-            }
-            animal_ = input.readMessage(com.example.datapersistance.protobuf.AnimalMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(animal_);
-              animal_ = subBuilder.buildPartial();
-            }
+          case 8: {
 
+            year_ = input.readInt32();
+            break;
+          }
+          case 16: {
+
+            month_ = input.readInt32();
+            break;
+          }
+          case 24: {
+
+            day_ = input.readInt32();
+            break;
+          }
+          case 33: {
+
+            weight_ = input.readDouble();
+            break;
+          }
+          case 40: {
+
+            animalNo_ = input.readInt64();
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            origin_ = s;
             break;
           }
           default: {
@@ -95,30 +114,97 @@ private static final long serialVersionUID = 0L;
             com.example.datapersistance.protobuf.FindByIdResponseAnimal.class, com.example.datapersistance.protobuf.FindByIdResponseAnimal.Builder.class);
   }
 
-  public static final int ANIMAL_FIELD_NUMBER = 1;
-  private com.example.datapersistance.protobuf.AnimalMessage animal_;
+  public static final int YEAR_FIELD_NUMBER = 1;
+  private int year_;
   /**
-   * <code>.AnimalMessage animal = 1;</code>
-   * @return Whether the animal field is set.
+   * <code>int32 year = 1;</code>
+   * @return The year.
    */
   @java.lang.Override
-  public boolean hasAnimal() {
-    return animal_ != null;
+  public int getYear() {
+    return year_;
+  }
+
+  public static final int MONTH_FIELD_NUMBER = 2;
+  private int month_;
+  /**
+   * <code>int32 month = 2;</code>
+   * @return The month.
+   */
+  @java.lang.Override
+  public int getMonth() {
+    return month_;
+  }
+
+  public static final int DAY_FIELD_NUMBER = 3;
+  private int day_;
+  /**
+   * <code>int32 day = 3;</code>
+   * @return The day.
+   */
+  @java.lang.Override
+  public int getDay() {
+    return day_;
+  }
+
+  public static final int WEIGHT_FIELD_NUMBER = 4;
+  private double weight_;
+  /**
+   * <code>double weight = 4;</code>
+   * @return The weight.
+   */
+  @java.lang.Override
+  public double getWeight() {
+    return weight_;
+  }
+
+  public static final int ANIMALNO_FIELD_NUMBER = 5;
+  private long animalNo_;
+  /**
+   * <code>int64 animalNo = 5;</code>
+   * @return The animalNo.
+   */
+  @java.lang.Override
+  public long getAnimalNo() {
+    return animalNo_;
+  }
+
+  public static final int ORIGIN_FIELD_NUMBER = 6;
+  private volatile java.lang.Object origin_;
+  /**
+   * <code>string origin = 6;</code>
+   * @return The origin.
+   */
+  @java.lang.Override
+  public java.lang.String getOrigin() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      origin_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.AnimalMessage animal = 1;</code>
-   * @return The animal.
+   * <code>string origin = 6;</code>
+   * @return The bytes for origin.
    */
   @java.lang.Override
-  public com.example.datapersistance.protobuf.AnimalMessage getAnimal() {
-    return animal_ == null ? com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
-  }
-  /**
-   * <code>.AnimalMessage animal = 1;</code>
-   */
-  @java.lang.Override
-  public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder() {
-    return getAnimal();
+  public com.google.protobuf.ByteString
+      getOriginBytes() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      origin_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -135,8 +221,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (animal_ != null) {
-      output.writeMessage(1, getAnimal());
+    if (year_ != 0) {
+      output.writeInt32(1, year_);
+    }
+    if (month_ != 0) {
+      output.writeInt32(2, month_);
+    }
+    if (day_ != 0) {
+      output.writeInt32(3, day_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
+      output.writeDouble(4, weight_);
+    }
+    if (animalNo_ != 0L) {
+      output.writeInt64(5, animalNo_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(origin_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, origin_);
     }
     unknownFields.writeTo(output);
   }
@@ -147,9 +248,28 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (animal_ != null) {
+    if (year_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getAnimal());
+        .computeInt32Size(1, year_);
+    }
+    if (month_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, month_);
+    }
+    if (day_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, day_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(4, weight_);
+    }
+    if (animalNo_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, animalNo_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(origin_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, origin_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -166,11 +286,19 @@ private static final long serialVersionUID = 0L;
     }
     com.example.datapersistance.protobuf.FindByIdResponseAnimal other = (com.example.datapersistance.protobuf.FindByIdResponseAnimal) obj;
 
-    if (hasAnimal() != other.hasAnimal()) return false;
-    if (hasAnimal()) {
-      if (!getAnimal()
-          .equals(other.getAnimal())) return false;
-    }
+    if (getYear()
+        != other.getYear()) return false;
+    if (getMonth()
+        != other.getMonth()) return false;
+    if (getDay()
+        != other.getDay()) return false;
+    if (java.lang.Double.doubleToLongBits(getWeight())
+        != java.lang.Double.doubleToLongBits(
+            other.getWeight())) return false;
+    if (getAnimalNo()
+        != other.getAnimalNo()) return false;
+    if (!getOrigin()
+        .equals(other.getOrigin())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -182,10 +310,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasAnimal()) {
-      hash = (37 * hash) + ANIMAL_FIELD_NUMBER;
-      hash = (53 * hash) + getAnimal().hashCode();
-    }
+    hash = (37 * hash) + YEAR_FIELD_NUMBER;
+    hash = (53 * hash) + getYear();
+    hash = (37 * hash) + MONTH_FIELD_NUMBER;
+    hash = (53 * hash) + getMonth();
+    hash = (37 * hash) + DAY_FIELD_NUMBER;
+    hash = (53 * hash) + getDay();
+    hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getWeight()));
+    hash = (37 * hash) + ANIMALNO_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getAnimalNo());
+    hash = (37 * hash) + ORIGIN_FIELD_NUMBER;
+    hash = (53 * hash) + getOrigin().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -319,12 +457,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (animalBuilder_ == null) {
-        animal_ = null;
-      } else {
-        animal_ = null;
-        animalBuilder_ = null;
-      }
+      year_ = 0;
+
+      month_ = 0;
+
+      day_ = 0;
+
+      weight_ = 0D;
+
+      animalNo_ = 0L;
+
+      origin_ = "";
+
       return this;
     }
 
@@ -351,11 +495,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.example.datapersistance.protobuf.FindByIdResponseAnimal buildPartial() {
       com.example.datapersistance.protobuf.FindByIdResponseAnimal result = new com.example.datapersistance.protobuf.FindByIdResponseAnimal(this);
-      if (animalBuilder_ == null) {
-        result.animal_ = animal_;
-      } else {
-        result.animal_ = animalBuilder_.build();
-      }
+      result.year_ = year_;
+      result.month_ = month_;
+      result.day_ = day_;
+      result.weight_ = weight_;
+      result.animalNo_ = animalNo_;
+      result.origin_ = origin_;
       onBuilt();
       return result;
     }
@@ -404,8 +549,24 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.example.datapersistance.protobuf.FindByIdResponseAnimal other) {
       if (other == com.example.datapersistance.protobuf.FindByIdResponseAnimal.getDefaultInstance()) return this;
-      if (other.hasAnimal()) {
-        mergeAnimal(other.getAnimal());
+      if (other.getYear() != 0) {
+        setYear(other.getYear());
+      }
+      if (other.getMonth() != 0) {
+        setMonth(other.getMonth());
+      }
+      if (other.getDay() != 0) {
+        setDay(other.getDay());
+      }
+      if (other.getWeight() != 0D) {
+        setWeight(other.getWeight());
+      }
+      if (other.getAnimalNo() != 0L) {
+        setAnimalNo(other.getAnimalNo());
+      }
+      if (!other.getOrigin().isEmpty()) {
+        origin_ = other.origin_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -436,123 +597,235 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.example.datapersistance.protobuf.AnimalMessage animal_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder> animalBuilder_;
+    private int year_ ;
     /**
-     * <code>.AnimalMessage animal = 1;</code>
-     * @return Whether the animal field is set.
+     * <code>int32 year = 1;</code>
+     * @return The year.
      */
-    public boolean hasAnimal() {
-      return animalBuilder_ != null || animal_ != null;
+    @java.lang.Override
+    public int getYear() {
+      return year_;
     }
     /**
-     * <code>.AnimalMessage animal = 1;</code>
-     * @return The animal.
+     * <code>int32 year = 1;</code>
+     * @param value The year to set.
+     * @return This builder for chaining.
      */
-    public com.example.datapersistance.protobuf.AnimalMessage getAnimal() {
-      if (animalBuilder_ == null) {
-        return animal_ == null ? com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
-      } else {
-        return animalBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.AnimalMessage animal = 1;</code>
-     */
-    public Builder setAnimal(com.example.datapersistance.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        animal_ = value;
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.AnimalMessage animal = 1;</code>
-     */
-    public Builder setAnimal(
-        com.example.datapersistance.protobuf.AnimalMessage.Builder builderForValue) {
-      if (animalBuilder_ == null) {
-        animal_ = builderForValue.build();
-        onChanged();
-      } else {
-        animalBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.AnimalMessage animal = 1;</code>
-     */
-    public Builder mergeAnimal(com.example.datapersistance.protobuf.AnimalMessage value) {
-      if (animalBuilder_ == null) {
-        if (animal_ != null) {
-          animal_ =
-            com.example.datapersistance.protobuf.AnimalMessage.newBuilder(animal_).mergeFrom(value).buildPartial();
-        } else {
-          animal_ = value;
-        }
-        onChanged();
-      } else {
-        animalBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.AnimalMessage animal = 1;</code>
-     */
-    public Builder clearAnimal() {
-      if (animalBuilder_ == null) {
-        animal_ = null;
-        onChanged();
-      } else {
-        animal_ = null;
-        animalBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.AnimalMessage animal = 1;</code>
-     */
-    public com.example.datapersistance.protobuf.AnimalMessage.Builder getAnimalBuilder() {
+    public Builder setYear(int value) {
       
+      year_ = value;
       onChanged();
-      return getAnimalFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.AnimalMessage animal = 1;</code>
+     * <code>int32 year = 1;</code>
+     * @return This builder for chaining.
      */
-    public com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder() {
-      if (animalBuilder_ != null) {
-        return animalBuilder_.getMessageOrBuilder();
+    public Builder clearYear() {
+      
+      year_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int month_ ;
+    /**
+     * <code>int32 month = 2;</code>
+     * @return The month.
+     */
+    @java.lang.Override
+    public int getMonth() {
+      return month_;
+    }
+    /**
+     * <code>int32 month = 2;</code>
+     * @param value The month to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMonth(int value) {
+      
+      month_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 month = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMonth() {
+      
+      month_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int day_ ;
+    /**
+     * <code>int32 day = 3;</code>
+     * @return The day.
+     */
+    @java.lang.Override
+    public int getDay() {
+      return day_;
+    }
+    /**
+     * <code>int32 day = 3;</code>
+     * @param value The day to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDay(int value) {
+      
+      day_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 day = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDay() {
+      
+      day_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private double weight_ ;
+    /**
+     * <code>double weight = 4;</code>
+     * @return The weight.
+     */
+    @java.lang.Override
+    public double getWeight() {
+      return weight_;
+    }
+    /**
+     * <code>double weight = 4;</code>
+     * @param value The weight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWeight(double value) {
+      
+      weight_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double weight = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWeight() {
+      
+      weight_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private long animalNo_ ;
+    /**
+     * <code>int64 animalNo = 5;</code>
+     * @return The animalNo.
+     */
+    @java.lang.Override
+    public long getAnimalNo() {
+      return animalNo_;
+    }
+    /**
+     * <code>int64 animalNo = 5;</code>
+     * @param value The animalNo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAnimalNo(long value) {
+      
+      animalNo_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 animalNo = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAnimalNo() {
+      
+      animalNo_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object origin_ = "";
+    /**
+     * <code>string origin = 6;</code>
+     * @return The origin.
+     */
+    public java.lang.String getOrigin() {
+      java.lang.Object ref = origin_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        origin_ = s;
+        return s;
       } else {
-        return animal_ == null ?
-            com.example.datapersistance.protobuf.AnimalMessage.getDefaultInstance() : animal_;
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.AnimalMessage animal = 1;</code>
+     * <code>string origin = 6;</code>
+     * @return The bytes for origin.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder> 
-        getAnimalFieldBuilder() {
-      if (animalBuilder_ == null) {
-        animalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.example.datapersistance.protobuf.AnimalMessage, com.example.datapersistance.protobuf.AnimalMessage.Builder, com.example.datapersistance.protobuf.AnimalMessageOrBuilder>(
-                getAnimal(),
-                getParentForChildren(),
-                isClean());
-        animal_ = null;
+    public com.google.protobuf.ByteString
+        getOriginBytes() {
+      java.lang.Object ref = origin_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        origin_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
       }
-      return animalBuilder_;
+    }
+    /**
+     * <code>string origin = 6;</code>
+     * @param value The origin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrigin(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      origin_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string origin = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrigin() {
+      
+      origin_ = getDefaultInstance().getOrigin();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string origin = 6;</code>
+     * @param value The bytes for origin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      origin_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

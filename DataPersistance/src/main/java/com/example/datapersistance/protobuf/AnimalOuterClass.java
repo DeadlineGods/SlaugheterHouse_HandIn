@@ -114,34 +114,35 @@ public final class AnimalOuterClass {
       "sponse\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003d" +
       "ay\030\003 \001(\005\022\016\n\006weight\030\004 \001(\001\022\020\n\010animalNo\030\005 \001" +
       "(\003\022\016\n\006origin\030\006 \001(\t\"%\n\027DeleteByIdRequestA" +
-      "nimal\022\n\n\002id\030\001 \001(\003\"8\n\026FindByIdResponseAni" +
-      "mal\022\036\n\006animal\030\001 \001(\0132\016.AnimalMessage\",\n\nA" +
-      "llAnimals\022\036\n\006animal\030\001 \003(\0132\016.AnimalMessag" +
-      "e\"E\n\031FilterByDateRequestAnimal\022\014\n\004year\030\001" +
-      " \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"(\n\026GetM" +
-      "axIdResponseAnimal\022\016\n\006max_id\030\001 \001(\003\",\n\032Ge" +
-      "tFromOriginRequestAnimal\022\016\n\006origin\030\001 \001(\t" +
-      "\"\r\n\013EmptyAnimal\"3\n\010Products\022\'\n\010products\030" +
-      "\001 \003(\0132\025.ProductMessageAnimal\"N\n\024ProductM" +
-      "essageAnimal\022\026\n\016registrationNo\030\001 \001(\003\022\016\n\006" +
-      "trayId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\0052\343\004\n\006Animal\022" +
-      "5\n\nsaveAnimal\022\022.SaveAnimalRequest\032\023.Save" +
-      "AnimalResponse\022A\n\016findByIdAnimal\022\026.FindB" +
-      "yIdRequestAnimal\032\027.FindByIdResponseAnima" +
-      "l\022;\n\014updateAnimal\022\024.UpdateAnimalRequest\032" +
-      "\025.UpdateAnimalResponse\022:\n\020deleteByIdAnim" +
-      "al\022\030.DeleteByIdRequestAnimal\032\014.EmptyAnim" +
-      "al\022*\n\rfindAllAnimal\022\014.EmptyAnimal\032\013.AllA" +
-      "nimals\022;\n\020findByDateAnimal\022\032.FilterByDat" +
-      "eRequestAnimal\032\013.AllAnimals\0227\n\016getMaxIdA" +
-      "nimal\022\014.EmptyAnimal\032\027.GetMaxIdResponseAn" +
-      "imal\022>\n\022findByOriginAnimal\022\033.GetFromOrig" +
-      "inRequestAnimal\032\013.AllAnimals\022>\n\031findAllP" +
-      "roductsFromAnimal\022\026.FindByIdRequestAnima" +
-      "l\032\t.Products\022D\n\035getAnimalsInvolvedIntoPr" +
-      "oduct\022\026.FindByIdRequestAnimal\032\013.AllAnima" +
-      "lsB(\n$com.example.datapersistance.protob" +
-      "ufP\001b\006proto3"
+      "nimal\022\n\n\002id\030\001 \001(\003\"t\n\026FindByIdResponseAni" +
+      "mal\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030" +
+      "\003 \001(\005\022\016\n\006weight\030\004 \001(\001\022\020\n\010animalNo\030\005 \001(\003\022" +
+      "\016\n\006origin\030\006 \001(\t\",\n\nAllAnimals\022\036\n\006animal\030" +
+      "\001 \003(\0132\016.AnimalMessage\"E\n\031FilterByDateReq" +
+      "uestAnimal\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022" +
+      "\013\n\003day\030\003 \001(\005\"(\n\026GetMaxIdResponseAnimal\022\016" +
+      "\n\006max_id\030\001 \001(\003\",\n\032GetFromOriginRequestAn" +
+      "imal\022\016\n\006origin\030\001 \001(\t\"\r\n\013EmptyAnimal\"3\n\010P" +
+      "roducts\022\'\n\010products\030\001 \003(\0132\025.ProductMessa" +
+      "geAnimal\"N\n\024ProductMessageAnimal\022\026\n\016regi" +
+      "strationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006part" +
+      "No\030\003 \001(\0052\343\004\n\006Animal\0225\n\nsaveAnimal\022\022.Save" +
+      "AnimalRequest\032\023.SaveAnimalResponse\022A\n\016fi" +
+      "ndByIdAnimal\022\026.FindByIdRequestAnimal\032\027.F" +
+      "indByIdResponseAnimal\022;\n\014updateAnimal\022\024." +
+      "UpdateAnimalRequest\032\025.UpdateAnimalRespon" +
+      "se\022:\n\020deleteByIdAnimal\022\030.DeleteByIdReque" +
+      "stAnimal\032\014.EmptyAnimal\022*\n\rfindAllAnimal\022" +
+      "\014.EmptyAnimal\032\013.AllAnimals\022;\n\020findByDate" +
+      "Animal\022\032.FilterByDateRequestAnimal\032\013.All" +
+      "Animals\0227\n\016getMaxIdAnimal\022\014.EmptyAnimal\032" +
+      "\027.GetMaxIdResponseAnimal\022>\n\022findByOrigin" +
+      "Animal\022\033.GetFromOriginRequestAnimal\032\013.Al" +
+      "lAnimals\022>\n\031findAllProductsFromAnimal\022\026." +
+      "FindByIdRequestAnimal\032\t.Products\022D\n\035getA" +
+      "nimalsInvolvedIntoProduct\022\026.FindByIdRequ" +
+      "estAnimal\032\013.AllAnimalsB(\n$com.example.da" +
+      "tapersistance.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -194,7 +195,7 @@ public final class AnimalOuterClass {
     internal_static_FindByIdResponseAnimal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FindByIdResponseAnimal_descriptor,
-        new java.lang.String[] { "Animal", });
+        new java.lang.String[] { "Year", "Month", "Day", "Weight", "AnimalNo", "Origin", });
     internal_static_AllAnimals_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_AllAnimals_fieldAccessorTable = new

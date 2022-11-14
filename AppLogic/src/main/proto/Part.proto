@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "via.sdj3.animalregistrationsystem_sdj3.protobuf";
+
+service Part
+{
+  rpc savePart(SavePartRequest) returns (SavePartResponse);
+  rpc findByIdPart(FIndByIdRequestPart) returns (FindByIdResponsePart);
+  rpc updatePart(UpdatePartRequest) returns (UpdatePartResponse);
+  rpc deleteByIdPart(DeleteByIdRequestPart) returns (EmptyPart);
+  rpc findAllPart(EmptyPart) returns (AllParts);
+}
+  message SavePartRequest
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message SavePartResponse
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message PartMessage
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message FIndByIdRequestPart
+  {
+    int64 id = 1;
+  }
+
+  message FindByIdResponsePart
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message UpdatePartRequest
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message UpdatePartResponse
+  {
+    int64 partno = 1;
+    double weight = 2;
+    string name = 3;
+    int64 animalNo = 4;
+  }
+
+  message DeleteByIdRequestPart
+  {
+    int64 id = 1;
+  }
+
+  message EmptyPart
+  {
+
+  }
+
+  message AllParts
+  {
+    repeated PartMessage parts = 1;
+  }
+
+
+

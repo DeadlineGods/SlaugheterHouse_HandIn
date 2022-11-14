@@ -6,6 +6,7 @@ import via.sdj3.animalregistrationsystem_sdj3.repository.PartRepository;
 import via.sdj3.animalregistrationsystem_sdj3.repository.PartRepositoryImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PartServiceImpl implements PartService {
@@ -18,18 +19,27 @@ public class PartServiceImpl implements PartService {
 
     @Override
     public Part create(Part newPart) {
-        newPart.setPartNo(partRepository.getMaxId());
-
         return partRepository.save(newPart);
     }
 
     @Override
-    public Part read(int partNo){
-        return partRepository.findByPartNo(partNo);
+    public List<Part> findAll() {
+        return partRepository.findAll();
     }
 
     @Override
-    public List<Part> readAll(){
-        return partRepository.findAll();
+    public Optional<Part> findById(int id) {
+        return Optional.ofNullable(partRepository.findByPartNo(id));
     }
+
+    @Override
+    public Part update(Part part) {
+        return partRepository.save(part);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        partRepository.deleteById(id);
+    }
+
 }

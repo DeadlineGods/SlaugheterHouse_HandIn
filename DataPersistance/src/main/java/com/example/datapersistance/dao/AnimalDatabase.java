@@ -32,6 +32,7 @@ public class AnimalDatabase implements AnimalPersistence {
                 String dateString = String.format("%d/%d/%d", year, month, day);
                 Date date = new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                System.out.println("Arrival date: " + sqlDate);
                 statement.setDate(2, sqlDate);
             } catch (ParseException e) {
                 throw new RuntimeException(e);

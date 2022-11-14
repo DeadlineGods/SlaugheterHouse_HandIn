@@ -8,17 +8,44 @@ public interface FindByIdResponseAnimalOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.AnimalMessage animal = 1;</code>
-   * @return Whether the animal field is set.
+   * <code>int32 year = 1;</code>
+   * @return The year.
    */
-  boolean hasAnimal();
+  int getYear();
+
   /**
-   * <code>.AnimalMessage animal = 1;</code>
-   * @return The animal.
+   * <code>int32 month = 2;</code>
+   * @return The month.
    */
-  com.example.datapersistance.protobuf.AnimalMessage getAnimal();
+  int getMonth();
+
   /**
-   * <code>.AnimalMessage animal = 1;</code>
+   * <code>int32 day = 3;</code>
+   * @return The day.
    */
-  com.example.datapersistance.protobuf.AnimalMessageOrBuilder getAnimalOrBuilder();
+  int getDay();
+
+  /**
+   * <code>double weight = 4;</code>
+   * @return The weight.
+   */
+  double getWeight();
+
+  /**
+   * <code>int64 animalNo = 5;</code>
+   * @return The animalNo.
+   */
+  long getAnimalNo();
+
+  /**
+   * <code>string origin = 6;</code>
+   * @return The origin.
+   */
+  java.lang.String getOrigin();
+  /**
+   * <code>string origin = 6;</code>
+   * @return The bytes for origin.
+   */
+  com.google.protobuf.ByteString
+      getOriginBytes();
 }

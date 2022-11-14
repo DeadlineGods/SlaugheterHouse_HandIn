@@ -20,7 +20,6 @@ public class ProductServiceImpl implements ProductService {
 
 
     public Product create(Product product) {
-        product.setRegistrationNo(productRepository.getMaxId());
 
         return productRepository.save(product);
     }

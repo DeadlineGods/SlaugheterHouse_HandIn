@@ -18,5 +18,5 @@ public interface PartRepository {
     // R - find all
     List<Part> findAll();
 
-    int getMaxId();
+
 }
