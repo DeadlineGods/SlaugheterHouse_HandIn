@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "via.sdj3.animalregistrationsystem_sdj3.protobuf";
+
+service Tray {
+  rpc TraySave(TraySaveRequest) returns (TraySaveResponse);
+  rpc TrayFindById(TrayFindByIdRequest) returns (TrayFindByIdResponse);
+  rpc TrayUpdate(TrayUpdateRequest) returns (TrayUpdateResponse);
+  rpc TrayDeleteById(TrayDeleteByIdRequest) returns (TrayEmpty);
+  rpc TrayFindAll(TrayEmpty) returns (TrayFindAllResponse);
+}
+
+message TraySaveRequest {
+  TrayData tray = 1;
+}
+
+message TraySaveResponse {
+  TrayData tray = 1;
+}
+
+message TrayFindByIdRequest {
+  int64 id = 1;
+}
+
+message TrayFindByIdResponse {
+  TrayData tray = 1;
+}
+
+message TrayUpdateRequest {
+  TrayData tray = 1;
+
+}
+
+message TrayUpdateResponse {
+  TrayData tray = 1;
+}
+
+message TrayDeleteByIdRequest {
+  int64 id = 1;
+}
+
+message TrayEmpty {
+
+}
+
+message TrayFindAllResponse {
+  repeated TrayData trays = 1;
+}
+
+message TrayData {
+  double maxWeightCapacity = 1;
+  int64 trayId = 2;
+}

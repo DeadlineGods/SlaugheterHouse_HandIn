@@ -18,6 +18,4 @@ public interface TrayRepository {
 
     // R - find all
     List<Tray> findAll();
-
-    long getMaxId();
 }

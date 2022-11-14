@@ -22,5 +22,5 @@ public interface ProductRepository {
     // R - find all
     List<Product> findAll();
 
-    Long getMaxId();
+
 }

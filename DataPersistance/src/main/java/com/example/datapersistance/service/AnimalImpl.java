@@ -138,7 +138,6 @@ public class AnimalImpl extends AnimalGrpc.AnimalImplBase {
         {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
