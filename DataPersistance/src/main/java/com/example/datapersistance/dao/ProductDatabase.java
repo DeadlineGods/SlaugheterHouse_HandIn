@@ -41,7 +41,7 @@ public class ProductDatabase implements ProductPersistence{
             PreparedStatement statement = connection.prepareStatement("""
                 UPDATE product
                 SET trayno = ?, partNo = ?
-                WHERE registrationNo = ?;
+                WHERE registrationno = ?;
                 """);
 
             statement.setLong(1, trayId);

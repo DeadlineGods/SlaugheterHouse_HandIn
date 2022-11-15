@@ -59,7 +59,8 @@ public class AnimalDatabase implements AnimalPersistence {
             PreparedStatement statement = connection.prepareStatement("""
                     SELECT *
                     FROM animal
-                    WHERE animalNo = ?""");
+                    WHERE animalNo = ?    
+                    """);
             statement.setLong(1, id);
 
             ResultSet resultSet = statement.executeQuery();
@@ -67,7 +68,7 @@ public class AnimalDatabase implements AnimalPersistence {
 
                 java.sql.Date sqlDate = resultSet.getDate("arrivedate");
 
-                AnimalMessage animalMessage = AnimalMessage.newBuilder()
+                response  = FindByIdResponseAnimal.newBuilder()
                         .setWeight(resultSet.getFloat("weight"))
                         .setOrigin(resultSet.getString("origin"))
                         .setAnimalNo(resultSet.getLong("animalno"))
@@ -76,7 +77,7 @@ public class AnimalDatabase implements AnimalPersistence {
                         .setYear(sqlDate.getYear())
                         .build();
 
-                response = FindByIdResponseAnimal.newBuilder().setAnimal(animalMessage).build();
+
             }
         } finally {
             connection.close();

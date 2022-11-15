@@ -3,10 +3,12 @@ package com.example.datapersistance.service;
 import com.example.datapersistance.dao.PartPersistence;
 import com.example.datapersistance.protobuf.*;
 import io.grpc.stub.StreamObserver;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.sql.SQLException;
 
+@GRpcService
 public class PartImpl extends PartGrpc.PartImplBase {
 
     private final PartPersistence database;

@@ -1,12 +1,16 @@
 package com.example.datapersistance.dao;
 
+import com.example.datapersistance.protobuf.FindByIdResponseAnimal;
+import com.example.datapersistance.protobuf.TrayData;
 import com.example.datapersistance.protobuf.TrayFindAllResponse;
 import com.example.datapersistance.protobuf.TrayFindByIdResponse;
 import org.lognet.springboot.grpc.GRpcService;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @GRpcService
 public class TrayDatabase implements TrayPersistence {
@@ -30,26 +34,105 @@ public class TrayDatabase implements TrayPersistence {
 
     @Override
     public void save(long trayId, double maxWeightCapacity) throws SQLException {
+        Connection connection = getConnection();
+        try {
 
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO tray(maxweightcapacity) VALUES (?)");
+            statement.setDouble(1, maxWeightCapacity);
+            statement.execute();
+
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
     }
 
     @Override
     public TrayFindByIdResponse findById(long id) throws SQLException {
-        return null;
+        TrayFindByIdResponse response = null;
+        Connection connection = getConnection();
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM tray WHERE trayno = ?");
+            statement.setLong(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                TrayData trayData = TrayData.newBuilder()
+                        .setTrayId(resultSet.getLong("trayno"))
+                        .setMaxWeightCapacity(resultSet.getDouble("maxweightcapacity"))
+                        .build();
+                response  = TrayFindByIdResponse.newBuilder().setTray(trayData).build();
+            }
+
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
+
+        return response;
     }
 
     @Override
     public void update(long trayId, double maxWeightCapacity) throws SQLException {
+        Connection connection = getConnection();
 
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE tray SET maxweightcapacity = ? WHERE trayno = ?");
+
+            statement.setDouble(1, maxWeightCapacity);
+            statement.setLong(2, trayId);
+
+            statement.execute();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            connection.close();
+        }
     }
 
     @Override
     public void delete(long id) throws SQLException {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM tray WHERE trayno = ?");
+            statement.setLong(1, id);
+            statement.execute();
 
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
     }
 
     @Override
     public TrayFindAllResponse findAllAnimal() throws SQLException {
-        return null;
+        TrayFindAllResponse response = null;
+        Connection connection = getConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM tray");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<TrayData> trayDataList = new ArrayList<>();
+            while (resultSet.next()) {
+                TrayData trayData = TrayData.newBuilder()
+                        .setTrayId(resultSet.getLong("trayno"))
+                        .setMaxWeightCapacity(resultSet.getDouble("maxweightcapacity"))
+                        .build();
+
+                trayDataList.add(trayData);
+            }
+            response = TrayFindAllResponse.newBuilder().addAllTrays(trayDataList).build();
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
+        return response;
     }
 }

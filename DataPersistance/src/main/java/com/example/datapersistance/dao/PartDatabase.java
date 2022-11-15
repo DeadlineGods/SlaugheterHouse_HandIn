@@ -2,6 +2,7 @@ package com.example.datapersistance.dao;
 
 import com.example.datapersistance.protobuf.*;
 import org.checkerframework.checker.units.qual.A;
+import org.lognet.springboot.grpc.GRpcService;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -12,6 +13,7 @@ import java.util.concurrent.locks.Condition;
 
 import static java.sql.DriverManager.getConnection;
 
+@GRpcService
 public class PartDatabase implements PartPersistence{
 
     public PartDatabase() throws SQLException
@@ -101,7 +103,7 @@ public class PartDatabase implements PartPersistence{
 
         try {
             PreparedStatement statement = connection.prepareStatement("""
-                    DELETE FROM product_part_join WHERE partNo = ?
+                    DELETE FROM product_part_join WHERE partno = ?
                     """);
 
             statement.setInt(1, id);
