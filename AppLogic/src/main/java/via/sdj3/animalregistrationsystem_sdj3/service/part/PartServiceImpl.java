@@ -28,8 +28,8 @@ public class PartServiceImpl implements PartService {
     }
 
     @Override
-    public Optional<Part> findById(int id) {
-        return Optional.ofNullable(partRepository.findByPartNo(id));
+    public Part findById(int id) {
+        return partRepository.findByPartNo(id);
     }
 
     @Override

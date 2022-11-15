@@ -22,7 +22,7 @@ public class PartImpl extends PartGrpc.PartImplBase {
         System.out.println("Received Request =>\n" + request.toString());
 
         try {
-            database.save(request.getWeight(), request.getName(), request.getAnimalNo());
+            database.save(request.getWeight(), request.getName(), request.getAnimalNo(),request.getTrayId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -32,6 +32,7 @@ public class PartImpl extends PartGrpc.PartImplBase {
                 .setWeight(request.getWeight())
                 .setName(request.getName())
                 .setPartno(request.getPartno())
+                .setTrayId(request.getTrayId())
                 .build();
 
         responseObserver.onNext(response);
@@ -46,7 +47,7 @@ public class PartImpl extends PartGrpc.PartImplBase {
         System.out.println("Received Request =>\n" + request.toString());
 
         try {
-            FindByIdResponsePart response = database.findByIdPart((int)request.getId());
+            FindByIdResponsePart response = database.findByIdPart(request.getId());
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 

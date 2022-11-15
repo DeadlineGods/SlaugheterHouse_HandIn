@@ -6,22 +6,61 @@
   <component name="ChangeListManager">
     <list default="true" id="59ee1361-14d4-469b-86e1-8917b5f07322" name="Changes" comment="Working on assignment 3rd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/PartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/PartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Part.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FIndByIdRequestPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FIndByIdRequestPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FIndByIdRequestPartOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FIndByIdRequestPartOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FindByIdResponsePart.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FindByIdResponsePart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FindByIdResponsePartOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/FindByIdResponsePartOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartMessageOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartMessageOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/PartOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/SavePartResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/protobuf/UpdatePartResponseOrBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartGrpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartGrpcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/ProductGrpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/ProductGrpcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/AnimalDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/AnimalDatabase.java" afterDir="false" />
-    </list>
-    <list id="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" name="Changes by Darko" comment="">
-      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/AnimalDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/AnimalDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/TrayDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/TrayDatabase.java" afterDir="false" />
-    </list>
-    <list id="0a6c6d4b-f126-4a47-b9af-002695a02cca" name="Changes by Dávid" comment="">
-      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/ProductRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/product/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/product/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/proto/Part.proto" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/proto/Part.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/ProductDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/ProductDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FIndByIdRequestPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FIndByIdRequestPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FIndByIdRequestPartOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FIndByIdRequestPartOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FindByIdResponsePart.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FindByIdResponsePart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FindByIdResponsePartOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/FindByIdResponsePartOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartMessageOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartMessageOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/PartOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/SavePartResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/protobuf/UpdatePartResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/proto/Part.proto" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/proto/Part.proto" afterDir="false" />
+    </list>
+    <list id="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" name="Changes by Darko" comment="">
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/PartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/PartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/TrayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/TrayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/part/PartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/tray/TrayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/tray/TrayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/TrayDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/TrayDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/service/PartImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/service/PartImpl.java" afterDir="false" />
+    </list>
+    <list id="0a6c6d4b-f126-4a47-b9af-002695a02cca" name="Changes by Dávid" comment="">
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartGrpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartGrpcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/product/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/service/product/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/service/PartImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/service/PartImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +85,41 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/AnimalDatabase.java">
+    <file path="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/service/PartImpl.java">
       <ranges>
-        <range start1="61" end1="62" start2="61" end2="63" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
-        <range start1="69" end1="70" start2="70" end2="71" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
-        <range start1="78" end1="79" start2="79" end2="80" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="24" end1="25" start2="24" end2="25" changelist="0a6c6d4b-f126-4a47-b9af-002695a02cca" />
+        <range start1="34" end1="34" start2="34" end2="35" changelist="0a6c6d4b-f126-4a47-b9af-002695a02cca" />
+        <range start1="48" end1="49" start2="49" end2="50" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/DataPersistance/src/main/java/com/example/datapersistance/dao/PartDatabase.java">
+      <ranges>
+        <range start1="24" end1="25" start2="24" end2="25" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="28" end1="29" start2="28" end2="29" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="33" end1="33" start2="33" end2="34" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="47" end1="48" start2="48" end2="49" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="54" end1="56" start2="55" end2="57" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="57" end1="58" start2="58" end2="59" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="67" end1="67" start2="68" end2="69" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="68" end1="69" start2="70" end2="70" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="74" end1="74" start2="75" end2="76" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="153" end1="153" start2="155" end2="156" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/repository/PartGrpcImpl.java">
+      <ranges>
+        <range start1="26" end1="27" start2="26" end2="26" changelist="0a6c6d4b-f126-4a47-b9af-002695a02cca" />
+        <range start1="28" end1="28" start2="27" end2="29" changelist="0a6c6d4b-f126-4a47-b9af-002695a02cca" />
+        <range start1="31" end1="32" start2="32" end2="33" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="39" end1="40" start2="40" end2="41" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="51" end1="52" start2="52" end2="53" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+        <range start1="70" end1="71" start2="71" end2="72" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/AppLogic/src/main/java/via/sdj3/animalregistrationsystem_sdj3/controller/PartController.java">
+      <ranges>
+        <range start1="56" end1="65" start2="56" end2="58" changelist="3e4bdaa5-3b77-40ad-bdff-b763506d1b74" />
+        <range start1="73" end1="73" start2="66" end2="67" changelist="59ee1361-14d4-469b-86e1-8917b5f07322" />
       </ranges>
     </file>
   </component>
@@ -162,7 +231,7 @@
       <workItem from="1667985724530" duration="22000" />
       <workItem from="1668411541723" duration="10356000" />
       <workItem from="1668507099097" duration="7000" />
-      <workItem from="1668513112279" duration="3481000" />
+      <workItem from="1668513112279" duration="13569000" />
     </task>
     <task id="LOCAL-00001" summary="Product part">
       <created>1664990477862</created>

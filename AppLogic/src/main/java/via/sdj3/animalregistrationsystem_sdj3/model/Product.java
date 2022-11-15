@@ -7,6 +7,9 @@ public class Product {
     private Long trayId;
     private int partNo;
 
+    public Product() {
+    }
+
     public Product(Long trayId, int partNo){
         this.trayId = trayId;
         this.partNo = partNo;

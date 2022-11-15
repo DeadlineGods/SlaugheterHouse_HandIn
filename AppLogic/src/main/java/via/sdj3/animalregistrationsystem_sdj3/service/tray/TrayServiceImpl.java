@@ -37,7 +37,7 @@ public class TrayServiceImpl implements TrayService {
 
     @Override
     public Tray update(Tray tray) {
-        return trayRepository.save(tray);
+        return trayRepository.update(tray);
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface PartService {
     Part create(Part newPart);
     List<Part> findAll();
-    Optional<Part> findById(int id);
+    Part findById(int id);
     Part update (Part part);
     void deleteById(int id);
 

@@ -22,15 +22,16 @@ public class PartDatabase implements PartPersistence{
     }
 
     @Override
-    public void save(double weight, String name, long animalNo) throws SQLException {
+    public void save(double weight, String name, long animalNo, long trayId) throws SQLException {
         Connection connection = getConnection();
         try
         {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO part(weight, name, animalno) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO part(weight, name, animalno, trayno) VALUES (?, ?, ?, ?)");
 
             statement.setDouble(1, weight);
             statement.setString(2, name);
             statement.setLong(3, animalNo);
+            statement.setLong(4, trayId);
 
             statement.execute();
         }
@@ -45,17 +46,17 @@ public class PartDatabase implements PartPersistence{
     }
 
     @Override
-    public FindByIdResponsePart findByIdPart(int id) throws SQLException {
+    public FindByIdResponsePart findByIdPart(long id) throws SQLException {
         FindByIdResponsePart response = null;
         Connection connection = getConnection();
 
         try
         {
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT *" +
-                            "FROM part" +
+                    "SELECT * " +
+                            "FROM part " +
                             "WHERE partno = ?");
-            statement.setInt(1, id);
+            statement.setLong(1, id);
 
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next())
@@ -65,13 +66,14 @@ public class PartDatabase implements PartPersistence{
                         .setName(resultSet.getString("name"))
                         .setAnimalNo(resultSet.getLong("animalno"))
                         .setPartno(resultSet.getInt("partno"))
+                        .setTrayId(resultSet.getLong("trayno"))
                         .build();
-
             }
         }
         finally {
             connection.close();
         }
+
         return response;
     }
 
@@ -151,6 +153,7 @@ public class PartDatabase implements PartPersistence{
                         .setWeight(resultSet.getDouble("weight"))
                         .setName(resultSet.getString("name"))
                         .setAnimalNo(resultSet.getLong("animalno"))
+                        .setTrayId(resultSet.getLong("trayno"))
                         .build();
                 parts.add(partMessage);
             }

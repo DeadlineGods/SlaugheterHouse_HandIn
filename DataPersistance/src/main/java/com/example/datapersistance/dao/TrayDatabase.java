@@ -98,7 +98,35 @@ public class TrayDatabase implements TrayPersistence {
     public void delete(long id) throws SQLException {
         Connection connection = getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM tray WHERE trayno = ?");
+
+            PreparedStatement statement = connection.prepareStatement("""
+                    DELETE from product_part_join
+                    WHERE registrationno in (
+                        SELECT p.registrationno
+                        FROM product p,
+                             tray t
+                                 join product p2 on t.trayno = p2.trayno
+                        WHERE p2.trayno = ?
+                    )
+                    """);
+
+            statement.setLong(1, id);
+            statement.execute();
+
+            statement = connection.prepareStatement("""
+                    DELETE FROM part WHERE animalNo = ?
+                    """);
+
+            statement.setLong(1, id);
+            statement.execute();
+
+            statement = connection.prepareStatement("""
+                    DELETE FROM animal WHERE animalNo = ?
+                    """);
+
+            statement.setLong(1, id);
+
+            statement = connection.prepareStatement("DELETE FROM tray WHERE trayno = ?");
             statement.setLong(1, id);
             statement.execute();
 

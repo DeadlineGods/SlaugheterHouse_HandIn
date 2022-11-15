@@ -54,15 +54,8 @@ public class PartController {
     {
         try
         {
-            Optional<Part> part = partService.findById(id);
-            if(part.isPresent())
-            {
-                return new ResponseEntity<>(part.get(), HttpStatus.OK);
-            }
-            else
-            {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
+            Part part = partService.findById(id);
+            return new ResponseEntity<>(part, HttpStatus.OK);
         }
         catch (Exception ex)
         {
@@ -71,5 +64,6 @@ public class PartController {
         }
 
     }
+
 
 }

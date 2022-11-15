@@ -24,12 +24,13 @@ public class PartGrpcImpl implements PartRepository {
     public Part save(Part p) {
         SavePartRequest request = SavePartRequest.newBuilder()
                 .setWeight(p.getWeight())
-                .setAnimalNo(p.getAnimalNo())
                 .setName(p.getName())
+                .setAnimalNo(p.getAnimalNo())
+                .setTrayId(p.getTrayId())
                 .build();
 
         SavePartResponse response = stub.savePart(request);
-        return new Part(response.getWeight(), response.getName(), response.getAnimalNo(), response.getPartno());
+        return new Part(response.getWeight(), (int)response.getPartno(), response.getName(), response.getAnimalNo(), request.getTrayId());
     }
 
     @Override
@@ -37,7 +38,7 @@ public class PartGrpcImpl implements PartRepository {
         FIndByIdRequestPart requestPart = FIndByIdRequestPart.newBuilder()
                 .setId(partNo).build();
         FindByIdResponsePart response = stub.findByIdPart(requestPart);
-        return new Part(response.getWeight(), response.getName(), response.getAnimalNo(), response.getPartno());
+        return new Part(response.getWeight(), (int)response.getPartno(), response.getName(), response.getAnimalNo(), response.getTrayId());
     }
 
     @Override
@@ -49,7 +50,7 @@ public class PartGrpcImpl implements PartRepository {
                 .build();
         UpdatePartResponse response = stub.updatePart(request);
 
-        return new Part(response.getWeight(), response.getName(), response.getAnimalNo(), response.getPartno());
+        return new Part(response.getWeight(), (int)response.getPartno(), response.getName(), response.getAnimalNo(), response.getTrayId());
     }
 
     @Override
@@ -68,7 +69,7 @@ public class PartGrpcImpl implements PartRepository {
 
         for (int i = 0; i < response.getPartsCount(); i++) {
             PartMessage partMessage = response.getParts(i);
-            Part part = new Part(partMessage.getWeight(), partMessage.getName(), partMessage.getAnimalNo(), partMessage.getPartno());
+            Part part = new Part(partMessage.getWeight(), (int)partMessage.getPartno() ,partMessage.getName(), partMessage.getAnimalNo(), partMessage.getTrayId());
             parts.add(part);
 
         }

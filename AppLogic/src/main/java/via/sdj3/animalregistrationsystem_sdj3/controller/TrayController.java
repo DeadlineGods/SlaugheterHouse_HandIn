@@ -61,7 +61,7 @@ public class TrayController {
     }
 
     @PutMapping("/trays/{id}")
-    public ResponseEntity<Object> updateOrder(@PathVariable("id") Long id, @RequestBody Tray tray){
+    public ResponseEntity<Object> updateOrder(@PathVariable Long id, @RequestBody Tray tray){
         try {
             tray.setTrayId(id);
             Tray savedTray = trayService.update(tray);

@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            partno_ = input.readInt64();
+            partno_ = input.readInt32();
             break;
           }
           case 17: {
@@ -68,6 +68,11 @@ private static final long serialVersionUID = 0L;
           case 32: {
 
             animalNo_ = input.readInt64();
+            break;
+          }
+          case 40: {
+
+            trayId_ = input.readInt64();
             break;
           }
           default: {
@@ -105,13 +110,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNO_FIELD_NUMBER = 1;
-  private long partno_;
+  private int partno_;
   /**
-   * <code>int64 partno = 1;</code>
+   * <code>int32 partno = 1;</code>
    * @return The partno.
    */
   @java.lang.Override
-  public long getPartno() {
+  public int getPartno() {
     return partno_;
   }
 
@@ -175,6 +180,17 @@ private static final long serialVersionUID = 0L;
     return animalNo_;
   }
 
+  public static final int TRAYID_FIELD_NUMBER = 5;
+  private long trayId_;
+  /**
+   * <code>int64 trayId = 5;</code>
+   * @return The trayId.
+   */
+  @java.lang.Override
+  public long getTrayId() {
+    return trayId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -189,8 +205,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (partno_ != 0L) {
-      output.writeInt64(1, partno_);
+    if (partno_ != 0) {
+      output.writeInt32(1, partno_);
     }
     if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
       output.writeDouble(2, weight_);
@@ -201,6 +217,9 @@ private static final long serialVersionUID = 0L;
     if (animalNo_ != 0L) {
       output.writeInt64(4, animalNo_);
     }
+    if (trayId_ != 0L) {
+      output.writeInt64(5, trayId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -210,9 +229,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (partno_ != 0L) {
+    if (partno_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, partno_);
+        .computeInt32Size(1, partno_);
     }
     if (java.lang.Double.doubleToRawLongBits(weight_) != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -224,6 +243,10 @@ private static final long serialVersionUID = 0L;
     if (animalNo_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, animalNo_);
+    }
+    if (trayId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, trayId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -249,6 +272,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getAnimalNo()
         != other.getAnimalNo()) return false;
+    if (getTrayId()
+        != other.getTrayId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -261,8 +286,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PARTNO_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPartno());
+    hash = (53 * hash) + getPartno();
     hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getWeight()));
@@ -271,6 +295,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ANIMALNO_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getAnimalNo());
+    hash = (37 * hash) + TRAYID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTrayId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -404,13 +431,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      partno_ = 0L;
+      partno_ = 0;
 
       weight_ = 0D;
 
       name_ = "";
 
       animalNo_ = 0L;
+
+      trayId_ = 0L;
 
       return this;
     }
@@ -442,6 +471,7 @@ private static final long serialVersionUID = 0L;
       result.weight_ = weight_;
       result.name_ = name_;
       result.animalNo_ = animalNo_;
+      result.trayId_ = trayId_;
       onBuilt();
       return result;
     }
@@ -490,7 +520,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.example.datapersistance.protobuf.FindByIdResponsePart other) {
       if (other == com.example.datapersistance.protobuf.FindByIdResponsePart.getDefaultInstance()) return this;
-      if (other.getPartno() != 0L) {
+      if (other.getPartno() != 0) {
         setPartno(other.getPartno());
       }
       if (other.getWeight() != 0D) {
@@ -502,6 +532,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAnimalNo() != 0L) {
         setAnimalNo(other.getAnimalNo());
+      }
+      if (other.getTrayId() != 0L) {
+        setTrayId(other.getTrayId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -532,33 +565,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long partno_ ;
+    private int partno_ ;
     /**
-     * <code>int64 partno = 1;</code>
+     * <code>int32 partno = 1;</code>
      * @return The partno.
      */
     @java.lang.Override
-    public long getPartno() {
+    public int getPartno() {
       return partno_;
     }
     /**
-     * <code>int64 partno = 1;</code>
+     * <code>int32 partno = 1;</code>
      * @param value The partno to set.
      * @return This builder for chaining.
      */
-    public Builder setPartno(long value) {
+    public Builder setPartno(int value) {
       
       partno_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 partno = 1;</code>
+     * <code>int32 partno = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearPartno() {
       
-      partno_ = 0L;
+      partno_ = 0;
       onChanged();
       return this;
     }
@@ -697,6 +730,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearAnimalNo() {
       
       animalNo_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long trayId_ ;
+    /**
+     * <code>int64 trayId = 5;</code>
+     * @return The trayId.
+     */
+    @java.lang.Override
+    public long getTrayId() {
+      return trayId_;
+    }
+    /**
+     * <code>int64 trayId = 5;</code>
+     * @param value The trayId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTrayId(long value) {
+      
+      trayId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 trayId = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTrayId() {
+      
+      trayId_ = 0L;
       onChanged();
       return this;
     }

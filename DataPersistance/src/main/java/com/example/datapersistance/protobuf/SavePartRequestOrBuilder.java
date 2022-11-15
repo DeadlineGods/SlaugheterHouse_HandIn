@@ -8,10 +8,10 @@ public interface SavePartRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 partno = 1;</code>
+   * <code>int32 partno = 1;</code>
    * @return The partno.
    */
-  long getPartno();
+  int getPartno();
 
   /**
    * <code>double weight = 2;</code>
@@ -36,4 +36,10 @@ public interface SavePartRequestOrBuilder extends
    * @return The animalNo.
    */
   long getAnimalNo();
+
+  /**
+   * <code>int64 trayId = 5;</code>
+   * @return The trayId.
+   */
+  long getTrayId();
 }

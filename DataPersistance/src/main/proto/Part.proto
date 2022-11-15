@@ -13,55 +13,65 @@ service Part
 }
 message SavePartRequest
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
 }
 
 message SavePartResponse
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
+
 }
 
 message PartMessage
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
 }
 
 message FIndByIdRequestPart
 {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message FindByIdResponsePart
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
+
 }
 
 message UpdatePartRequest
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
+
 }
 
 message UpdatePartResponse
 {
-  int64 partno = 1;
+  int32 partno = 1;
   double weight = 2;
   string name = 3;
   int64 animalNo = 4;
+  int64 trayId = 5;
+
 }
 
 message DeleteByIdRequestPart
@@ -78,4 +88,6 @@ message AllParts
 {
   repeated PartMessage parts = 1;
 }
+
+
 

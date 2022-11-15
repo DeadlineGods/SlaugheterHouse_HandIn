@@ -13,8 +13,7 @@ public class ProductDatabase implements ProductPersistence{
     public ProductDatabase() throws SQLException
     {
         DriverManager.registerDriver(new org.postgresql.Driver());
-    }
-
+    }//TODO database have to be updated in table product_part and storing date have to be fixed
     @Override
     public void saveProduct(long trayNo, int partNo) throws SQLException {
         Connection connection = getConnection();
@@ -26,6 +25,13 @@ public class ProductDatabase implements ProductPersistence{
         statement.setInt(2, partNo);
 
         statement.execute();
+
+        PreparedStatement statement1 = connection.prepareStatement("""
+                INSERT INTO part_product(partno) VALUES (?)
+                """);
+        statement1.setInt(1, partNo);
+        statement1.execute();
+
         }
         finally {
             connection.close();

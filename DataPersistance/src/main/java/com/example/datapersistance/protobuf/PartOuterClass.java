@@ -73,30 +73,33 @@ public final class PartOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nPart.proto\"Q\n\017SavePartRequest\022\016\n\006partn" +
-      "o\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(\t\022\020\n" +
-      "\010animalNo\030\004 \001(\003\"R\n\020SavePartResponse\022\016\n\006p" +
-      "artno\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(" +
-      "\t\022\020\n\010animalNo\030\004 \001(\003\"M\n\013PartMessage\022\016\n\006pa" +
-      "rtno\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(\t" +
-      "\022\020\n\010animalNo\030\004 \001(\003\"!\n\023FIndByIdRequestPar" +
-      "t\022\n\n\002id\030\001 \001(\003\"V\n\024FindByIdResponsePart\022\016\n" +
-      "\006partno\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 " +
-      "\001(\t\022\020\n\010animalNo\030\004 \001(\003\"S\n\021UpdatePartReque" +
-      "st\022\016\n\006partno\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001\022\014\n\004na" +
-      "me\030\003 \001(\t\022\020\n\010animalNo\030\004 \001(\003\"T\n\022UpdatePart" +
-      "Response\022\016\n\006partno\030\001 \001(\003\022\016\n\006weight\030\002 \001(\001" +
-      "\022\014\n\004name\030\003 \001(\t\022\020\n\010animalNo\030\004 \001(\003\"#\n\025Dele" +
-      "teByIdRequestPart\022\n\n\002id\030\001 \001(\003\"\013\n\tEmptyPa" +
-      "rt\"\'\n\010AllParts\022\033\n\005parts\030\001 \003(\0132\014.PartMess" +
-      "age2\207\002\n\004Part\022/\n\010savePart\022\020.SavePartReque" +
-      "st\032\021.SavePartResponse\022;\n\014findByIdPart\022\024." +
-      "FIndByIdRequestPart\032\025.FindByIdResponsePa" +
-      "rt\0225\n\nupdatePart\022\022.UpdatePartRequest\032\023.U" +
-      "pdatePartResponse\0224\n\016deleteByIdPart\022\026.De" +
-      "leteByIdRequestPart\032\n.EmptyPart\022$\n\013findA" +
-      "llPart\022\n.EmptyPart\032\t.AllPartsB(\n$com.exa" +
-      "mple.datapersistance.protobufP\001b\006proto3"
+      "\n\nPart.proto\"a\n\017SavePartRequest\022\016\n\006partn" +
+      "o\030\001 \001(\005\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(\t\022\020\n" +
+      "\010animalNo\030\004 \001(\003\022\016\n\006trayId\030\005 \001(\003\"b\n\020SaveP" +
+      "artResponse\022\016\n\006partno\030\001 \001(\005\022\016\n\006weight\030\002 " +
+      "\001(\001\022\014\n\004name\030\003 \001(\t\022\020\n\010animalNo\030\004 \001(\003\022\016\n\006t" +
+      "rayId\030\005 \001(\003\"]\n\013PartMessage\022\016\n\006partno\030\001 \001" +
+      "(\005\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(\t\022\020\n\010anim" +
+      "alNo\030\004 \001(\003\022\016\n\006trayId\030\005 \001(\003\"!\n\023FIndByIdRe" +
+      "questPart\022\n\n\002id\030\001 \001(\005\"f\n\024FindByIdRespons" +
+      "ePart\022\016\n\006partno\030\001 \001(\005\022\016\n\006weight\030\002 \001(\001\022\014\n" +
+      "\004name\030\003 \001(\t\022\020\n\010animalNo\030\004 \001(\003\022\016\n\006trayId\030" +
+      "\005 \001(\003\"c\n\021UpdatePartRequest\022\016\n\006partno\030\001 \001" +
+      "(\005\022\016\n\006weight\030\002 \001(\001\022\014\n\004name\030\003 \001(\t\022\020\n\010anim" +
+      "alNo\030\004 \001(\003\022\016\n\006trayId\030\005 \001(\003\"d\n\022UpdatePart" +
+      "Response\022\016\n\006partno\030\001 \001(\005\022\016\n\006weight\030\002 \001(\001" +
+      "\022\014\n\004name\030\003 \001(\t\022\020\n\010animalNo\030\004 \001(\003\022\016\n\006tray" +
+      "Id\030\005 \001(\003\"#\n\025DeleteByIdRequestPart\022\n\n\002id\030" +
+      "\001 \001(\003\"\013\n\tEmptyPart\"\'\n\010AllParts\022\033\n\005parts\030" +
+      "\001 \003(\0132\014.PartMessage2\207\002\n\004Part\022/\n\010savePart" +
+      "\022\020.SavePartRequest\032\021.SavePartResponse\022;\n" +
+      "\014findByIdPart\022\024.FIndByIdRequestPart\032\025.Fi" +
+      "ndByIdResponsePart\0225\n\nupdatePart\022\022.Updat" +
+      "ePartRequest\032\023.UpdatePartResponse\0224\n\016del" +
+      "eteByIdPart\022\026.DeleteByIdRequestPart\032\n.Em" +
+      "ptyPart\022$\n\013findAllPart\022\n.EmptyPart\032\t.All" +
+      "PartsB(\n$com.example.datapersistance.pro" +
+      "tobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -107,19 +110,19 @@ public final class PartOuterClass {
     internal_static_SavePartRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SavePartRequest_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_SavePartResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SavePartResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SavePartResponse_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_PartMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_PartMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PartMessage_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_FIndByIdRequestPart_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_FIndByIdRequestPart_fieldAccessorTable = new
@@ -131,19 +134,19 @@ public final class PartOuterClass {
     internal_static_FindByIdResponsePart_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FindByIdResponsePart_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_UpdatePartRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_UpdatePartRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdatePartRequest_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_UpdatePartResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_UpdatePartResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdatePartResponse_descriptor,
-        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", });
+        new java.lang.String[] { "Partno", "Weight", "Name", "AnimalNo", "TrayId", });
     internal_static_DeleteByIdRequestPart_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_DeleteByIdRequestPart_fieldAccessorTable = new
