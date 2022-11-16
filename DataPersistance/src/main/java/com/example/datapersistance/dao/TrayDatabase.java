@@ -5,7 +5,7 @@ import com.example.datapersistance.protobuf.TrayData;
 import com.example.datapersistance.protobuf.TrayFindAllResponse;
 import com.example.datapersistance.protobuf.TrayFindByIdResponse;
 import org.lognet.springboot.grpc.GRpcService;
-
+import org.springframework.context.annotation.Primary;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @GRpcService
+ @Primary
 public class TrayDatabase implements TrayPersistence {
 
     public TrayDatabase() throws SQLException {

@@ -20,8 +20,19 @@ public interface UpdateRequestProductOrBuilder extends
   long getTrayId();
 
   /**
-   * <code>int32 partNo = 3;</code>
-   * @return The partNo.
+   * <code>repeated int32 partNo = 3;</code>
+   * @return A list containing the partNo.
    */
-  int getPartNo();
+  java.util.List<java.lang.Integer> getPartNoList();
+  /**
+   * <code>repeated int32 partNo = 3;</code>
+   * @return The count of partNo.
+   */
+  int getPartNoCount();
+  /**
+   * <code>repeated int32 partNo = 3;</code>
+   * @param index The index of the element to return.
+   * @return The partNo at the given index.
+   */
+  int getPartNo(int index);
 }

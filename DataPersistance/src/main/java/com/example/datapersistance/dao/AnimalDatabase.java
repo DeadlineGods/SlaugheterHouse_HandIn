@@ -4,6 +4,7 @@ import com.example.datapersistance.protobuf.*;
 import com.google.protobuf.Descriptors;
 import org.checkerframework.checker.units.qual.A;
 import org.lognet.springboot.grpc.GRpcService;
+import org.springframework.context.annotation.Primary;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 @GRpcService
+@Primary
 public class AnimalDatabase implements AnimalPersistence {
 
 

@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Primary
 public class AnimalGrpcImpl implements AnimalRepository {
 
     AnimalGrpc.AnimalBlockingStub stub;
@@ -134,8 +136,8 @@ public class AnimalGrpcImpl implements AnimalRepository {
 
         for (int i = 0; i < response.getProductsCount(); i++) {
             ProductMessageAnimal productMessageAnimal = response.getProducts(i);
-            Product product = new Product(productMessageAnimal.getRegistrationNo(), productMessageAnimal.getTrayId(), productMessageAnimal.getPartNo());
-            products.add(product);
+           // Product product = new Product(productMessageAnimal.getRegistrationNo(), productMessageAnimal.getTrayId(), productMessageAnimal.getPartNo());
+           // products.add(product);
         }
         return products;
     }

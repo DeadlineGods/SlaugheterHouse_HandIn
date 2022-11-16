@@ -2,16 +2,19 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Animal;
 import via.sdj3.animalregistrationsystem_sdj3.model.Product;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Primary
 public class ProductGrpcImpl implements ProductRepository{
 
     ProductGrpc.ProductBlockingStub stub;
@@ -24,14 +27,13 @@ public class ProductGrpcImpl implements ProductRepository{
     @Override
     public Product save(Product p) {
         SaveRequestProduct request = SaveRequestProduct.newBuilder()
-                .setRegistrationNo(p.getRegistrationNo())
                 .setTrayId(p.getTrayId())
-                .setPartNo(p.getPartNo())
+                .addAllPartNo(p.getPartNo())
                 .build();
 
         SaveResponseProduct response = stub.saveProduct(request);
 
-        return new Product(response.getRegistrationNo(),response.getTrayId(),response.getPartNo());
+        return new Product(response.getRegistrationNo(),response.getTrayId(), response.getPartNoList());
 
     }
 
@@ -40,7 +42,7 @@ public class ProductGrpcImpl implements ProductRepository{
         FindByRegNoRequestProduct requestProduct = FindByRegNoRequestProduct.newBuilder()
                 .setRegistrationNo(partNo).build();
         FindByRegNoResponseProduct response = stub.findByRegNoProduct(requestProduct);
-        return Optional.of(new Product(response.getRegistrationNo(), response.getTrayId(), response.getPartNo()));
+        return Optional.of(new Product(response.getRegistrationNo(), response.getTrayId(), response.getPartNoList()));
 
     }
 
@@ -49,9 +51,10 @@ public class ProductGrpcImpl implements ProductRepository{
         UpdateRequestProduct request = UpdateRequestProduct.newBuilder()
                 .setRegistrationNo(p.getRegistrationNo())
                 .setTrayId(p.getTrayId())
-                .setPartNo(p.getPartNo()).build();
+                //.setPartNo(p.getPartNo())
+                .build();
         UpdateResponseProduct response = stub.updateProduct(request);
-        return new Product(response.getRegistrationNo(),response.getTrayId(),response.getPartNo());
+        return new Product(response.getRegistrationNo(),response.getTrayId(), response.getPartNoList());
 
 
     }
@@ -73,7 +76,7 @@ public class ProductGrpcImpl implements ProductRepository{
 
         for (int i = 0; i < response.getProductListCount(); i++) {
             ProductMessage productMessage = response.getProductList(i);
-            Product product = new Product(productMessage.getRegistrationNo(),productMessage.getTrayId(),productMessage.getPartNo());
+            Product product = new Product(productMessage.getRegistrationNo(),productMessage.getTrayId(), productMessage.getPartNoList());
             products.add(product);
         }
         return products;

@@ -3,6 +3,7 @@ package com.example.datapersistance.dao;
 import com.example.datapersistance.protobuf.*;
 import org.checkerframework.checker.units.qual.A;
 import org.lognet.springboot.grpc.GRpcService;
+import org.springframework.context.annotation.Primary;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -14,6 +15,7 @@ import java.util.concurrent.locks.Condition;
 import static java.sql.DriverManager.getConnection;
 
 @GRpcService
+@Primary
 public class PartDatabase implements PartPersistence{
 
     public PartDatabase() throws SQLException

@@ -80,18 +80,18 @@ public final class ProductOuterClass {
     java.lang.String[] descriptorData = {
       "\n\rProduct.proto\"H\n\016ProductMessage\022\026\n\016reg" +
       "istrationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006par" +
-      "tNo\030\003 \001(\005\"L\n\022SaveRequestProduct\022\026\n\016regis" +
+      "tNo\030\003 \003(\005\"L\n\022SaveRequestProduct\022\026\n\016regis" +
       "trationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006partN" +
-      "o\030\003 \001(\005\"M\n\023SaveResponseProduct\022\026\n\016regist" +
+      "o\030\003 \003(\005\"M\n\023SaveResponseProduct\022\026\n\016regist" +
       "rationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006partNo" +
-      "\030\003 \001(\005\"3\n\031FindByRegNoRequestProduct\022\026\n\016r" +
+      "\030\003 \003(\005\"3\n\031FindByRegNoRequestProduct\022\026\n\016r" +
       "egistrationNo\030\001 \001(\003\"T\n\032FindByRegNoRespon" +
       "seProduct\022\026\n\016registrationNo\030\001 \001(\003\022\016\n\006tra" +
-      "yId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\005\"N\n\024UpdateReque" +
+      "yId\030\002 \001(\003\022\016\n\006partNo\030\003 \003(\005\"N\n\024UpdateReque" +
       "stProduct\022\026\n\016registrationNo\030\001 \001(\003\022\016\n\006tra" +
-      "yId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\005\"O\n\025UpdateRespo" +
+      "yId\030\002 \001(\003\022\016\n\006partNo\030\003 \003(\005\"O\n\025UpdateRespo" +
       "nseProduct\022\026\n\016registrationNo\030\001 \001(\003\022\016\n\006tr" +
-      "ayId\030\002 \001(\003\022\016\n\006partNo\030\003 \001(\005\"?\n\026ResponseFi" +
+      "ayId\030\002 \001(\003\022\016\n\006partNo\030\003 \003(\005\"?\n\026ResponseFi" +
       "ndAllProduct\022%\n\014product_list\030\001 \003(\0132\017.Pro" +
       "ductMessage\".\n\033RequestDeleteByRegNoProdu" +
       "ct\022\017\n\007part_no\030\001 \001(\003\")\n\027ResponseGetMaxIdP" +

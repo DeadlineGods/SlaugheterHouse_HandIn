@@ -2,12 +2,14 @@ package com.example.datapersistance.dao;
 
 import com.example.datapersistance.protobuf.*;
 import org.lognet.springboot.grpc.GRpcService;
+import org.springframework.context.annotation.Primary;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @GRpcService
+@Primary
 public class ProductDatabase implements ProductPersistence{
 
     public ProductDatabase() throws SQLException
@@ -15,23 +17,31 @@ public class ProductDatabase implements ProductPersistence{
         DriverManager.registerDriver(new org.postgresql.Driver());
     }//TODO database have to be updated in table product_part and storing date have to be fixed
     @Override
-    public void saveProduct(long trayNo, int partNo) throws SQLException {
+    public void saveProduct(long trayNo, List<Integer> partNo) throws SQLException {
         Connection connection = getConnection();
+        long productId = 0;
+
         try {
-         PreparedStatement statement = connection.prepareStatement(" " +
-                 "INSERT INTO product(trayno, partno) VALUES(?, ?)");
+            String sql = "INSERT INTO product (trayNo) VALUES (?)";
 
-        statement.setLong(1, trayNo);
-        statement.setInt(2, partNo);
+            PreparedStatement ps = connection.prepareStatement(sql,
+                    Statement.RETURN_GENERATED_KEYS);
 
-        statement.execute();
+            ps.setLong(1, trayNo);
 
-        PreparedStatement statement1 = connection.prepareStatement("""
-                INSERT INTO part_product(partno) VALUES (?)
-                """);
-        statement1.setInt(1, partNo);
-        statement1.execute();
+            ps.execute();
 
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                productId = rs.getInt(1);
+            }
+
+            for (int i = 0; i < partNo.size(); i++) {
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO part_product (partNo, registrationNo) VALUES (?, ?)");
+                statement.setLong(1, partNo.get(i));
+                statement.setLong(2, productId);
+                statement.execute();
+            }
         }
         finally {
             connection.close();
@@ -94,7 +104,7 @@ public class ProductDatabase implements ProductPersistence{
                 response = FindByRegNoResponseProduct.newBuilder()
                         .setRegistrationNo(resultSet.getLong("registrationno"))
                         .setTrayId(resultSet.getLong("trayno"))
-                        .setPartNo(resultSet.getInt("partno"))
+                        //.setPartNo(resultSet.getInt("partno"))
                         .build();
             }
         } finally {
@@ -124,7 +134,7 @@ public class ProductDatabase implements ProductPersistence{
                 productMessage = ProductMessage.newBuilder()
                         .setRegistrationNo((resultSet.getLong("registrationno")))
                         .setTrayId(resultSet.getLong("trayno"))
-                        .setPartNo((resultSet.getInt("partno")))
+                        //.setPartNo((resultSet.getInt("partno")))
                         .build();
                 products.add(productMessage);
             }

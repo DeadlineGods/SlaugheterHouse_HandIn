@@ -62,8 +62,5 @@ public class PartController {
             logger.error(ex.getMessage(), ex);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
     }
-
-
 }

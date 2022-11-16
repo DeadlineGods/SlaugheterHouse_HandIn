@@ -2,6 +2,7 @@ package via.sdj3.animalregistrationsystem_sdj3.repository;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import via.sdj3.animalregistrationsystem_sdj3.model.Tray;
 import via.sdj3.animalregistrationsystem_sdj3.protobuf.*;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Primary
 public class TrayGrpcImpl implements TrayRepository{
 
     TrayGrpc.TrayBlockingStub stub;

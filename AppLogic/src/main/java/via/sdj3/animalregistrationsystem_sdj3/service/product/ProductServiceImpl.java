@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     ProductRepository productRepository;
-    AnimalRepository animalRepository;
+
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
     public List<Product> findAll() {
 
-        return (List<Product>) productRepository.findAll();
+        return productRepository.findAll();
         
     }
 

@@ -19,10 +19,9 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
 
     @Override
     public void saveProduct(SaveRequestProduct request, StreamObserver<SaveResponseProduct> responseObserver) {
-        System.out.println("Received Request =>\n" + request.toString());
 
         try {
-            database.saveProduct(request.getTrayId(), request.getPartNo());
+            database.saveProduct(request.getTrayId(), request.getPartNoList());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -30,7 +29,8 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
         SaveResponseProduct response = SaveResponseProduct.newBuilder().setRegistrationNo(request.getRegistrationNo())
                 .setRegistrationNo(request.getRegistrationNo())
                 .setTrayId(request.getTrayId())
-                .setPartNo(request.getPartNo()).build();
+                .addAllPartNo(request.getPartNoList())
+                .build();
 
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -41,7 +41,7 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
 
     @Override
     public void findByRegNoProduct(FindByRegNoRequestProduct request, StreamObserver<FindByRegNoResponseProduct> responseObserver) {
-        System.out.println("Received Request =>\n" + request.toString());
+        System.out.println("Received Request  =>\n" + request.toString());
 
         try {
             FindByRegNoResponseProduct response = database.findByRegNo(request.getRegistrationNo());
@@ -49,7 +49,7 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
-            if (response != null){
+            if (response != null) {
                 System.out.println("Found =>\n" + response.toString());
             } else {
                 System.out.println("Not item with registration no => " + request.getRegistrationNo());
@@ -57,11 +57,12 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }    }
+        }
+    }
 
     @Override
     public void updateProduct(UpdateRequestProduct request, StreamObserver<UpdateResponseProduct> responseObserver) {
-        System.out.println("Received Request =>\n" + request.toString());
+        System.out.println("Received Request  =>\n" + request.toString());
 
         try {
             FindByRegNoResponseProduct findResponse = this.database.findByRegNo(request.getRegistrationNo());
@@ -73,12 +74,14 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
             }
 
             System.out.println("Updated =>\n" + request.toString());
-            this.database.updateProduct(request.getRegistrationNo(), request.getTrayId(), request.getPartNo());
+            this.database.updateProduct(request.getRegistrationNo(), request.getTrayId(), 0);
         } catch (SQLException var4) {
             throw new RuntimeException(var4);
         }
 
-        UpdateResponseProduct response = UpdateResponseProduct.newBuilder().setRegistrationNo(request.getRegistrationNo()).setTrayId(request.getTrayId()).setPartNo(request.getPartNo()).build();
+        UpdateResponseProduct response = UpdateResponseProduct.newBuilder().setRegistrationNo(request.getRegistrationNo()).setTrayId(request.getTrayId())
+                       // .setPartNo(request.getPartNo())
+                .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
@@ -86,7 +89,7 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
 
     @Override
     public void deleteByRegNoProduct(RequestDeleteByRegNoProduct request, StreamObserver<EmptyProduct> responseObserver) {
-        System.out.println("Received Request =>\n" + request.toString());
+        System.out.println("Received Request  =>\n" + request.toString());
 
         try {
             this.database.deleteByRegNoProduct(request.getPartNo());
@@ -101,40 +104,32 @@ public class ProductImpl extends ProductGrpc.ProductImplBase {
 
     @Override
     public void findAllProduct(EmptyProduct request, StreamObserver<ResponseFindAllProduct> responseObserver) {
-        System.out.println("Received Request =>\n" + request.toString());
-        try
-        {
+        System.out.println("Received Request  =>\n" + request.toString());
+        try {
             ResponseFindAllProduct response = database.findAllProduct();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-            if (response != null){
+            if (response != null) {
                 System.out.println("Found =>\n" + response.toString());
             } else {
                 System.out.println("No products found");
             }
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void getMaxIdProduct(EmptyProduct request, StreamObserver<ResponseGetMaxIdProduct> responseObserver)
-    {
-        System.out.println("Received Request =>\n" + request.toString());
+    public void getMaxIdProduct(EmptyProduct request, StreamObserver<ResponseGetMaxIdProduct> responseObserver) {
+        System.out.println("Received Request  =>\n" + request.toString());
 
-        try
-        {
+        try {
             ResponseGetMaxIdProduct response = database.getMAxIdProduct();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-            if(response != null)
-            {
+            if (response != null) {
                 System.out.println("Found =>\n" + response.toString());
-            }
-            else
-            {
+            } else {
                 System.out.println("No item");
             }
         } catch (SQLException e) {

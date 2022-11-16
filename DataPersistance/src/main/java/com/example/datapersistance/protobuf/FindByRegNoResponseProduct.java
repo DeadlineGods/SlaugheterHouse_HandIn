@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FindByRegNoResponseProduct() {
+    partNo_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -38,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -59,8 +61,24 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 24: {
-
-            partNo_ = input.readInt32();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              partNo_ = newIntList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            partNo_.addInt(input.readInt32());
+            break;
+          }
+          case 26: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+              partNo_ = newIntList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            while (input.getBytesUntilLimit() > 0) {
+              partNo_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
             break;
           }
           default: {
@@ -80,6 +98,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        partNo_.makeImmutable(); // C
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -120,15 +141,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNO_FIELD_NUMBER = 3;
-  private int partNo_;
+  private com.google.protobuf.Internal.IntList partNo_;
   /**
-   * <code>int32 partNo = 3;</code>
-   * @return The partNo.
+   * <code>repeated int32 partNo = 3;</code>
+   * @return A list containing the partNo.
    */
   @java.lang.Override
-  public int getPartNo() {
+  public java.util.List<java.lang.Integer>
+      getPartNoList() {
     return partNo_;
   }
+  /**
+   * <code>repeated int32 partNo = 3;</code>
+   * @return The count of partNo.
+   */
+  public int getPartNoCount() {
+    return partNo_.size();
+  }
+  /**
+   * <code>repeated int32 partNo = 3;</code>
+   * @param index The index of the element to return.
+   * @return The partNo at the given index.
+   */
+  public int getPartNo(int index) {
+    return partNo_.getInt(index);
+  }
+  private int partNoMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -144,14 +182,19 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (registrationNo_ != 0L) {
       output.writeInt64(1, registrationNo_);
     }
     if (trayId_ != 0L) {
       output.writeInt64(2, trayId_);
     }
-    if (partNo_ != 0) {
-      output.writeInt32(3, partNo_);
+    if (getPartNoList().size() > 0) {
+      output.writeUInt32NoTag(26);
+      output.writeUInt32NoTag(partNoMemoizedSerializedSize);
+    }
+    for (int i = 0; i < partNo_.size(); i++) {
+      output.writeInt32NoTag(partNo_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -170,9 +213,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, trayId_);
     }
-    if (partNo_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, partNo_);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < partNo_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeInt32SizeNoTag(partNo_.getInt(i));
+      }
+      size += dataSize;
+      if (!getPartNoList().isEmpty()) {
+        size += 1;
+        size += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(dataSize);
+      }
+      partNoMemoizedSerializedSize = dataSize;
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -193,8 +246,8 @@ private static final long serialVersionUID = 0L;
         != other.getRegistrationNo()) return false;
     if (getTrayId()
         != other.getTrayId()) return false;
-    if (getPartNo()
-        != other.getPartNo()) return false;
+    if (!getPartNoList()
+        .equals(other.getPartNoList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -212,8 +265,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TRAYID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTrayId());
-    hash = (37 * hash) + PARTNO_FIELD_NUMBER;
-    hash = (53 * hash) + getPartNo();
+    if (getPartNoCount() > 0) {
+      hash = (37 * hash) + PARTNO_FIELD_NUMBER;
+      hash = (53 * hash) + getPartNoList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -351,8 +406,8 @@ private static final long serialVersionUID = 0L;
 
       trayId_ = 0L;
 
-      partNo_ = 0;
-
+      partNo_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -379,8 +434,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.example.datapersistance.protobuf.FindByRegNoResponseProduct buildPartial() {
       com.example.datapersistance.protobuf.FindByRegNoResponseProduct result = new com.example.datapersistance.protobuf.FindByRegNoResponseProduct(this);
+      int from_bitField0_ = bitField0_;
       result.registrationNo_ = registrationNo_;
       result.trayId_ = trayId_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        partNo_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
       result.partNo_ = partNo_;
       onBuilt();
       return result;
@@ -436,8 +496,15 @@ private static final long serialVersionUID = 0L;
       if (other.getTrayId() != 0L) {
         setTrayId(other.getTrayId());
       }
-      if (other.getPartNo() != 0) {
-        setPartNo(other.getPartNo());
+      if (!other.partNo_.isEmpty()) {
+        if (partNo_.isEmpty()) {
+          partNo_ = other.partNo_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensurePartNoIsMutable();
+          partNo_.addAll(other.partNo_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -467,6 +534,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private long registrationNo_ ;
     /**
@@ -530,33 +598,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int partNo_ ;
-    /**
-     * <code>int32 partNo = 3;</code>
-     * @return The partNo.
-     */
-    @java.lang.Override
-    public int getPartNo() {
-      return partNo_;
+    private com.google.protobuf.Internal.IntList partNo_ = emptyIntList();
+    private void ensurePartNoIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        partNo_ = mutableCopy(partNo_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
-     * <code>int32 partNo = 3;</code>
+     * <code>repeated int32 partNo = 3;</code>
+     * @return A list containing the partNo.
+     */
+    public java.util.List<java.lang.Integer>
+        getPartNoList() {
+      return ((bitField0_ & 0x00000001) != 0) ?
+               java.util.Collections.unmodifiableList(partNo_) : partNo_;
+    }
+    /**
+     * <code>repeated int32 partNo = 3;</code>
+     * @return The count of partNo.
+     */
+    public int getPartNoCount() {
+      return partNo_.size();
+    }
+    /**
+     * <code>repeated int32 partNo = 3;</code>
+     * @param index The index of the element to return.
+     * @return The partNo at the given index.
+     */
+    public int getPartNo(int index) {
+      return partNo_.getInt(index);
+    }
+    /**
+     * <code>repeated int32 partNo = 3;</code>
+     * @param index The index to set the value at.
      * @param value The partNo to set.
      * @return This builder for chaining.
      */
-    public Builder setPartNo(int value) {
-      
-      partNo_ = value;
+    public Builder setPartNo(
+        int index, int value) {
+      ensurePartNoIsMutable();
+      partNo_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>int32 partNo = 3;</code>
+     * <code>repeated int32 partNo = 3;</code>
+     * @param value The partNo to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPartNo(int value) {
+      ensurePartNoIsMutable();
+      partNo_.addInt(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated int32 partNo = 3;</code>
+     * @param values The partNo to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPartNo(
+        java.lang.Iterable<? extends java.lang.Integer> values) {
+      ensurePartNoIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, partNo_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated int32 partNo = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearPartNo() {
-      
-      partNo_ = 0;
+      partNo_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }

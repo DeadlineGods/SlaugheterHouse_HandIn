@@ -10,26 +10,24 @@ service Product{
   rpc deleteByRegNoProduct(RequestDeleteByRegNoProduct) returns (EmptyProduct);
   rpc findAllProduct(EmptyProduct) returns (ResponseFindAllProduct);
   rpc getMaxIdProduct(EmptyProduct) returns (ResponseGetMaxIdProduct);
-
 }
 
 message ProductMessage{
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
-
+  repeated int32 partNo = 3;
 }
 
 message SaveRequestProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
+  repeated int32 partNo = 3;
 }
 
 message SaveResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
+  repeated int32 partNo = 3;
 }
 //-----------
 
@@ -40,19 +38,19 @@ message FindByRegNoRequestProduct {
 message FindByRegNoResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
+  repeated int32 partNo = 3;
 }
 //
 message UpdateRequestProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
+  repeated int32 partNo = 3;
 }
 
 message UpdateResponseProduct {
   int64 registrationNo = 1;
   int64 trayId = 2;
-  int32 partNo = 3;
+  repeated int32 partNo = 3;
 }
 
 message ResponseFindAllProduct {
@@ -71,4 +69,3 @@ message ResponseGetMaxIdProduct {
 message EmptyProduct {
 
 }
-
