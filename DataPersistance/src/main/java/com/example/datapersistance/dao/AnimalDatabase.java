@@ -70,7 +70,7 @@ public class AnimalDatabase implements AnimalPersistence {
 
                 java.sql.Date sqlDate = resultSet.getDate("arrivedate");
 
-                response  = FindByIdResponseAnimal.newBuilder()
+                response = FindByIdResponseAnimal.newBuilder()
                         .setWeight(resultSet.getFloat("weight"))
                         .setOrigin(resultSet.getString("origin"))
                         .setAnimalNo(resultSet.getLong("animalno"))
@@ -156,18 +156,16 @@ public class AnimalDatabase implements AnimalPersistence {
     public AllAnimals findAllAnimal() throws SQLException {
         AllAnimals response = null;
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT *
-            FROM animal 
-            """);
+                    SELECT *
+                    FROM animal 
+                    """);
 
             List<AnimalMessage> animals = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 AnimalMessage animalMessage = null;
                 java.sql.Date sqlDate = resultSet.getDate("arrivedate");
                 animalMessage = AnimalMessage.newBuilder()
@@ -183,8 +181,7 @@ public class AnimalDatabase implements AnimalPersistence {
                 animals.add(animalMessage);
             }
             response = AllAnimals.newBuilder().addAllAnimal(animals).build();
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;
@@ -192,33 +189,29 @@ public class AnimalDatabase implements AnimalPersistence {
 
     @Override
     public AllAnimals findByDateAnimal(int year, int month, int day) throws SQLException {
-        AllAnimals response=null;
+        AllAnimals response = null;
         List<AnimalMessage> animals = new ArrayList<>();
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT *
-            FROM animal
-            WHERE arrivedate = ?
-            """);
+                    SELECT *
+                    FROM animal
+                    WHERE arrivedate = ?
+                    """);
 
             try {
                 String dateString = String.format("%d/%d/%d", year, month, day);
                 Date date = new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                 statement.setDate(1, sqlDate);
-            }
-            catch (ParseException e)
-            {
+            } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
 
             ResultSet resultSet = statement.executeQuery();
 
 
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 java.sql.Date sqlDate = resultSet.getDate("arrivedate");
                 AnimalMessage animalMessage = null;
                 animalMessage = AnimalMessage.newBuilder()
@@ -234,12 +227,9 @@ public class AnimalDatabase implements AnimalPersistence {
                 animals.add(animalMessage);
             }
             response = AllAnimals.newBuilder().addAllAnimal(animals).build();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;
@@ -249,21 +239,18 @@ public class AnimalDatabase implements AnimalPersistence {
     public GetMaxIdResponseAnimal getMaxIdAnimal() throws SQLException {
         GetMaxIdResponseAnimal response = null;
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT MAX(animalNo)
-            FROM animal
-            """);
+                    SELECT MAX(animalNo)
+                    FROM animal
+                    """);
 
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 response = GetMaxIdResponseAnimal.newBuilder().setMaxId(resultSet.getLong("max")).build();
 
             }
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;
@@ -274,17 +261,15 @@ public class AnimalDatabase implements AnimalPersistence {
         AllAnimals response = null;
         List<AnimalMessage> allAnimals = new ArrayList<>();
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT *
-            FROM animal
-            WHERE origin = ?
-            """);
+                    SELECT *
+                    FROM animal
+                    WHERE origin = ?
+                    """);
             statement.setString(1, origin);
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 java.sql.Date sqlDate = resultSet.getDate("arrivedate");
 
                 AnimalMessage animalMessage = AnimalMessage.newBuilder()
@@ -298,8 +283,7 @@ public class AnimalDatabase implements AnimalPersistence {
                 allAnimals.add(animalMessage);
             }
             response = AllAnimals.newBuilder().addAllAnimal(allAnimals).build();
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;
@@ -310,28 +294,48 @@ public class AnimalDatabase implements AnimalPersistence {
         List<ProductMessageAnimal> allProducts = new ArrayList<>();
         Products response = null;
         Connection connection = getConnection();
-        try
-        {
-            PreparedStatement statement = connection.prepareStatement("SELECT *\n" +
-                    "FROM product\n" +
-                    "WHERE partno IN (\n" +
-                    "    SELECT partno FROM part WHERE animalno = ?\n" +
-                    "    )");
+        try {
+            PreparedStatement statement = connection.prepareStatement("""
+                    SELECT *
+                    FROM product
+                    WHERE registrationno IN (
+                        SELECT registrationno
+                        FROM part_product
+                        WHERE partno IN (
+                            SELECT partno
+                            FROM part
+                            WHERE animalno = ?
+                        )
+                    )
+                    """);
             statement.setLong(1, animalNo);
-        ResultSet resultSet = statement.executeQuery();
-        while(resultSet.next())
-        {
-            ProductMessageAnimal productMessageAnimal = ProductMessageAnimal.newBuilder()
-                    .setRegistrationNo(resultSet.getLong("registrationno"))
-                    .setTrayId(resultSet.getLong("trayno"))
-                    .setPartNo(resultSet.getInt("partno"))
-                    .build();
-            allProducts.add(productMessageAnimal);
-        }
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
 
-        response = Products.newBuilder().addAllProducts(allProducts).build();
-        }
-        finally {
+                statement = connection.prepareStatement("""
+                        SELECT partno
+                        FROM part_product
+                        WHERE registrationno = ?
+                        """);
+                statement.setLong(1, resultSet.getLong("registrationno"));
+
+                List<Integer> partNos = new ArrayList<>();
+                ResultSet resultSetPartNos = statement.executeQuery();
+                while (resultSetPartNos.next()) {
+                    partNos.add((int) resultSetPartNos.getLong("partno"));
+                }
+
+
+                ProductMessageAnimal productMessageAnimal = ProductMessageAnimal.newBuilder()
+                        .setRegistrationNo(resultSet.getLong("registrationno"))
+                        .setTrayId(resultSet.getLong("trayno"))
+                        .addAllPartNo(partNos)
+                        .build();
+                allProducts.add(productMessageAnimal);
+            }
+
+            response = Products.newBuilder().addAllProducts(allProducts).build();
+        } finally {
             connection.close();
         }
         return response;
@@ -367,8 +371,7 @@ public class AnimalDatabase implements AnimalPersistence {
             }
             response = AllAnimals.newBuilder().addAllAnimal(allAnimals).build();
 
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;

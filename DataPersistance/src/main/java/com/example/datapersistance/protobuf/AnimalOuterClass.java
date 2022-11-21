@@ -126,7 +126,7 @@ public final class AnimalOuterClass {
       "roducts\022\'\n\010products\030\001 \003(\0132\025.ProductMessa" +
       "geAnimal\"N\n\024ProductMessageAnimal\022\026\n\016regi" +
       "strationNo\030\001 \001(\003\022\016\n\006trayId\030\002 \001(\003\022\016\n\006part" +
-      "No\030\003 \001(\0052\343\004\n\006Animal\0225\n\nsaveAnimal\022\022.Save" +
+      "No\030\003 \003(\0052\343\004\n\006Animal\0225\n\nsaveAnimal\022\022.Save" +
       "AnimalRequest\032\023.SaveAnimalResponse\022A\n\016fi" +
       "ndByIdAnimal\022\026.FindByIdRequestAnimal\032\027.F" +
       "indByIdResponseAnimal\022;\n\014updateAnimal\022\024." +

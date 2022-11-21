@@ -1,3 +1,342 @@
+GET http://localhost:8080/trays/3
+
+<> 2022-11-21T141723.200.json
+
+###
+
+GET http://localhost:8080/trays
+
+<> 2022-11-21T141715.200.json
+
+###
+
+GET http://localhost:8080/products/15
+
+<> 2022-11-21T141711.200.json
+
+###
+
+GET http://localhost:8080/products
+
+<> 2022-11-21T141709.200.json
+
+###
+
+GET http://localhost:8080/animals/6
+
+<> 2022-11-21T141704.200.json
+
+###
+
+GET http://localhost:8080/animals
+
+<> 2022-11-21T141656.200.json
+
+###
+
+GET http://localhost:8080/animals/involved/16
+
+<> 2022-11-21T141652.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/5
+
+<> 2022-11-21T141649.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/6
+
+<> 2022-11-21T141643.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/5
+
+<> 2022-11-21T141637.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/4
+
+<> 2022-11-21T141631.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/4
+
+<> 2022-11-21T141246.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/6
+
+<> 2022-11-21T141242.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/5
+
+<> 2022-11-21T141239.200.json
+
+###
+
+GET http://localhost:8080/animals
+
+<> 2022-11-21T141232.200.json
+
+###
+
+GET http://localhost:8080/animals/involved/16
+
+<> 2022-11-21T141222.200.json
+
+###
+
+GET http://localhost:8080/animals/involved/15
+
+<> 2022-11-21T141216.200.json
+
+###
+
+GET http://localhost:8080/animals/involved/9
+
+<> 2022-11-21T141211.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/15
+
+<> 2022-11-21T141204.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/5
+
+<> 2022-11-21T141200.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/4
+
+<> 2022-11-21T141157.200.json
+
+###
+
+GET http://localhost:8080/products/15
+
+<> 2022-11-21T141148.200.json
+
+###
+
+GET http://localhost:8080/products
+
+<> 2022-11-21T141142.200.json
+
+###
+
+GET http://localhost:8080/products/8
+
+<> 2022-11-21T141140.200.json
+
+###
+
+GET http://localhost:8080/products/6
+
+<> 2022-11-21T141135.200.json
+
+###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "trayId": 3,
+  "partNo": [8,9]
+}
+
+<> 2022-11-21T141131.200.json
+
+###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "trayId": 3,
+  "partNo": [7]
+}
+
+<> 2022-11-21T141126.200.json
+
+###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "trayId": 1,
+  "partNo": [7]
+}
+
+###
+
+GET http://localhost:8080/parts
+
+<> 2022-11-21T141059.200.json
+
+###
+
+POST http://localhost:8080/parts
+Content-Type: application/json
+
+{
+  "weight": 24,
+  "name": "Leg",
+  "animalNo": 5,
+  "trayId": 3
+}
+
+<> 2022-11-21T141053.200.json
+
+###
+
+POST http://localhost:8080/parts
+Content-Type: application/json
+
+{
+  "weight": 24,
+  "name": "Steak",
+  "animalNo": 4,
+  "trayId": 3
+}
+
+<> 2022-11-21T141047.200.json
+
+###
+
+POST http://localhost:8080/parts
+Content-Type: application/json
+
+{
+  "weight": 24,
+  "name": "Throat",
+  "animalNo": 4,
+  "trayId": 3
+}
+
+<> 2022-11-21T141042.200.json
+
+###
+
+GET http://localhost:8080/trays
+
+<> 2022-11-21T141013.200.json
+
+###
+
+GET http://localhost:8080/animals/4
+
+<> 2022-11-21T141006.200.json
+
+###
+
+GET http://localhost:8080/animals/arrived-on/2022-11-21
+
+<> 2022-11-21T140939.200.json
+
+###
+
+GET http://localhost:8080/animals/2
+
+<> 2022-11-21T140901.200.json
+
+###
+
+GET http://localhost:8080/animals/1
+
+<> 2022-11-21T140853.200.json
+
+###
+
+GET http://localhost:8080/trays
+
+<> 2022-11-21T140847.200.json
+
+###
+
+POST http://localhost:8080/trays
+Content-Type: application/json
+
+{
+  "maxWeightCapacity": 1500.0
+}
+
+<> 2022-11-21T140846.200.json
+
+###
+
+GET http://localhost:8080/animals
+
+<> 2022-11-21T140840.200.json
+
+###
+
+POST http://localhost:8080/animals
+Content-Type: application/json
+
+{
+  "weight": 120,
+  "origin": "Poland"
+}
+
+<> 2022-11-21T140838.200.json
+
+###
+
+POST http://localhost:8080/animals
+Content-Type: application/json
+
+{
+  "weight": 120,
+  "origin": "Croatia"
+}
+
+<> 2022-11-21T140831.200.json
+
+###
+
+POST http://localhost:8080/animals
+Content-Type: application/json
+
+{
+  "weight": 120,
+  "origin": "Germany"
+}
+
+<> 2022-11-21T140825.200.json
+
+###
+
+GET http://localhost:8080/animals
+
+<> 2022-11-21T140821.200.json
+
+###
+
+GET http://localhost:8080/products/6
+
+<> 2022-11-21T140619.200.json
+
+###
+
+GET http://localhost:8080/products/fromAnimal/1
+
+<> 2022-11-21T140439.200.json
+
+###
+
 GET http://localhost:8191/animals
 
 ###

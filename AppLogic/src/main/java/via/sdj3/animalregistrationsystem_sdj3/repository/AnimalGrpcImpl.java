@@ -136,8 +136,8 @@ public class AnimalGrpcImpl implements AnimalRepository {
 
         for (int i = 0; i < response.getProductsCount(); i++) {
             ProductMessageAnimal productMessageAnimal = response.getProducts(i);
-           // Product product = new Product(productMessageAnimal.getRegistrationNo(), productMessageAnimal.getTrayId(), productMessageAnimal.getPartNo());
-           // products.add(product);
+           Product product = new Product(productMessageAnimal.getRegistrationNo(), productMessageAnimal.getTrayId(), productMessageAnimal.getPartNoList());
+           products.add(product);
         }
         return products;
     }

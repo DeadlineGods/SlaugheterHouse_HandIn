@@ -10,12 +10,12 @@ import java.util.List;
 
 @GRpcService
 @Primary
-public class ProductDatabase implements ProductPersistence{
+public class ProductDatabase implements ProductPersistence {
 
-    public ProductDatabase() throws SQLException
-    {
+    public ProductDatabase() throws SQLException {
         DriverManager.registerDriver(new org.postgresql.Driver());
-    }//TODO database have to be updated in table product_part and storing date have to be fixed
+    }
+
     @Override
     public void saveProduct(long trayNo, List<Integer> partNo) throws SQLException {
         Connection connection = getConnection();
@@ -42,8 +42,7 @@ public class ProductDatabase implements ProductPersistence{
                 statement.setLong(2, productId);
                 statement.execute();
             }
-        }
-        finally {
+        } finally {
             connection.close();
         }
     }
@@ -52,21 +51,19 @@ public class ProductDatabase implements ProductPersistence{
     public void updateProduct(long registrationNo, long trayId, int partNo) throws SQLException {
         Connection connection = getConnection();
 
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-                UPDATE product
-                SET trayno = ?, partNo = ?
-                WHERE registrationno = ?;
-                """);
+                    UPDATE product
+                    SET trayno = ?, partNo = ?
+                    WHERE registrationno = ?;
+                    """);
 
             statement.setLong(1, trayId);
             statement.setInt(2, partNo);
             statement.setLong(3, registrationNo);
 
             statement.execute();
-        }
-        finally {
+        } finally {
             connection.close();
         }
     }
@@ -99,12 +96,25 @@ public class ProductDatabase implements ProductPersistence{
 
             ResultSet resultSet = statement.executeQuery();
             ProductMessage productMessage;
-            while( resultSet.next())
-            {
+            while (resultSet.next()) {
+
+                statement = connection.prepareStatement("""
+                        SELECT partno
+                        FROM part_product
+                        WHERE registrationno = ?
+                        """);
+                statement.setLong(1, resultSet.getLong("registrationno"));
+
+                List<Integer> partNos = new ArrayList<>();
+                ResultSet resultSetPartNos = statement.executeQuery();
+                while (resultSetPartNos.next()) {
+                    partNos.add((int) resultSetPartNos.getLong("partno"));
+                }
+
                 response = FindByRegNoResponseProduct.newBuilder()
                         .setRegistrationNo(resultSet.getLong("registrationno"))
                         .setTrayId(resultSet.getLong("trayno"))
-                        //.setPartNo(resultSet.getInt("partno"))
+                        .addAllPartNo(partNos)
                         .build();
             }
         } finally {
@@ -118,29 +128,40 @@ public class ProductDatabase implements ProductPersistence{
     public ResponseFindAllProduct findAllProduct() throws SQLException {
         ResponseFindAllProduct response;
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT *
-            FROM product
-            """);
+                    SELECT *
+                    FROM product
+                    """);
 
             List<ProductMessage> products = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next())
-            {
+            while (resultSet.next()) {
+
+                statement = connection.prepareStatement("""
+                        SELECT partno
+                        FROM part_product
+                        WHERE registrationno = ?
+                        """);
+                statement.setLong(1, resultSet.getLong("registrationno"));
+
+                List<Integer> partNos = new ArrayList<>();
+                ResultSet resultSetPartNos = statement.executeQuery();
+                while (resultSetPartNos.next()) {
+                    partNos.add((int) resultSetPartNos.getLong("partno"));
+                }
+
                 ProductMessage productMessage;
                 productMessage = ProductMessage.newBuilder()
                         .setRegistrationNo((resultSet.getLong("registrationno")))
                         .setTrayId(resultSet.getLong("trayno"))
-                        //.setPartNo((resultSet.getInt("partno")))
+                        .addAllPartNo(partNos)
                         .build();
                 products.add(productMessage);
             }
             response = ResponseFindAllProduct.newBuilder().addAllProductList(products).build();
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;
@@ -148,22 +169,19 @@ public class ProductDatabase implements ProductPersistence{
 
     @Override
     public ResponseGetMaxIdProduct getMAxIdProduct() throws SQLException {
-        ResponseGetMaxIdProduct response =  null;
+        ResponseGetMaxIdProduct response = null;
         Connection connection = getConnection();
-        try
-        {
+        try {
             PreparedStatement statement = connection.prepareStatement("""
-            SELECT MAX(registrationno)
-            FROM product
-            """);
+                    SELECT MAX(registrationno)
+                    FROM product
+                    """);
 
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
-            {
+            while (resultSet.next()) {
                 response = ResponseGetMaxIdProduct.newBuilder().setMaxId(resultSet.getInt("max")).build();
             }
-        }
-        finally {
+        } finally {
             connection.close();
         }
         return response;

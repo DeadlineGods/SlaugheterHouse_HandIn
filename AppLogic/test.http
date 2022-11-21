@@ -1,63 +1,75 @@
-GET localhost:8080/animals
+GET localhost:8080/animals/6
 
 ###
 
-GET localhost:8191/animals/arrived-on/2022-10-08
+GET localhost:8080/animals/arrived-on/2022-11-21
 
 ###
 
-GET localhost:8191/animals/origin/Germany
+GET localhost:8080/animals/origin/Croatia
 
 ###
 
-POST localhost:8191/animals
+POST localhost:8080/animals
 Content-Type: application/json
 
 {
   "weight": 120,
-  "origin": "Germany"
+  "origin": "Poland"
 }
 
 ###
 
-GET localhost:8191/parts
+GET localhost:8080/parts
 
 ###
 
-POST localhost:8191/parts
+POST localhost:8080/parts
 Content-Type: application/json
 
 {
   "weight": 24,
-  "name": "Throat",
-  "animalNo": 1,
-  "trayNo": 2
+  "name": "Leg",
+  "animalNo": 5,
+  "trayId": 3
 }
 
 ###
 
-GET localhost:8191/products
+GET localhost:8080/products
 
 ###
 
-POST localhost:8191/products
+GET localhost:8080/products/15
+
+###
+
+POST localhost:8080/products
 Content-Type: application/json
 
 {
-  "trayId": 2,
-  "partNo": 1
+  "trayId": 3,
+  "partNo": [8,9]
 }
 
 ###
 
-GET localhost:8191/trays
+GET localhost:8080/trays/3
 
 ###
 
-POST localhost:8191/trays
+POST localhost:8080/trays
 Content-Type: application/json
 
 {
   "maxWeightCapacity": 1500.0
 }
+
+###
+
+GET localhost:8080/products/fromAnimal/5
+
+###
+
+GET localhost:8080/animals/involved/16
 
